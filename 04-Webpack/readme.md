@@ -1,23 +1,34 @@
 # Webpack Demo
 
-## I.概念
+## I、概念
 
 ![icon](assets/what-is-webpack.png)
 
 > WEBPACK是一个现代Javascript的静态资源打包器(module bundler)、模块打包机
-> 它做的事情: 分析你的项目结构,找到Javascript模块以及其他的一些浏览器不能直接运行的拓展语言(Scss,TypeScript等),并将其转换和打包为合适的格式供浏览器使用
-> webpack的工作方式: 把你的项目当做一个整体,通过一个给定的主文件(如:index.js),webpack将从这个文件开始找到你的项目的所有依赖文件,使用loaders处理他们,最后打包为一个(或多个)浏览器可识别的Javascript文件.
+- 它做的事情: 分析你的项目结构,找到Javascript模块以及其他的一些浏览器不能直接运行的拓展语言(Scss,TypeScript等),并将其转换和打包为合适的格式供浏览器使用
+- 它工作方式: 把你的项目当做一个整体,通过一个给定的主文件(如:index.js),webpack将从这个文件开始找到你的项目的所有依赖文件,使用loaders处理他们,最后打包为一个(或多个)浏览器可识别的Javascript文件
+- 为什么要用它: 牛逼呗
 
-**参考链接**
-[Webpack官网](https://webpack.github.io/)
-[知乎-陈学家-Webpack](https://zhuanlan.zhihu.com/p/21287263)
+**参考链接**:
 
-## Ⅱ、起步
+- [Webpack官网](https://webpack.github.io/)
+- [Webpack-知乎-陈学家](https://zhuanlan.zhihu.com/p/21287263)
 
-```install
+## Ⅱ、起手
+
+``` dir
+.
+|— assets           //其他资源
+|— dist             //编译过后的文件
+|— node_modules     //npm依赖
+|— src              //源文件
+ — webpack.config.js
+```
+
+``` install
 //新建工作环境
 $ mkdir webpack-demo && cd webpack-demo
-$ npm init (-y)   //生成package.json文件，省了你一路狂按enter
+$ npm init (-y)   //生成package.json文件，(-y)省了你一路狂按enter
 $ npm install --save-dev webpack    //安装webpack到开发环境里(devDependicies)
 $ npm install --save-dev webpack-cli    //使用webpack 4+版本，需要安装cli
 ```
