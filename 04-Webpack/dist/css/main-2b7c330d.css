@@ -1,0 +1,24 @@
+/*! ©版权所有,翻版必究 2018-10-24 */
+@font-face {
+  font-family: 'consola';
+  src: url(/fonts/consola.woff?60fa0ff8);
+  font-weight: 600;
+  font-style: normal;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root-trunk {
+  height: 100%;
+}
+
+.wrap-container {
+  height: 100%;
+  color: red;
+  background: url(/img/bg-parking.87801d06.jpg) no-repeat;
+  background-size: 100%;
+  font-family: 'consola'
+}
