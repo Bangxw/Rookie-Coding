@@ -1,8 +1,10 @@
 # Webpack Demo
 
-## I、概念
+## Ⅰ、菜鸟入门
 
-![icon](assets/what-is-webpack.png)
+### 一、概念
+
+![logo](basal/assets/what-is-webpack.png)
 
 > WEBPACK是一个现代Javascript的静态资源打包器(module bundler)、模块打包机
 - 它做的事情: 分析你的项目结构,找到Javascript模块以及其他的一些浏览器不能直接运行的拓展语言(Scss,TypeScript等),并将其转换和打包为合适的格式供浏览器使用
@@ -11,47 +13,78 @@
 
 **参考链接**:
 
-- [Webpack官网](https://webpack.github.io/)
-- [Webpack-知乎-陈学家](https://zhuanlan.zhihu.com/p/21287263)
+- [Webpack官网](https://webpack.docschina.org)
+- [入门webpack](https://www.jianshu.com/p/42e11515c10f)
+- [Webpack文档高级配置](https://www.jianshu.com/p/777f1a044e3c)
 
-## Ⅱ、起手
+### 二、起手
 
 ``` dir
+# 目录结构
 .
-|— assets           //其他资源
-|— dist             //编译过后的文件
-|— node_modules     //npm依赖
-|— src              //源文件
- — webpack.config.js
-```
+|— Basic    //入门
+  |— assets             //其他资源
+  |— dist               //编译过后的文件
+  |— node_modules       //项目依赖
+  |— src                //源文件
+   — .gitignore         //git上传忽略项
+   — webpack.config.js  //配置文件
+   — package.json
+  ...
 
-``` install
-//新建工作环境
+# 环境，node、npm、webpack先安装到位
+node@8.11.4
+npm@5.6.0
+webpack@4.22.0
+
+# 先搞个小项目
 $ mkdir webpack-demo && cd webpack-demo
-$ npm init (-y)   //生成package.json文件，(-y)省了你一路狂按enter
+$ npm init (-y)  //生成package.json文件，(-y)省了你一路狂按enter
 $ npm install --save-dev webpack    //安装webpack到开发环境里(devDependicies)
 $ npm install --save-dev webpack-cli    //使用webpack 4+版本，需要安装cli
 ```
 
-```config
-//新建webpack.config.js
+### 三、webpack配置
+
+``` code
+# 新建webpack.config.js
 $ touch webpack.config.js
 $ node_modules\.bin\webpack --config webpack.config.js
 $ npm run build //配置文件中加上,"scripts": {"start": "webpack"}
+
+# webpack的配置中主要的两个配置key是，entry和output
+{
+  entry: [String | Array | Object], // 入口模块
+  output: {
+      path: String,      // 输出路径
+      filename: String   // 输出名称或名称 pattern
+      publicPath: String // 指定静态资源的位置
+      ...                // 其他配置
+  }
+}
+
+# 多个入口文件
+{
+  entry: ['./src/index.js', './vendor/bootstrap.min.js'],
+  output: {
+    path: './dist',
+    filename: "index.js"
+  }
+}
 ```
 
-## Ⅲ、loader
+### 四、loader
 
 > Loader让webpack能够处理那些非javascript文件(webpack自身只能处理Javascript), loader可以将所有类型文件转换为webpack能够处理的有效模块
 
-### babel
+#### babel
 
 > babel可以帮你转换代码，解决浏览器兼容问题
 - babel-loader: 让webpack知道如何运行babel
 - babel-core: 让库知道如何解析代码
 - babel-preset-env: 根据环境转换代码，解析ES6
 
-** 处理html **
+#### 处理html
 
 ```install and config
 $ npm i --save-dev html-loader
@@ -64,7 +97,7 @@ rules: [
 ]
 ```
 
-** 加载css **
+#### 加载css
 
 ``` install and config
 $ npm install --save-dev style-loader css-loader
@@ -86,7 +119,7 @@ plugin: [
 ]
 ```
 
-** 加载图片 **
+#### 加载图片
 
 ```install and config
 $ npm i --save-dev url-loader
@@ -104,7 +137,7 @@ rules: [
 ]
 ```
 
-** 加载字体 **
+#### 加载字体
 
 ```install and config
 $ npm i --save-dev file-loader
@@ -117,7 +150,7 @@ rules: [
 ]
 ```
 
-** 加载xml数据 **
+#### 加载xml数据
 
 ```install and config
 $ npm i --save-dev xml-loader
@@ -130,7 +163,7 @@ rules: [
 ]
 ```
 
-## Ⅳ、插件
+### 五、插件
 
 ** HtmlWebpackPlugin **
 
@@ -178,9 +211,9 @@ plugin: [
 ]
 ```
 
-## Ⅴ、开发
+### 六、开发
 
-### 使用Source Map
+#### 使用Source Map
 
 ** 配合devtool, 生成Source Maps(使调试更容易) **
 
@@ -190,7 +223,7 @@ plugin: [
 - cheap-module-eval-source-map  //最快的打包方法
 - inline-source-map
 
-### 选择一个开发工具
+#### 选择一个开发工具
 
 ** 使用观察者模式 **
 
@@ -215,3 +248,7 @@ devServer: {
   inline: true    //自动刷新
 }
 ```
+
+## Ⅱ、手撕vue-cli,站在巨人的肩膀敲代码
+
+[vue-cli](../05-Vue/vue-cli)
