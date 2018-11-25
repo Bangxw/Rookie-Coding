@@ -42,8 +42,8 @@
 
 ## 粗体与斜体
 
-** 这是粗体 **
-_ Another section _
+**这是粗体**
+_Another section_
 
 ## 代码体
 

@@ -4,7 +4,7 @@
 
 ### 一、概念
 
-![logo](basal/assets/what-is-webpack.png)
+![logo](assets/what-is-webpack.png)
 
 > WEBPACK是一个现代Javascript的静态资源打包器(module bundler)、模块打包机
 - 它做的事情: 分析你的项目结构,找到Javascript模块以及其他的一些浏览器不能直接运行的拓展语言(Scss,TypeScript等),并将其转换和打包为合适的格式供浏览器使用
@@ -15,7 +15,6 @@
 
 - [Webpack官网](https://webpack.docschina.org)
 - [入门webpack](https://www.jianshu.com/p/42e11515c10f)
-- [Webpack文档高级配置](https://www.jianshu.com/p/777f1a044e3c)
 
 ### 二、起手
 
