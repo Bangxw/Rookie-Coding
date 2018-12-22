@@ -21,6 +21,8 @@
 - MVC是后端中分层开发的概念
 - Mvvm是前端分层
 
+![img](Assets/mvc&mvvm.png)
+
 ## 学习VUE
 
 ### 插值表达式
@@ -50,10 +52,49 @@
 #### 使用class样式
 
 1. 数组
-`<h1 :class="['thin','red']">这是一个很大很大的标题，大道你无法想象</h1>`
+ `<h1 :class="['thin','red']">这是一个很大很大的标题，大道你无法想象</h1>`
 2. 在数组中使用三元表达式
-`<h1 :class="['thin','red', flag ? 'active' : '']">又是一个大标题</h1>`
+ `<h1 :class="['thin','red', flag ? 'active' : '']">又是一个大标题</h1>`
 3. 在数组中使用对象
-`<h1 :class="['thin','red', {'active': flag}]">还是一个大标题</h1>`
-`<h1 :class="{red:true,thin:true,italic:true,active:true}">集万千宠爱于一身</h1>`
-`<h1 :class="obj">class用对对象展示</h1>`
+ `<h1 :class="['thin','red', {'active': flag}]">还是一个大标题</h1>`
+ `<h1 :class="{red:true,thin:true,italic:true,active:true}">集万千宠爱于一身</h1>`
+ `<h1 :class="obj">class用对对象展示</h1>`
+
+#### 使用内联样式
+
+1. 直接在元素上同过`:style`的形式,书写样式对象
+  `<h1 :style="{color: 'red', 'font-size': '40px', 'font-weight': '200'}"></h1>`
+2. 将样式对象，定义到 `data`中，并直接引用到`:style`中
+  `<h1 :style="h1StyleObj">这是一个善良的H1</h1>`
+3. 在`:style`中通过数组，引用多个`data`上的样式对象
+  `<h1 :style="h1StyleObj, h1StyleObj1">这是一个善良的H1</h1>`
+
+### Vue指令之`v-for`和`key`属性
+
+> 2.2.0+的版本里，当在组件中使用v-for时，key现在是必须的 
+
+**迭代数组**:
+
+```html
+<ul>
+  <li v-for="(item, i) in list">索引：{{i}} --- 姓名：{{item.name}} ---年龄：{{item.age}}</li>
+</ul>
+```
+
+**迭代数组中的属性**:
+
+```html
+<div v-for="(val,key,i) in userinfo">{{val}} --- {{key}} --- {{i}}</div>
+```
+
+**迭代数字**:
+
+```html
+//i是从1开始的
+<p v-for="i in 10">这是第{{i}}个p标签</p>
+```
+
+### Vue指令之`v-if`和`v-show`
+
+- v-if: 每次都会重新删除或创建元素，性能消耗更高
+- v-show：每次不会重新创建元素，只是切换了元素的display: none样式
