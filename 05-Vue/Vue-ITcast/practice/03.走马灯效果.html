@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="run">浪起来</button>
+        <button @click="stop">低调</button>
+        <h4>{{ msg }}</h4>
+    </div>
+
+    <script src="../lib/vue.js"></script>
+    <script>
+        let timer = null
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '别浪~~ !猥琐发育'
+            },
+            methods: {
+                run: function () {
+                    let msgArr = []
+                    if (!timer) {
+                        timer = setInterval(() => { //箭头函数解决内部this指向问题
+                            msgArr = this.msg.split('')
+                            msgArr.push(msgArr.splice(0, 1))
+                            this.msg = msgArr.join("")
+                        }, 1000)
+                    }
+                },
+                stop: function () {
+                    clearInterval(timer)
+                    timer = null
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
