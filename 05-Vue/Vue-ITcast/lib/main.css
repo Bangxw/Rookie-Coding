@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    font-size: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.3rem;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.table-borderd td,
+.table-borderd th {
+    border: 1px solid #ccc;
+    text-align: left;
+    padding: 1rem 2rem;
+}
+
+.table-striped th,
+.table-striped tr:nth-child(2n) td{
+    background: #f0f0f0;
+}
+
+div.panel {
+    border: 1px solid #0083FF;
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+}
+
+.panel-heading{
+    background: #0083FF;
+    color: #fff;
+    padding: 1rem 2rem;
+}
+
+.panel-body {
+    padding: 2rem;
+}
+
+.form-control{
+    height: 3rem;
+    line-height: 3rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    text-indent: .5rem
+}
+
+.btn {
+    border: none;
+    outline: none;
+    border-radius: 5px; 
+    height: 3rem;
+    line-height: 3rem;
+    padding: 0 2rem;
+}
+
+.btn-primary{
+    background:#0083FF;
+    color: #fff
+}
