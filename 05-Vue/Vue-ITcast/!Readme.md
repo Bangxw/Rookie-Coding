@@ -107,7 +107,6 @@ Vue.filter('过滤器的名称'，function(data){
   return data + 123;
 })
 
-//定义一个私有的过滤器, 如果和全局过滤器名称冲突，优先使用私有过滤器
 new Vue({
   el: '#app',
   data: {},
