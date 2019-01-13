@@ -20,13 +20,13 @@
                     ID: <input type="text" class="form-control" v-model="id">
                 </label>
                 <label for="">
-                    Name: <input type="text" class="form-control" v-model="name">
+                    Name: <input type="text" class="form-control" v-model="name" @keyup.f2="addHandle">
                 </label>
 
                 <input type="button" value="添加" class="btn btn-primary" @click="addHandle">
 
                 <label for="">
-                    搜索: <input type="text" class="form-control" v-model="keywords">
+                    搜索: <input type="text" class="form-control" v-model="keywords" v-focus v-fontweight="'900'" v-fontitalic>
                 </label>
             </div>
         </div>
@@ -53,17 +53,35 @@
 
     <script src='../../lib/vue.js'></script>
     <script>
-        Vue.filter('dataFormat', (data, arg="yy-MM-dd hh:mm:ss") => {
+        Vue.filter('dataFormat', (data, arg = "yy-MM-dd hh:mm:ss") => {
             let dt = new Date();
-            dt.yy =  dt.getFullYear().toString().substr(2)
+            dt.yy = dt.getFullYear().toString().substr(2)
             arg = arg.replace(/yyyy/g, dt.getFullYear())
                 .replace(/yy/g, dt.yy)
-                .replace(/MM/g, dt.getMonth() + 1)
-                .replace(/dd/g, dt.getDate())
-                .replace(/hh/g, dt.getHours())
-                .replace(/mm/g, dt.getMinutes())
-                .replace(/ss/g, dt.getSeconds())
+                .replace(/MM/g, (dt.getMonth() + 1).toString().padStart(2, 0))
+                .replace(/dd/g, dt.getDate().toString().padStart(2, 0))
+                .replace(/hh/g, dt.getHours().toString().padStart(2, 0))
+                .replace(/mm/g, dt.getMinutes().toString().padStart(2, 0))
+                .replace(/ss/g, dt.getSeconds().toString().padStart(2, 0))
             return arg;
+        })
+
+        Vue.config.keyCodes.f2 = 113;
+
+        Vue.directive('focus', {
+            bind: (el) => {
+
+            },
+            inserted: (el) => {
+                el.focus()
+            }
+        })
+
+        Vue.directive('color', {
+            bind: (el, binding) => {
+                console.log(binding)
+                el.style.color = binding.value
+            }
         })
 
         var vm = new Vue({
@@ -131,6 +149,16 @@
                     return newList
                 }
             },
+            directives: {
+                fontweight: {
+                    bind(el, binding) {
+                        el.style.fontWeight = binding.value
+                    }
+                },
+                fontitalic: function (el, binding) { //简写，等同于在update和bind中各写一份
+                    el.style.fontStyle = "italic"
+                }
+            }
         })
     </script>
 </body>

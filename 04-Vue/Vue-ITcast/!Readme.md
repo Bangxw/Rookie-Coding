@@ -45,6 +45,12 @@
 - .self 只有当元素本身触发事件执行函数
 - .once 事件只执行一次 (@click.prevent.stop也只阻止一次)
 
+### 按键修饰符
+
+```js
+Vue.config.keyCodes.f2 =  113
+```
+
 ### v-model实现双向数据绑定
 
 ### 在vue中使用样式
@@ -103,17 +109,116 @@
 
 ```js
 //全局定义过滤器
-Vue.filter('过滤器的名称'，function(data){
-  return data + 123;
+Vue.filter('macfilter', (data) => {
+  return data.toString().replace(/([0-9A-F]{2})/gi,"-")
 })
 
+//定义私有过滤器
 new Vue({
   el: '#app',
   data: {},
   filters: {
-    过滤器的名称(()=> {
-
-    })
+    uppercase (data) {
+      return data.toString().toUpperCase()
+    }
   } 
+})
+
+//使用
+{{ "fd9077cc44aa" | macfilter | uppercase }}
+```
+
+### 自定义指令
+
+```js
+//全局定义指令
+Vue.directive('focus',{
+  //第一个参数是el, 被操作的元素
+  //第二个参数是binging，一个对象 {name, value, oldvalue, expression, arg, modifiers}
+  bind: function (el, binding) { //每当指令绑定到元素上时，立即执行bind函数，只执行一次
+    //和属性有关的在此添加
+    el.style.color = binding.value
+  },
+  inserted: function (el) { //inserted表示元素 插入到DOM中时，会执行inserted函数
+    //行为有关的在此添加
+    el.focus()
+  },
+  updated: function() { //当vnode更新的时候，会执行updated,可能会触发多次
+
+  }
+})
+
+//私有指令
+new Vue({
+  el: '#app',
+  data: {},
+  directives: {
+    fontweight: {
+      bind (el, binding) {
+        el.style.fontWeight = binding.value
+      }
+    },
+    fontItalic: function(el, binding) { //简写，等同于在update和bind中各写一份
+      el.style.fontStyle = "italic"
+    }
+  } 
+})
+
+<input type="text" class="form-control" v-model="keywords" v-focus v-fontweight="'900'">
+```
+
+### Vue实例的生命周期
+
+![img](lib/lifecycle.png)
+
+> 从vue的创建、运行、销毁，总是伴随着各种各样的事件，这些事件，统称为生命周期
+
+```js
+new Vue({
+    el: '#app',
+    data: {
+        msg: '别浪~~ !猥琐发育',
+    },
+    methods: {
+        show() {
+            console.log('执行了show方法')
+        },
+        updateMsg () {
+            this.msg = 'update msg'
+        }
+    },
+    beforeCreate() { //第一个钩子函数，表示实例完全被创建出来之前，会执行它
+        // console.log(this.msg) // =>undefined
+        // this.show()  // =>this.show is not a function
+        // 注意：在beforeCreate生命周期函数执行的时候，data和methods的数据都还没初始化
+    },
+    created() {
+        console.log(this.msg)
+        this.show()
+        //在create中 data和methods都已经初始化好了！ 调用methods的方法和操作data的数据，最早只能在这里进行
+    },
+    beforeMount() { //模板已经在内存中编译成功，尚未在页面挂载
+        console.log(document.getElementById('ele-h3').innerText) // =>{{ msg }}
+        //在beforeMount执行的时候，页面中的元素还没有被替换，只是之前写的一些模板字符串
+    },
+    mounted() { //内存中的模板已经挂载到页面中，用户可以看到渲染好的页面了
+        console.log(document.getElementById('ele-h3').innerText)
+        //mounted是实例创建期间最后一个生命周期函数，接下来就进行到运行阶段
+        //如果要通过插件操作页面上的dom节点，最早要在mounted中进行
+    },
+    beforeUpdate() { //当数据更新时才会触发该事件，界面还没更新
+        console.log('界面上元素的内容：' + document.getElementById('ele-h3').innerText) //=> 界面上元素的内容：别浪~~ !猥琐发育
+        console.log('data中的msg数据是:' + this.msg) // =>data中的msg数据是:update msg
+    },
+    updated() { //完成了从model层重新渲染到view层， 页面和data数据保持同步了
+        
+    },
+    beforeDestroy() {
+        //当执行beforeDestroy钩子函数时，Vue实例就已经从运行阶段，进入到销毁阶段
+        //此时实例的data和methods都处于可用状态，还没有真正销毁
+    },
+    destroyed() {
+        //执行到destroyed函数的时候，组建已经被完全销毁，data和methods都不可用了
+    },
 })
 ```
