@@ -39,7 +39,7 @@
 
 ### 指令修饰符
 
-- .stop 须知冒泡
+- .stop 组织冒泡
 - .prevent 阻止默认行为
 - .capture 添加事件侦听器时使用捕获机制
 - .self 只有当元素本身触发事件执行函数
@@ -73,11 +73,11 @@ Vue.config.keyCodes.f2 =  113
 2. 将样式对象，定义到 `data`中，并直接引用到`:style`中
   `<h1 :style="h1StyleObj">这是一个善良的H1</h1>`
 3. 在`:style`中通过数组，引用多个`data`上的样式对象
-  `<h1 :style="h1StyleObj, h1StyleObj1">这是一个善良的H1</h1>`
+  `<h1 :style="[h1StyleObj, h1StyleObj1]">这是一个善良的H1</h1>`
 
 ### Vue指令之`v-for`和`key`属性
 
-> 2.2.0+的版本里，当在组件中使用v-for时，key现在是必须的 
+> 2.2.0+的版本里，当在组件中使用v-for时，key现在是必须的
 
 **迭代数组**:
 
@@ -121,7 +121,7 @@ new Vue({
     uppercase (data) {
       return data.toString().toUpperCase()
     }
-  } 
+  }
 })
 
 //使用
@@ -211,14 +211,14 @@ new Vue({
         console.log('data中的msg数据是:' + this.msg) // =>data中的msg数据是:update msg
     },
     updated() { //完成了从model层重新渲染到view层， 页面和data数据保持同步了
-        
+        ...
     },
     beforeDestroy() {
         //当执行beforeDestroy钩子函数时，Vue实例就已经从运行阶段，进入到销毁阶段
         //此时实例的data和methods都处于可用状态，还没有真正销毁
     },
     destroyed() {
-        //执行到destroyed函数的时候，组建已经被完全销毁，data和methods都不可用了
+        //执行到destroyed函数的时候，组件已经被完全销毁，data和methods都不可用了
     },
 })
 ```

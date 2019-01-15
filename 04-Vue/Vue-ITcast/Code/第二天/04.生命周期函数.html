@@ -31,7 +31,7 @@
             },
             beforeCreate() { //第一个钩子函数，表示实例完全被创建出来之前，会执行它
                 // console.log(this.msg) // =>undefined
-                // this.show()  // =>this.show is not a function
+                this.show()  // =>this.show is not a function
                 // 注意：在beforeCreate生命周期函数执行的时候，data和methods的数据都还没初始化
             },
             created() {
