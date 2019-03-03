@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <style>
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+      transform: translateX(150px)
+    }
+    
+    .v-enter-active,
+    .v-leave-active {
+      transition: all 0.4s;
+    }
+    
+    .pri-enter,
+    .pri-leave-to {
+      opacity: 0;
+      transform: translateY(150px)
+    }
+    
+    .pri-enter-active,
+    .pri-leave-active {
+      transition: all 0.4s;
+    }
+  </style>
+</head>
+
+<body>
+  <div id='app'>
+    <input type="button" @click="flag=!flag" value="Toggle">
+    <transition>
+      <h4 v-if="flag">{{ msg }}</h4>
+    </transition>
+
+    <hr>
+
+    <input type="button" @click="flag2=!flag2" value="Toggle">
+    <transition name="pri">
+      <h4 v-if="flag2">{{ msg }}</h4>
+    </transition>
+
+  </div>
+
+  <script src='../../lib/vue.js'></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        flag: false,
+        flag2: false,
+        msg: '别浪~~ !猥琐发育'
+      },
+    })
+  </script>
+</body>
+
+</html>

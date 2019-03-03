@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id='app'>
+        <h4>{{ msg }}</h4>
+        <input type="button" value="get请求" @click="getInfo">
+        <input type="button" value="post请求" @click="postInfo">
+        <input type="button" value="jsonp请求" @click="jsonpInfo">
+    </div>
+
+    <script src='../../lib/vue.js'></script>
+    <script src="https://cdn.bootcss.com/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <!-- <script src="../../lib/vue-resource.js"></script> -->
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '别浪~~ !猥琐发育'
+            },
+            methods: {
+                getInfo() {
+                    this.$http.get("http://vue.studyit.io/api/getlunbo")
+                        .then(response => {
+                            console.log(response.body)
+                        })
+                },
+                postInfo() { 
+                    //通过设置post的第三个参数，{emulateJson: true},设置提交的内容诶普通表单数据格式 
+                    //application/x-wwww-form-urlencoded
+                    this.$http.post('http://vue.studyit.io/api/post', {}, { emulateJson: true })
+                        .then(result => {
+                            console.log(result.body)
+                        })
+                },
+                jsonpInfo () {
+                    this.$http.jsonp('http:/vue.studyit.io/api/jsonp').then( result => {
+                        console.log(result)
+                    })
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <link rel="stylesheet" href="../../lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+  <div id='app'>
+
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">添加品牌</h3>
+      </div>
+      <div class="panel-body form-inline">
+        <label for="">
+               Name: <input type="text" v-model="newName" class="form-control">
+           </label>
+        <input type="button" value="添加" @click="addItem" class="btn btn-primary">
+      </div>
+    </div>
+
+
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Ctime</th>
+          <th>Operation</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr v-for="item in list" :key="item.id">
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.ctime}}</td>
+          <td><a href="javscript:void(0)" @click="delItem(item.id)">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script src='../../lib/vue.js'></script>
+  <script src='../../lib/vue-resource.js'></script>
+  <script>
+    //调用的时候不能加斜杠，用相对路径
+    Vue.http.options.root = 'http://127.0.0.1:3000/'
+    Vue.http.options.emulateJSON = true
+
+    new Vue({
+      el: '#app',
+      data: {
+        newName: '',
+        list: [{
+          id: 0,
+          name: '五菱宏光',
+          ctime: new Date()
+        }, {
+          id: 1,
+          name: '别克新君越',
+          ctime: new Date()
+        }]
+      },
+      created() { //data和el初始化好了
+        this.getAllList()
+      },
+      methods: {
+        addItem() {
+          this.$http.post("api/addproduct", {
+            name: this.newName
+          }).then(responsee => {
+            if (responsee.body.status == 0)
+              this.getAllList()
+            this.newName = ''
+          }, responsee => {
+            console.log('fail')
+          })
+        },
+        delItem(id) {
+          this.$http.post("api/delproduct", {
+            delID: id
+          }).then(responsee => {
+            if (responsee.body.status == 0)
+              this.getAllList()
+          }, responsee => {
+            console.log('fail')
+          })
+        },
+        getAllList() {
+          this.$http.get("api/getproductlist").then(responsee => {
+            if (responsee.body.status == 0) this.list = responsee.body.message
+            else alert("fail")
+          })
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>
