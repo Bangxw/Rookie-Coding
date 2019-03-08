@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>API</title>
+    <link rel="shortcut icon" href="../Assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../Styles/main.css">
+  </head>
+
+  <body>
+    <div class="container-wrap">
+      <h3>API</h3>
+
+      <h4># Global Config</h4>
+      <div id="app">
+        <p>{{ message }}</p>
+        <!-- Vue.config.silent为ture， 此处报错信息就不会显示出来 -->
+        <p>{{ test }}</p> 
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.config.silent = true //取消所有日志与警告
+
+      var app = new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello Vue!'
+        }
+      })
+    </script>
+  </body>
+
+</html>
