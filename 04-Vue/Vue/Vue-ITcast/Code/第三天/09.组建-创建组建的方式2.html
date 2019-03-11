@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <my-com2></my-com2>
+  </div>
+
+  <script src='../../lib/vue.js'></script>
+  <script>
+    //注意：template下只能有一个根元素
+    Vue.component('myCom2', {
+      template: '<div><h3>这是直接在Vue.component创建的元素</h3><span>一个span标签</span></div>'
+    })
+    new Vue({
+      el: '#app',
+      data: {
+        msg: '别浪~~ !猥琐发育'
+      },
+    })
+  </script>
+</body>
+
+</html>

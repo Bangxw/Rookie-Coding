@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <my-com3></my-com3>
+  </div>
+
+  <template id="tem3">
+    <div>
+        <h1>把template抽离出来更方便的书写</h1>
+        <span>bababab...</span>
+        <button>这是一个按钮</button>
+    </div>
+  </template>
+
+  <script src='../../lib/vue.js'></script>
+  <script>
+    Vue.component('myCom3', {
+      template: '#tem3'
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        msg: '别浪~~ !猥琐发育'
+      },
+    })
+  </script>
+</body>
+
+</html>
