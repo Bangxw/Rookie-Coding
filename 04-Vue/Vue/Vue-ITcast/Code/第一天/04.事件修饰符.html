@@ -1,86 +1,90 @@
 <!DOCTYPE html>
-<html lang='en'>
 
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <title>Document</title>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+    <title>Hello World!</title>
     <style>
-        .inner {
-            border: 1px solid #ccc;
-            height: 100px;
-            background: #0f0;
-        }
-
-        .outer {
-            background: #f00;
-            padding: 50px;
-            margin-bottom: 50px;
-        }
+      div.outer {
+        width: 200px;
+        height: 200px;
+        background: hotpink;
+        margin-bottom: 100px;
+      }
+      
+      div.inner {
+        width: 100px;
+        height: 100px;
+        background: red
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    <div id='app'>
-        <!-- 使用.stop阻止冒泡 -->
-        <div class="inner" @click="divHandle">
-            <button @click.stop="btnHandle">戳我</button>
+  <body>
+    <div id="app">
+      <!-- 使用.stop阻止冒泡 divHandle讲不会触发-->
+      <div class="outer" @click="divHandle">
+        <button @click.stop="btnHandle">戳我</button>
+      </div>
+
+      <!-- 使用.prevent阻止默认行为 -->
+      <a href="http://baidu.com" target="_blank" @click.prevent="linkHandle">百度</a>
+
+      <!-- 添加事件侦听器，利用capture使用事件捕获机制 -->
+      <div class="outer" @click.capture="divHandle">
+        <div class="inner" @click="div1Handle">
+          <button @click="btnHandle">戳我</button>
         </div>
+      </div>
 
-        <!-- 使用.prevent阻止默认行为 -->
-        <a href="http://www.baidu.com" @click.prevent="linkHandle">百度搜索</a>
+      <!-- 利用.self 只用当该元素本身触发事件时发生相应回调，如果是捕获机制，父元素事件依然会发生 -->
+      <div class="outer" @click.capture="divHandle">
+        <button @click.self="btnHandle">戳我</button>
+      </div>
 
-        <!-- 添加事件侦听器时，利用capture使用事件捕获机制 -->
-        <div class="inner" @click.capture="divHandle">
-            <button @click="btnHandle">再戳</button>
+      <!-- 使用.once只触发一次事件,与prevent连用时，也只有第一次会阻止默认行为 -->
+      <a href="http://baidu.com" target="_blank" @click.once.prevent="linkHandle">百度</a>
+
+      <!-- .stop和.self的区别 -->
+      <div class="outer" @click="divHandle">
+        <div class="inner" @click="div1Handle">
+          <button @click.stop="btnHandle">别浪</button>
         </div>
+      </div>
 
-        <!-- 利用.self只有当该元素本身触发事件时相应回调 -->
-        <div class="inner" @click.self="divHandle">
-            <button @click.self="btnHandle">又戳一次</button>
+      <div class="outer" @click="divHandle">
+        <div class="inner" @click.self="div1Handle">
+          <button @click="btnHandle">别浪</button>
         </div>
-
-        <!-- 使用.once只触发一次事件 -->
-        <a href="http://www.baidu.com" @click.prevent.once="linkHandle">百度搜索</a>
-
-        <!-- .stop 和 .self的区别 -->
-        <div class="outer" @click="outerHandle">
-            <div class="inner" @click="divHandle">
-                <button @click.stop="btnHandle">别浪</button>
-            </div>
-        </div>
-
-        <div class="outer" @click="outerHandle">
-            <div class="inner" @click.self="divHandle">
-                <button @click="btnHandle">别浪</button>
-            </div>
-        </div>
+      </div>
     </div>
 
-    <script src='../lib/vue.js'></script>
+    <script src="../../lib/vue.js"></script>
     <script>
-        new Vue({
-            el: '#app',
-            data: {
-                msg: '别浪~~ !猥琐发育'
-            },
-            methods: {
-                btnHandle() {
-                    console.log('这是button的事件')
-                },
-                divHandle() {
-                    console.log('这是innerdiv的消息')
-                },
-                linkHandle() {
-                    console.log('a超链接消息')
-                },
-                outerHandle() {
-                    console.log('这是outerdiv的事件触发的消息')
-                }
-            }
-        })
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello World!',
+        },
+        methods: {
+          divHandle() {
+            console.log('这是div事件')
+          },
+          btnHandle() {
+            console.log('这是button事件')
+          },
+          linkHandle() {
+            console.log('a超链接消息')
+          },
+          div1Handle() {
+            console.log('这也是div事件')
+          }
+        }
+      })
     </script>
-</body>
+  </body>
 
 </html>

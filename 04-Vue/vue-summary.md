@@ -1,54 +1,61 @@
 # Vue总结
 
-> vue全家桶： **vue-router, vuex, vue-resource, vue-cli**
+> vue全家桶： **Axios + Vue + Vue-cli + Vue-Router + Vuex**
 
 ## 目录
 
-1. 插值表达式
-2. 指令学习
-   - 自定义指令
-3. 按键修饰符
+- [一、插值表达式mustache语法](#一、插值表达式mustache语法)
+- [二、指令学习](#二、指令学习)
+  - 自定义指令
+- [三、按键修饰符](#三、按键修饰符)
 
-## 笔记
+## 学习笔记
 
-### 一、插值表达式 `{{ mustache }}`
+### 一、插值表达式mustache语法
+
+```html
+<p>{{ message }}</p>
+```
 
 ### 二、指令学习
 
-- `v-text`：innerText，与mustache的区别是会更新标签下的全部内容
-- `v-html`：innerHTML
-- `v-show`：元素显示状态，每次不会重新创建元素，只是切换了元素的display: none样式
-- `v-if`：每次都会重新删除或创建元素，性能消耗更高
-- `v-else-if`：前一兄弟必须有v-if或v-else-if
-- `v-else`：前一兄弟必须有v-if或v-else-if
-- `v-cloak`：解决因网络问题，插值表达式源码闪烁的问题
-- `v-bind`：属性绑定，缩写为"**：**"
-  - 使用class样式
-    1. 数组：`<h1 :class="['thin','red']">...</h1>`
-    2. 在数组中使用三元表达式：`<h1 :class="['thin','red',flag ? 'active' : '']">...</h1>`
-    3. 在数组中使用对象：
-    ```js
-    <h1 :class="['thin','red',{'active': flag}]"></h1>
-    <h1 :class="{thin:true, red: true, active:true}"></h1>
-    <h1 :class="obj"></h1>
-    ```
-  - 使用内联样式
-    1. 直接使用样式对象：`<p :style="{'font-style':'bold', 'color':'red'}"></p>`
-    2. 对象样式定义到data中：`<p :style="styleObj"></p>`
-    3. 利用数组，引用多个对象：`<p :style="[styleObj0, styleObj1]"></p>`
-- `v-on`：事件绑定机制(view上的方法名可以省略括号，括号用于传参)，缩写为"**@**"
-  - `.stop`：阻止冒泡
-  - `.prevent`：阻止默认行为
-  - `.capture`：添加事件侦听器时使用捕获机制
-  - `.self`：只有当元素本身触发时执行函数
-  - `.once`：只执行一次
-- `v-model`：实现双向数据绑定，只能用与表单元素(input、textarea、select)
+1. **v-text**：相当于innerText，与mustache的区别是它会覆盖标签下的全部内容，`<p v-text="msg"></p>`
+2. **v-html**：相当于innerHTML，`<p v-html="msg"></p>`
+3. **v-show**：元素的显示隐藏，与v-if的区别是每次不会重新创建元素，只是切换了元素的display样式，`<p v-show="tips"></p>`
+4. **v-if**：每次都会重新删除或创建元素，性能消耗更高，`<p v-if="tips>5">大于5</p>`
+5. **v-else-if**：前一兄弟必须有v-if或v-else-if，`<p v-if="tips>5">大于5</p><p v-else-if="tips<5">小于5</p>`
+6. **v-else**：前一兄弟必须有v-if或v-else-if，`<p v-if="tips>5">大于5</p><p v-else-if="tips<5">小于5</p><p v-else>等于5</p>`
+7. **v-cloak**：解决因网络问题，插值表达式源码闪烁的问题
+   - _css_： `[v-cloak]{ display: none }`
+   - _html_：`<div v-cloak></div>`
+8. **v-on**：事件绑定机制(view上的方法名可以省略括号，括号用于传参)，缩写为 `'@'`
+    - `.stop`：阻止冒泡
+    - `.prevent`：阻止默认行为
+    - `.capture`：添加事件侦听器时使用捕获机制
+    - `.self`：只有当元素本身触发时执行函数
+    - `.once`：只执行一次
+9. **v-model**：实现双向数据绑定，只能用与表单元素(input、textarea、select)
+10. **v-bind**： 属性绑定，缩写为 `':'`
+    - 普通使用：`<input type="button" v-bind:value="btnVal" />`
+    - 使用class样式
+      1. 数组：`<h1 :class="['thin','red']"></h1>`
+      2. 在数组中使用三元表达式：`<h1 :class="['thin','red',flag ? 'active' : '']">...</h1>`
+      3. 在数组中使用对象: 
+          - `<h1 :class="['thin','red',{'active': flag}]"></h1>`
+          - `<h1 :class="{thin:true, red: true, active:true}"></h1>`
+          - `<h1 :class="styleObj"></h1>`
+    - 使用内联样式
+      1. 直接使用样式对象：`<p :style="{'font-style':'bold', 'color':'red'}"></p>`
+      2. 对象样式定义到data中：`<p :style="styleObj"></p>`
+      3. 利用数组，引用多个对象：`<p :style="[styleObj0, styleObj1]"></p>`
+11. **v-for**：版本2.2.0+, `:key`是必须的
+    - 迭代数组：`<p v-for="(item,index) in arr" :key="index">{{item}}</p>`
+    - 循环对象数组：`<li v-for="item in list" :key="item.id">姓名:{{item.name}} - 年龄:{{item.age}}</li>`
+    - 迭代对象的属性：`<li v-for="(val, key, i) in items">{{val}} - {{key}} - {{i}}</li>`
+    - 迭代数字(i是从1开始)：`<li v-for="i in 9">这是第{{i}}个标签</li>`
+
 - `v-pre`：跳过元素的编译，比如直接显示Mustache标签
 - `v-once`：只渲染一次，之后的data的更新也不会重新渲染
-- `v-for`：2.2.0+的版本里，当在组件中使用v-for时，key现在是必须的
-  - `迭代数组`：`<li v-for="(item,i) in list" :key="item.id">索引:{{i}} --- 姓名:{{item.name}} --- 年龄:{{item.age}}</li>`
-  - `迭代对象的属性`：`<li v-for="(val, key, i) in items">{{val}} --- {{key}} --- {{i}}</li>`
-  - `迭代数字`：（i是从1开始的）`<li v-for="i in 9">这是第{{i}}个标签</li>`
 
 #### 自定义指令
 

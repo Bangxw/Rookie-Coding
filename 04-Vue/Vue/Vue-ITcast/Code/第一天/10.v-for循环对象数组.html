@@ -1,32 +1,47 @@
 <!DOCTYPE html>
-<html lang='en'>
 
-<head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
-</head>
+<html>
 
-<body>
-  <div id='app'>
-    <p v-for="(user, i) in list">ID: {{user.id}} --- NAME: {{user.name}} ---索引: {{i}}</p>
-  </div>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+    <title>v-for循环对象数组</title>
+  </head>
 
-  <script src='../lib/vue.js'></script>
-  <script>
-    var vm = new Vue({
-      el: '#app',
-      data: {
-        list: [
-          { id: 1, name: 'zs1' },
-          { id: 2, name: 'zs2' },
-          { id: 3, name: 'zs3' },
-          { id: 4, name: 'zs4' },
-        ]
-      }
-    })
-  </script>
-</body>
+  <body>
+    <div id="app">
+      <p v-for="(item, index) in list" :key="item.id">{{index}}___{{item.val}}</p>
+    </div>
+
+    <script src="../../lib/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello World!',
+          list: [{
+            id: 0,
+            val: 'item00'
+          }, {
+            id: 1,
+            val: 'item11'
+          }, {
+            id: 2,
+            val: 'item22'
+          }, {
+            id: 3,
+            val: 'item33'
+          }, {
+            id: 4,
+            val: 'item44'
+          }]
+        },
+        methods: {
+
+        }
+      })
+    </script>
+  </body>
 
 </html>

@@ -1,17 +1,25 @@
 <!DOCTYPE html>
+<html lang="en">
+  <!DOCTYPE html>
 
-<html>
+  <html>
 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatibal" content="ie=edge">
-    <title>09.v-for循环普通数组</title>
+    <title>02.v-cloak的学习</title>
+    <style>
+      [v-cloak] {
+        display: none
+      }
+    </style>
   </head>
 
   <body>
     <div id="app">
-      <p v-for="(item, index) in list" :key="index">{{index}}___{{item}}</p>
+      <!-- 当网络延迟未加载时，可以隐藏代码不被用户看见 -->
+      <h1 v-cloak>{{ message }}</h1>
     </div>
 
     <script src="../../lib/vue.js"></script>
@@ -20,7 +28,6 @@
         el: '#app',
         data: {
           message: 'Hello World!',
-          list: ['item0', 'item1', 'item2', 'item3', 'item4', 'item5']
         },
         methods: {
 
@@ -29,4 +36,4 @@
     </script>
   </body>
 
-</html>
+  </html>
