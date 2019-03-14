@@ -34,6 +34,9 @@ const server = http.createServer((req, res) => {  
     if (params.pathname == "/api/getproductlist") {
       res.writeHead(200, { 'Content-Type': 'application/json' })
       res.end(JSON.stringify(listData))
+    } else {
+      res.writeHead(200)
+      res.end('Get Info Success!!!')
     }
   } else if (methods == "POST") {
     let data = ""
@@ -62,6 +65,8 @@ const server = http.createServer((req, res) => {  
         res.writeHead(200, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify({ status: 0, message: 'del success' }));
       })
+    } else {
+      res.end(JSON.stringify({ message: 'Post info success' }));
     }
   }
 })

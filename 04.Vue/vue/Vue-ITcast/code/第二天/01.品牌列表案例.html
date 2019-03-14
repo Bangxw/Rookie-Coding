@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+    <title>品牌列表案例</title>
+    <link rel="stylesheet" href="../../lib/bootstrap-3.3.7.css">
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">品牌添加</h3>
+        </div>
+        <div class="panel-body">
+          <form action="" class="form-inline">
+            <div class="form-group">
+              <label for="">ID:</label>
+              <input type="text" class="form-control" v-model="newid">
+            </div>
+            <div class="form-group">
+              <label for="">Name:</label>
+              <input type="text" class="form-control" v-model="newname">
+            </div>
+            <button type="button" class="btn btn-default" @click.prevent="addItem">添加</button>
+
+            <div class="form-group" style="margin-left: 50px">
+              <input type="text" class="form-control" v-model="keywords" placeholder="SEARCH">
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Name</th>
+              <th>CTime</th>
+              <th>Operate</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="item in searchlist(keywords)">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.ctime }}</td>
+              <td><a href="#" @click.prevent="delItem(item.id)">Delete</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="../../lib/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello World!',
+          newid: '',
+          newname: '',
+          keywords: '',
+          lists: [{
+            id: 1,
+            name: 'Facebook',
+            ctime: new Date()
+          }, {
+            id: 2,
+            name: 'Twitter',
+            ctime: new Date()
+          }, {
+            id: 3,
+            name: 'Google',
+            ctime: new Date()
+          }, {
+            id: 4,
+            name: 'Microsoft',
+            ctime: new Date()
+          }]
+        },
+        methods: {
+          addItem() {
+            this.lists.push({
+              id: this.newid,
+              name: this.newname,
+              ctime: new Date()
+            })
+            this.newid = this.newname = ""
+          },
+          delItem(id) {
+            // this.lists = this.lists.filter((element, index, arr) => {
+            //   if (element.id === id) return false
+            //   else return true
+            // })
+
+            let findIndex = this.lists.findIndex(item => {
+              if (item.id === id) return true
+            })
+            this.lists.splice(findIndex, 1)
+          },
+          searchlist() {
+            return this.lists.filter(item => {
+              if (item.name.includes(this.keywords)) return item
+            })
+          }
+        }
+      })
+    </script>
+  </body>
+
+</html>
