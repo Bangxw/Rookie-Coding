@@ -5,7 +5,7 @@
   <meta charset='UTF-8'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
   <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <title>组建的创建方式</title>
 </head>
 
 <body>
@@ -13,18 +13,21 @@
     <my-com3></my-com3>
   </div>
 
-  <template id="tem3">
+  <div id="app2">
+    <my-com4></my-com4>
+  </div>
+
+  <template id="com3">
     <div>
-        <h1>把template抽离出来更方便的书写</h1>
-        <span>bababab...</span>
-        <button>这是一个按钮</button>
+      <h1>这是一个自定义组件</h1>
+      <p>hahahhah....</p>
     </div>
   </template>
 
   <script src='../../lib/vue.js'></script>
   <script>
     Vue.component('myCom3', {
-      template: '#tem3'
+      template: '#com3',
     })
 
     new Vue({
@@ -32,6 +35,27 @@
       data: {
         msg: '别浪~~ !猥琐发育'
       },
+    })
+
+    new Vue({
+      el: '#app2',
+      data: {},
+      methods: {},
+      directives: {},
+      filters: {},
+      components: {
+        myCom4: {
+          template: '#com3'
+        }
+      },
+      beforeCreate() {},
+      created() {},
+      beforeMount() {},
+      mounted() {},
+      beforeUpdate() {},
+      updated() {},
+      beforeDestroy() {},
+      destroyed() {}
     })
   </script>
 </body>
