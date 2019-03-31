@@ -1,88 +1,99 @@
 <!DOCTYPE html>
-<html lang='en'>
 
-  <head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-    <title>Document</title>
-    <link rel="stylesheet" href="../../lib/animate.css">
-    <style>
-      span {
-        display: inline-block;
-      }
-      /* .v-enter,
-      .v-leave-to {
-        opacity: 0;
-        transform: translateY(100px)
-      }
-      
-      .v-enter-active,
-      .v-leave-active {
-        transition: all 1s linear;
-      } */
-      
-      /* .pri-enter,
-      .pri-leave-to {
-        opacity: 0;
-        transform: translateY(100px)
-      }
-      
-      .pri-enter-active,
-      .pri-leave-active {
-        transition: all 1s linear;
-      } */
-    </style>
-  </head>
+<html>
 
-  <body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="../../lib/bootstrap-3.3.7.css">
+  <link rel="stylesheet" href="../../lib/animate.css">
+  <style>
+    #app {
+      margin-left: 400px;
+    }
 
+    span {
+      display: inline-block;
+    }
 
-    <div id='app'>
-      <input type="button" @click="flag=!flag" value="Toggle"> <br><br>
-      <!-- 需求：点击按钮，让H3显示，再点击，让h3隐藏-->
-      <!-- <transition>
-        <span v-if="flag">{{ msg }}</span>
-      </transition> -->
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+      transform: translateX(150px)
+    }
 
-      <!-- 需求：自定义前缀-->
-      <!-- <transition name='pri'>
-        <span v-if="flag">{{ msg }}</span>
-      </transition> -->
+    .v-enter-acitve,
+    .v-leave-active {
+      transition: all .5s linear
+    }
 
-      <!-- 1.引入第三方动画库 -->
-      <!-- 2.入场动画： 出场动画 -->
-      <!-- <transition enter-active-class="animated zoomInDown" leave-active-class="animated hinge">
-        <span v-if="flag">{{ msg }}</span>
-      </transition> -->
+    [v-cloak] {
+      display: none
+    }
 
-      <!-- 简化操作 -->
-      <!-- <transition enter-active-class="zoomInDown" leave-active-class="hinge" :duration="300">
-        <span v-if="flag" class="animated">{{ message }}</span>
-      </transition> -->
+    .show-enter,
+    .show-leave-to {
+      opacity: 0;
+      transform: translate(0, 150px)
+    }
 
-      <!-- 使用 :duration 来统一设置入场和离场时候的动画时长 -->
-      <!-- <transition enter-active-class="zoomInDown" leave-active-class="hinge" :duration="900">
-        <span v-if="flag" class="animated">{{ message }}</span>
-      </transition> -->
+    .show-enter-active,
+    .show-leave-active {
+      transition: all .5s linear
+    }
+  </style>
+</head>
 
-      <!-- 使用 :duration 分别设置入场的时长和出场的时长 -->
-      <transition enter-active-class="jackInTheBox" leave-active-class="hinge" :duration="{enter: 2000, leave: 5000}">
-        <span v-if="flag" class="animated">{{ msg }}</span>
-      </transition>
-    </div>
+<body>
+  <div id="app" v-cloak>
+    <input type="button" @click="flag=!flag" value="Toggle"> <br><br>
+    <!-- 需求：点击按钮，让h3显示，再点击，让h3隐藏 -->
+    <transition>
+      <h1 v-if="flag">{{msg}}</h1>
+    </transition>
 
-    <script src='../../lib/vue.js'></script>
-    <script>
-      new Vue({
-        el: '#app',
-        data: {
-          flag: false,
-          msg: '别浪~~ !猥琐发育',
-          message: 'Hello Vue!!!'
-        },
-      })
-    </script>
-  </body>
+    <!-- 需求：自定义前缀 -->
+    <transition name="show">
+      <h1 v-if="flag">{{msg}}</h1>
+    </transition>
+
+    <input type="button" @click="show=!show" value="show"><br><br>
+    <!-- 1.引入库动画 -->
+    <!-- 入场动画，出厂动画 -->
+    <transition enter-active-class="animated zoomInDown" leave-active-class="animated hinge">
+      <span v-if="show">{{msg}}</span>
+    </transition>
+
+    <transition enter-active-class="zoomInDown" leave-active-class="hinge" :duration="300">
+      <span v-if="show" class="animated">{{msg}}</span>
+    </transition>
+
+    <!-- 使用:duration来统一设置入场和离场时候的动画时长 -->
+    <transition enter-active-class="zoomInDown" leave-active-class="hinge" :duration="1500">
+      <span v-if="show" class="animated">{{msg}}</span>
+    </transition>
+
+    <!-- 使用:duration分别设置入场的时长和出厂的时长 -->
+    <transition enter-active-class="jackInTheBox" leave-active-class="hinge" :duration="{enter:2000, leave:5000}">
+      <span v-if="show" class="animated">{{msg}}</span>
+    </transition>
+  </div>
+
+  <script src="../../lib/vue.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      data: {
+        flag: false,
+        show: false,
+        message: 'Hello World!',
+        msg: '别浪...猥琐发育!'
+      },
+      methods: {}
+    })
+  </script>
+</body>
 
 </html>

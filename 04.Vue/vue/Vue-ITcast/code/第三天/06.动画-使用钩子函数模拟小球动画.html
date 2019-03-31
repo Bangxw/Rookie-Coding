@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
   <style>
     .ball {
       width: 15px;
@@ -13,37 +14,41 @@
       border-radius: 50%;
       background: #f00;
     }
+
+    [v-cloak] {
+      display: none
+    }
   </style>
 </head>
 
 <body>
-  <div id='app'>
-    <input type="button" value="快到碗里来" @click="flag=!flag">
+  <div id="app" v-cloak>
+    <input type="button" :value="btnval" @click="flag=!flag">
     <transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter">
-      <div class="ball" v-show="flag"></div>
+      <div class="ball" v-if="flag"></div>
     </transition>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
     new Vue({
       el: '#app',
       data: {
-        msg: '别浪~~ !猥琐发育',
-        flag: false
+        flag: false,
+        btnval: '咦',
       },
       methods: {
         beforeEnter(el) {
-          el.style.transform = "translate(0,0)"
+          el.style.transform = 'translate(0,0)'
         },
         enter(el, done) {
-          el.offsetWidth; //强制刷新动画
-          el.style.transform = "translate(150px, 250px)"
-          el.style.transition = "all 1.5s ease"
-          done() //立即去执行afterEnter函数
+          el.offsetWidth
+          el.style.transform = 'translate(300px,180px)'
+          el.style.transition = 'all 5.5s linear'
+          done()
         },
         afterEnter(el) {
-          this.flag = !this.flag
+          this.flag = false
         }
       }
     })

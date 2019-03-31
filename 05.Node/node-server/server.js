@@ -4,7 +4,7 @@ const url = require("url")
 const queryString = require("querystring")
 
 let listData = {
-  status: 0,
+  status: 1,
   message: [{
     id: 1,
     name: '奥迪',
@@ -52,7 +52,7 @@ const server = http.createServer((req, res) => {  
           ctime: new Date()
         })
         res.writeHead(200, { 'Content-Type': 'application/json' });
-        res.end(JSON.stringify({ status: 0, message: 'add success' }));
+        res.end(JSON.stringify({ status: 1, message: 'add success' }));
       })
     } else if (params.pathname == "/api/delproduct") {
       req.on("end", () => {             

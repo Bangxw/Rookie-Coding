@@ -1,61 +1,62 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
   <style>
-    .v-enter,
-    .v-leave-to {
+    .v-leave-to,
+    .v-enter {
       opacity: 0;
-      transform: translateX(150px)
+      transform: translate(150px, 0);
     }
-    
-    .v-enter-active,
-    .v-leave-active {
-      transition: all 0.4s;
+
+    .v-leave-active,
+    .v-enter-active {
+      transition: all .5s linear;
     }
-    
-    .pri-enter,
-    .pri-leave-to {
+
+    [v-cloak] {
+      display: none
+    }
+
+    .show-leave-to,
+    .show-enter {
       opacity: 0;
-      transform: translateY(150px)
+      transform: translate(0, 150px);
     }
-    
-    .pri-enter-active,
-    .pri-leave-active {
-      transition: all 0.4s;
+
+    .show-leave-active,
+    .show-enter-active {
+      transition: all .5s linear;
     }
   </style>
 </head>
 
 <body>
-  <div id='app'>
-    <input type="button" @click="flag=!flag" value="Toggle">
+  <div id="app" v-cloak>
+    <input type="button" @click="show=!show" value="toggle">
     <transition>
-      <h4 v-if="flag">{{ msg }}</h4>
+      <h1 v-if='show'>{{ message }}</h1>
     </transition>
 
-    <hr>
-
-    <input type="button" @click="flag2=!flag2" value="Toggle">
-    <transition name="pri">
-      <h4 v-if="flag2">{{ msg }}</h4>
+    <transition name="show">
+      <h1 v-if='show'>{{ message }}</h1>
     </transition>
-
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
     new Vue({
       el: '#app',
       data: {
-        flag: false,
-        flag2: false,
-        msg: '别浪~~ !猥琐发育'
+        message: 'Hello World!',
+        show: true
       },
+      methods: {}
     })
   </script>
 </body>

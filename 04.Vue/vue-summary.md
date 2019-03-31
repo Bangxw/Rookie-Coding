@@ -186,6 +186,65 @@ new Vue({
 
 ![img](./vue/vue-ITcast/assets/lifecycle.png)
 
+### 六、动画
+
+```css
+/* 使用过度类名 */
+.v-enter,.v-leave-to { opacity:0; transform:translate(150px,0) }
+.v-enter-active,.v-leave-active { transition:all .5s linear }
+
+/* 修改v前缀，配合transition的name使用 */
+.tran-enter, .tran-leave-to { opacity:0; transform:translate(0,150px)}
+.tran-enter-active, .tran-leave-active {transition:all .5s liear}
+
+/* 列表动画 */
+.v-enter, .v-leave-to { transform: translate(0, 150px); opacity: 0 }
+.v-enter-active, .v-leave-active { transition: all .8s ease }
+.v-move { transition: all .8s ease }
+.v-leave-active { position: absolute }
+```
+
+```html
+<!-- 使用过度类名 -->
+<transition><h1>Hello World</h1></transition>
+
+<!-- 使用过度类名 -->
+<transition name="tran"><h1>Hello World</h1></transition>
+
+<!-- 1.相同class可以直接提取到子元素上 -->
+<!-- 2.可以分别设置入场和离场的动画时间，也可以统一设置 -->
+<transition enter-active-class="jackInTheBox" leave-active-class="hinge" :duration="{enter: 500, leave: 800}"><div class="animated">Hello World!</div></transition>
+
+<!-- 使用钩子函数实现动画 -->
+<transition @before-enter="beforeEnter" @enter="enter" @after-enter="afterEnter"><div class="ball" v-if="flag"></div></transition>
+
+<!-- <ul> -->
+<!-- appear实现入场效果 -->
+<!-- tag属性把标签渲染为指定标签 -->
+<transition-group appear tag="ul">
+  <li v-for="(item,index) in list" :key="item.ID" @click="delItem(item.ID)">{{index}} --- {{item.name}}</li>
+</transition-group>
+<!-- </ul> -->
+```
+
+```js
+// 使用钩子函数实现动画
+methods: {
+  beforeEnter(el) {
+    el.style.transform = 'translate(0,0)'
+  },
+  enter(el, done) {
+    el.offsetWidth //强行执行
+    el.style.transform = 'translate(300px,180px)'
+    el.style.transition = 'all 5.5s linear'
+    done() //立即执行afterEnter中的函数
+  },
+  afterEnter(el) {
+    this.flag = false
+  }
+}
+```
+
 ## AXIOS学习笔记
 
 [axios中文文档](http://www.axios-js.com/zh-cn/docs/index.html)
