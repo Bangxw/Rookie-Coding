@@ -1,49 +1,52 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
 </head>
 
 <body>
-  <div id='app'>
-    <mylogin></mylogin>
-
-    <register></register>
-
-    <test></test>
+  <div id="app">
+    <mycom1></mycom1>
+    <hr>
+    <mycom2></mycom2>
+    <hr>
+    <mycom3></mycom3>
   </div>
 
-  <template id="test">
+  <template id="com2">
     <div>
-      HaHSHSHSSHHSH<br>
-      test<br>
-      1111<br>
+      <h1>我的组件2</h1>
+      <span>12122222...</span>
     </div>
   </template>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
-    //定义全局组件， Vue.component('组件的名称',Vue.extend())
-    Vue.component('mylogin', {
-      template: '<h1>注册组件</h1>'
+    //定义全局组件， Vue.component('组件的名称', Vue.extend())
+    Vue.component("mycom1", {
+      template: '<h1>我的组件1</h1>'
     })
 
-    var register = {
-      template: '<div>注册组件</div>'
+    var mycom3 = {
+      template: '<h2>我的组件3</h2>'
     }
+
     new Vue({
       el: '#app',
-      data: {},
+      data: {
+        message: 'Hello World!',
+      },
       methods: {},
       components: {
-        register,
-        test: {
-          template: '#test'
-        }
+        mycom2: {
+          template: '#com2'
+        },
+        mycom3
       }
     })
   </script>

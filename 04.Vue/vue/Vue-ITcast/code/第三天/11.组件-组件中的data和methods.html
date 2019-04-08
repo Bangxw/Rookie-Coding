@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
 </head>
 
 <body>
-  <div id='app'>
-    <my-com></my-com>
+  <div id="app">
+    <my-com1></my-com1>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <template id="mycom">
+    <div>
+      <h1>这是一个全局组件模板</h1>
+      <span>{{msg}}</span>
+    </div>
+  </template>
+
+  <script src="../../lib/vue.js"></script>
   <script>
-    // 组件的data必须为方法，而且方法中必须返回一个对象
-    Vue.component('myCom', {
-      template: "<h1>这是一个全局组件模板 --- {{msg}}</h1>",
+    Vue.component('myCom1', {
+      template: '#mycom',
       data() {
         return {
-          msg: "来自组件自己data的数据"
+          msg: '来自组件自己的data数据'
         }
       }
     })
@@ -28,8 +35,9 @@
     new Vue({
       el: '#app',
       data: {
-        msg: '别浪~~ !猥琐发育'
+        message: 'Hello World!',
       },
+      methods: {}
     })
   </script>
 </body>

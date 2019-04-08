@@ -1,51 +1,53 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>组建的创建方式</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
 </head>
 
 <body>
-  <div id='app'>
-    <my-com3></my-com3>
+  <div id="app1">
+    <mycom1></mycom1>
+
+    <!-- mycom2组件使用报错，Unknown custom element: <mycom2> -->
+    <mycom2></mycom2>
   </div>
 
   <div id="app2">
-    <my-com4></my-com4>
+    <mycom1></mycom1>
+    <mycom2></mycom2>
   </div>
 
-  <template id="com3">
+  <template id="com">
     <div>
       <h1>这是一个自定义组件</h1>
-      <p>hahahhah....</p>
+      <p>hahahahah....</p>
     </div>
   </template>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
-    Vue.component('myCom3', {
-      template: '#com3',
+    Vue.component('mycom1', {
+      template: '#com'
     })
 
     new Vue({
-      el: '#app',
-      data: {
-        msg: '别浪~~ !猥琐发育'
-      },
+      el: '#app1'
     })
 
     new Vue({
       el: '#app2',
-      data: {},
+      data: {
+        message: 'Hello World!',
+      },
       methods: {},
-      directives: {},
-      filters: {},
       components: {
-        myCom4: {
-          template: '#com3'
+        mycom2: {
+          template: '#com'
         }
       },
       beforeCreate() {},
