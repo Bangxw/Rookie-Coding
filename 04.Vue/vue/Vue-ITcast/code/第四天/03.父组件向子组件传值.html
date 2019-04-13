@@ -10,8 +10,7 @@
 
 <body>
   <div id='app'>
-    <!-- 父组件，可以在引用子组件的时候，通过属性绑定（v-bind:）的形式传给子组件 -->
-    <com1 v-bind:parentmsg="msg"></com1>
+    <com1 :parentmsg="msg"></com1>
   </div>
 
   <script src='../../lib/vue.js'></script>
@@ -19,22 +18,13 @@
     new Vue({
       el: '#app',
       data: {
-        msg: '123 啊-父组件中的数据'
+        msg: '##来自父组件中的数据##'
       },
       methods: {},
       components: {
         com1: {
-          data() {
-            return {
-              title: 123,
-              content: 'qaq'
-            }
-          },
-          template: '<h1>这是子组件 --- {{parentmsg}}</h1>',
-          props: ['parentmsg'], //数组必须是父组件传递过来，而且是只读的
-          directives: {},
-          filters: {},
-          components: {}
+          template: '<div>这是子组件 -- {{ parentmsg }}</div>',
+          props: ['parentmsg'] //readonly
         }
       }
     })

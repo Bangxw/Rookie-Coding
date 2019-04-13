@@ -10,47 +10,48 @@
 
 <body>
   <div id='app'>
-    <com1 @func="show"></com1>
+    <com @pfunc="show"></com>
   </div>
 
-  <template id="com1">
+  <template id="tmp">
     <div>
-      <h1>这是子组件，嘻嘻</h1>
-      <input type="button" @click="myclick" value="这是子组件的按钮 - 点击它，触发父组件传递过来的func方法">
+      <h1>这是子组件</h1>
+      <input type="button" value="子组件的按钮" @click="myClick">
     </div>
   </template>
 
   <script src='../../lib/vue.js'></script>
   <script>
-    var com1 = {
-      template: 　 '#com1',
+    let com = {
+      template: '#tmp',
       data() {
         return {
-          sonInfo: {
-            name: '张三',
-            age: 18
+          sonmsg: {
+            age: 18,
+            name: '小头爸爸'
           }
         }
       },
       methods: {
-        myclick() {
-          this.$emit('func', this.sonInfo)
+        myClick() { //子组件按钮触发事件
+          this.$emit('pfunc', '子组件传回的参数', this.sonmsg)
         }
       }
     }
+
     new Vue({
       el: '#app',
       data: {
         dataFromSon: null
       },
       methods: {
-        show(parm) {
-          console.log('调用了父组件中的方法')
-          this.dataFromSon = parm
+        show(parm1, parm2) { //parm1 是子组件返回的函数
+          console.log('这是父组件的show方法 --- ' + parm1)
+          this.dataFromSon = parm2
         }
       },
       components: {
-        com1
+        com
       }
     })
   </script>

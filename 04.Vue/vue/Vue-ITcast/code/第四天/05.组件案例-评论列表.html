@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+  <link rel="stylesheet" href="../../lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+  <div id='app'>
+    <commentbox @func="loadComments"></commentbox>
+    <ul class="list-group">
+      <li class="list-group-item" v-for="item in list" :key="item.id">
+        <span class="badge">{{item.name}}</span> {{item.content}}
+      </li>
+    </ul>
+  </div>
+
+  <template id="tmp">
+    <div>
+      <div class="form-group">
+        <label for="">评论人：</label>
+        <input type="text" class="form-control" v-model="name">
+      </div>
+
+      <div class="form-group">
+        <label for="">内容</label>
+        <textarea class="form-control" v-model="content"></textarea>
+      </div>
+
+      <div class="grom-group">
+        <input type="button" value="发表评论" class="btn btn-primary" @click="postComment">
+      </div>
+    </div>
+  </template>
+
+  <script src='../../lib/vue.js'></script>
+  <script>
+    let commentbox = {
+      template: '#tmp',
+      data() {
+        return {
+          name: '',
+          content: ''
+        }
+      },
+      methods: {
+        postComment() {
+          //分析： 发表评论的业务逻辑
+          // 1. 评论的数据存到哪里去？ localStorage, localStorage.getItem('cmts', '')
+          // 2. 先组织处一个最新的评论数据对象
+          // 3. 想办法，把第二步中得到的评论对象，保存到localStorage中
+          // 3.1 localStorage只支持存放字符串数据，先调用 JSON.stringify
+          // 3.2 在保存最新的评论数据之前，要先从localStorage获取到之前的评论数据（string），转换为一个数组对象，新评论push到数组
+          // 3.3 如果获取到的localStorage中的评论字符串为空不存在，可以返回一个'[]'，让JSON.parse去转换
+          // 3.4 把最新的评论列表数组，再次调用 JSON.stringify转化为数组字符串，然后调用localStorage.setItem()
+
+          let comment = {
+            id: Math.floor(Math.random() * 10000),
+            name: this.name,
+            content: this.content
+          }
+
+          let list = JSON.parse(localStorage.getItem('GSML') || '[]')
+          list.unshift(comment)
+
+          localStorage.setItem('GSML', JSON.stringify(list))
+
+          this.name = this.content = ""
+
+          this.$emit('func')
+        }
+      }
+    }
+
+    new Vue({
+      el: '#app',
+      data: {
+        list: [{
+          id: Math.floor(Math.random() * 10000),
+          name: '李白白',
+          content: '天生我材必有用'
+        }, {
+          id: Math.floor(Math.random() * 10000),
+          name: '江小白',
+          content: '劝君更尽一杯酒'
+        }, {
+          id: Math.floor(Math.random() * 10000),
+          name: '杜甫',
+          content: '卷我屋上三重茅'
+        }]
+      },
+      beforeCreate() {
+        //data和methods还没初始化好
+      },
+      created() {
+        this.loadComments()
+      },
+      methods: {
+        loadComments() {
+          let list = JSON.parse(localStorage.getItem('GSML') || '[]')
+          this.list = list
+        }
+      },
+      components: {
+        commentbox
+      }
+    })
+  </script>
+</body>
+
+</html>
