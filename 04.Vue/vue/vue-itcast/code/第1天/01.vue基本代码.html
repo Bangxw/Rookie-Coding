@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+    <title>Hello World!</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- mastache插值表达式和v-test的区别：v-text会覆盖标签下的所有内容 -->
+      <!-- v-text和v-html的区别就是v-html会以html语法解析内容，v-text全部当做纯文本，类似于innerText和innerHTML -->
+      <h1>{{ message }}</h1>
+      <p v-text="msg"></p>
+      <div v-html="msg"></div>
+
+      <!-- <input type="button" value="button" v-bind:title="'myTitle-'+ mytitle"> -->
+      <input type="button" value="button" :title="'myTitle-'+ mytitle">
+
+      <!-- <input type="button" v-on:click="show" value="点击事件"> -->
+      <input type="button" @click="show" value="点击事件">
+      <input type="button" @click="show(1)" value="点击事件">
+    </div>
+
+    <script src="../../lib/vue.js"></script>
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          message: 'Hello World!',
+          msg: '<h1>我是一级标题</h1>',
+          mytitle: '这是一个自定义title'
+        },
+        methods: {
+          show(parm) {
+            alert('Hello World!' + parm)
+          }
+        }
+      })
+    </script>
+  </body>
+
+</html>

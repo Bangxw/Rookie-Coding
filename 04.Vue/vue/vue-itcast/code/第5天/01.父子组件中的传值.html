@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8'>
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id='app'>
+    <tmpl :parent-msg="msg" @func="parentHandle"></tmpl>
+  </div>
+
+  <template id="tmpl">
+    <div>
+      <h1>这是子元素  --- {{parentMsg}}</h1>
+      <button @click="sonHandle">点我</button>
+    </div>
+  </template>
+
+  <script src='../../lib/vue.js'></script>
+  <script>
+    let tmpl = {
+      template: '#tmpl',
+      props: ['parentMsg'],
+      data() {
+        return {
+          msg: '来自子组件的消息(Son)'
+        }
+      },
+      methods: {
+        sonHandle() {
+          this.$emit('func', this.msg)
+        }
+      }
+    }
+
+    new Vue({
+      el: '#app',
+      data: {
+        msg: '这是父组件的消息(Parent)',
+        msgFromSon: null
+      },
+      methods: {
+        parentHandle(data) {
+          this.msgFromSon = data
+        }
+      },
+      components: {
+        tmpl
+      }
+    })
+  </script>
+</body>
+
+</html>
