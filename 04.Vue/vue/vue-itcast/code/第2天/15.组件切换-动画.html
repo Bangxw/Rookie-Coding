@@ -10,42 +10,42 @@
   <style>
     .v-enter,
     .v-leave-to {
-      transform: translate(0, 150px);
-      opacity: 0
+      opacity: 0;
+      transform: translateY(50px)
     }
 
     .v-enter-active,
     .v-leave-active {
-      transition: all 2.4s linear
+      transition: all .5s ease
     }
   </style>
 </head>
 
 <body>
   <div id="app">
-    <a href="#" @click.prevent="cname='login'">login</a>
-    <a href="#" @click.prevent="cname='register'">register</a>
+    <a href="#" @click.prevent="com='login'">login</a>
+    <a href="#" @click.prevent="com='register'">register</a>
 
     <!-- 通过mode属性，映射组件切换时候的模式 -->
     <transition mode="out-in">
-      <component :is="cname"></component>
+      <component :is="com"></component>
     </transition>
   </div>
 
   <script src="../../lib/vue.js"></script>
   <script>
     Vue.component('login', {
-      template: '<h2>登录组件</h2>'
+      template: '<h1>登陆组件</h1>'
     })
 
     Vue.component('register', {
-      template: '<h2>注册组件</h2>'
+      template: '<h1>注册组件</h1>'
     })
 
     new Vue({
       el: '#app',
       data: {
-        cname: 'login'
+        com: 'login'
       },
       methods: {}
     })

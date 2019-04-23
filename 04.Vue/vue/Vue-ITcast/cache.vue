@@ -1,51 +1,54 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+  <style>
+    #ball {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #f00;
+    }
+
+    [v-cloak] {
+      display: none
+    }
+  </style>
 </head>
 
 <body>
-  <div id='app'>
-    <mylogin></mylogin>
-
-    <register></register>
-
-    <test></test>
+  <div id="app" v-cloak>
+    <input type="button" value="加入购物车" @click="flag=!flag">
+    <transition @before-enter="beforeEnter" @after-enter="afterEnter" @enter="enter">
+      <div id="ball" v-if="flag"></div>
+    </transition>
   </div>
 
-  <template id="test">
-    <div>
-      HaHSHSHSSHHSH<br>
-      test<br>
-      test<br>
-      test<br>
-      test<br>
-      1111<br>
-    </div>
-  </template>
-
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
-    //定义全局组件， Vue.component('组件的名称',Vue.extend())
-    Vue.component('mylogin', {
-      template: '<h1>注册组件</h1>'
-    })
-
-    var register = {
-      template: '<div>注册组件</div>'
-    }
     new Vue({
       el: '#app',
-      data: {},
-      methods: {},
-      components: {
-        register,
-        test: {
-          template: '#test'
+      data: {
+        flag: false
+      },
+      methods: {
+        beforeEnter(el) {
+          el.style.transform = "translate(0,0)"
+        },
+        enter(el, done) {
+          el.offsetWidth
+
+          el.style.transform = "translate(200px,350px)"
+          el.style.transition = "all 1.6s linear"
+          done()
+        },
+        afterEnter(el) {
+          this.flag = false
         }
       }
     })

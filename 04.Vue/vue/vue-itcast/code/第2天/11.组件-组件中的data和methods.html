@@ -11,32 +11,37 @@
 
 <body>
   <div id="app">
-    <my-com1></my-com1>
+    <my-com></my-com>
   </div>
 
-  <template id="mycom">
+  <template id="tmp">
     <div>
-      <h1>这是一个全局组件模板</h1>
-      <span>{{msg}}</span>
+      <button @click="countHandle">count++</button>
+      <p>{{ count }}</p>
     </div>
   </template>
 
   <script src="../../lib/vue.js"></script>
   <script>
-    Vue.component('myCom1', {
-      template: '#mycom',
+    var com = {
+      template: '#tmp',
       data() {
         return {
-          msg: '来自组件自己的data数据'
+          count: 0
+        }
+      },
+      methods: {
+        countHandle() {
+          this.count ++
         }
       }
-    })
+    }
+
+    Vue.component('myCom', com)
 
     new Vue({
       el: '#app',
-      data: {
-        message: 'Hello World!',
-      },
+      data: {},
       methods: {}
     })
   </script>

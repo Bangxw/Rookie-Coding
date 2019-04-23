@@ -2,43 +2,38 @@
 
 <html>
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatibal" content="ie=edge">
-    <title>过滤器的基本使用</title>
-    <style>
-      [v-cloak] {
-        display: none
-      }
-    </style>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+  <style>
+    [v-cloak] {
+      display: none
+    }
+  </style>
+</head>
 
-  <body>
-    <div id="app" v-cloak>
-      <h1>{{ message | macfilter | uppercase}}</h1>
-    </div>
+<body>
+  <div id="app" v-cloak>
+    <p>{{ message | macformat }}</p>
+  </div>
 
-    <script src="../../lib/vue.js"></script>
-    <script>
-      Vue.filter('macfilter', data => {
-        if (data.length === 12) data = data.replace(/([0-9A-F]{2})/gi, '$1-')
-        data = data.replace(/:/g, "-")
-        return data.substr(0, 17)
-      })
+  <script src="../../lib/vue.js"></script>
+  <script>
+    Vue.filter('macformat', data => {
+      if(data.length == 12) data = data.toString().replace(/([A-Fa-f0-9]{2})/g, '$1-')
+      return data.substr(0, 17).toUpperCase()
+    })
 
-      new Vue({
-        el: '#app',
-        data: {
-          message: '0f0f0f0f0f0f',
-        },
-        filters: {
-          uppercase(data) {
-            return data.toUpperCase()
-          }
-        }
-      })
-    </script>
-  </body>
+    new Vue({
+      el: '#app',
+      data: {
+        message: '12ac12ac12ac'
+      },
+      methods: {}
+    })
+  </script>
+</body>
 
 </html>
