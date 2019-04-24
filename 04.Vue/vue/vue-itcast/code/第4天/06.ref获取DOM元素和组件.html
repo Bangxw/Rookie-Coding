@@ -1,54 +1,43 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
 </head>
 
 <body>
-  <div id='app'>
-    <input type="button" value="获取元素" @click="getElement">
-    <h3 id="myH3" ref="myH3">今天天气太好了</h3>
+  <div id="app">
+    <input type="button" value="Get Element" @click="getElement">
+    <h3 id="ele-h3" ref="myh3">Hello world</h3>
     <hr>
     <login ref="mylogin"></login>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
-    let login = {
-      template: '<h1>登陆组件</h1>',
-      data() {
-        return {
-          msg: '这是来自子组件的消息'
-        }
-      },
-      methods: {
-        show() {
-          console.log('这是子组件的方法')
-        }
-      }
-    }
-
-    var vm = new Vue({
+    new Vue({
       el: '#app',
       data: {},
       methods: {
         getElement() {
-          //传统获取方法
-          console.log(document.getElementById('myH3').innerText)
+          // 1， 传统获取方式，通过操作dom元素
+          console.log(document.getElementById('ele-h3'))
 
-          //vue获取元素方法 ref => reference 
-          console.log(this.$refs.myH3)
+          // 2. Vue推荐使用ref获取DOM元素和组件  ref ==> reference
+          console.log(this.$refs.myh3)
 
+          // 3. 通过ref获取组件元素
           console.log(this.$refs.mylogin)
-          this.$refs.mylogin.show()
         }
       },
       components: {
-        login
+        login: {
+          template: '<div>登陆组件</div>'
+        }
       }
     })
   </script>

@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
 </head>
 
 <body>
-  <div id='app'>
-    <com1 :parentmsg="msg"></com1>
+  <div id="app">
+    <my-com :datafromparent='msg'></my-com>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <template id="tmp">
+    <div>
+      <h1>组件</h1>
+      <p>{{ datafromparent }}</p>
+    </div>
+  </template>
+
+  <script src="../../lib/vue.js"></script>
   <script>
+    Vue.component('myCom', {
+      template: '#tmp',
+      props: ['datafromparent']
+    })
+
     new Vue({
       el: '#app',
       data: {
-        msg: '##来自父组件中的数据##'
+        msg: 'Hello World --- Parent Message'
       },
-      methods: {},
-      components: {
-        com1: {
-          template: '<div>这是子组件 -- {{ parentmsg }}</div>',
-          props: ['parentmsg'] //readonly
-        }
-      }
+      methods: {}
     })
   </script>
 </body>

@@ -1,57 +1,52 @@
 <!DOCTYPE html>
-<html lang='en'>
+<!DOCTYPE html>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
 </head>
 
 <body>
-  <div id='app'>
-    <com @pfunc="show"></com>
+  <div id="app">
+    <blog-post @func='show'></blog-post>
   </div>
 
   <template id="tmp">
     <div>
-      <h1>这是子组件</h1>
-      <input type="button" value="子组件的按钮" @click="myClick">
+      <button @click="btnHandle">点击</button>
     </div>
   </template>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
-    let com = {
+    Vue.component('blog-post', {
       template: '#tmp',
       data() {
         return {
-          sonmsg: {
-            age: 18,
-            name: '小头爸爸'
+          psn: {
+            name: '张三',
+            age: '18'
           }
         }
       },
       methods: {
-        myClick() { //子组件按钮触发事件
-          this.$emit('pfunc', '子组件传回的参数', this.sonmsg)
+        btnHandle() {
+          this.$emit('func', this.psn)
         }
       }
-    }
+    })
 
     new Vue({
       el: '#app',
-      data: {
-        dataFromSon: null
-      },
       methods: {
-        show(parm1, parm2) { //parm1 是子组件返回的函数
-          console.log('这是父组件的show方法 --- ' + parm1)
-          this.dataFromSon = parm2
+        show(res) {
+          console.log('这是父组件的方法')
+          console.log(res)
         }
-      },
-      components: {
-        com
       }
     })
   </script>

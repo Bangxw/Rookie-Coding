@@ -1,37 +1,42 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
 </head>
 
 <body>
-  <div id='app'>
-    <router-link to="/login/10/ls'">登陆</router-link>
-    <router-link to="/register">注册</router-link>
+  <div id="app">
+    <router-link to="/login/10/wbx">login</router-link>
+    <router-link to="/register">register</router-link>
 
     <router-view></router-view>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script src="../../lib/vue-router.js"></script>
   <script>
     let login = {
-      template: '<h1>登陆组件{{$route.params.id}} -- {{$route.params.name}}</h1>',
-      create() {
-        console.log(this.$route)
+      template: '<div>登陆组件</div>',
+      created(){
+        console.log(this.$route.params)
       }
     }
 
     let register = {
-      template: '<h1>注册组件</h1>'
+      template: '<div>注册组件</div>'
     }
 
-    var router = new VueRouter({
+    let router = new VueRouter({
       routes: [{
+        path: '/',
+        redirect: '/login'
+      },
+      {
         path: '/login/:id/:name',
         component: login
       }, {
@@ -40,7 +45,7 @@
       }]
     })
 
-    let vm = new Vue({
+    new Vue({
       el: '#app',
       data: {},
       methods: {},

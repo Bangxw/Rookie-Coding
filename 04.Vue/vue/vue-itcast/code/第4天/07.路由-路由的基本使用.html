@@ -1,85 +1,80 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
   <style>
+    /* 通过默认的class修改激活样式 */
     .router-link-active,
     .active-item {
-      /* 修改默认类 */
       font-weight: 800;
       color: red;
       background: green;
       font-size: 20px;
-      text-decoration: underline;
+      text-decoration: underline
     }
-    
+
     .v-enter,
     .v-leave-to {
       opacity: 0;
-      transform: translateY(150px);
+      transform: translateY(50px);
     }
-    
+
     .v-enter-active,
     .v-leave-active {
-      transition: all .8s ease;
+      transition: all .8s linear
     }
   </style>
 </head>
 
 <body>
-  <div id='app'>
-    <!-- <a href="#/login">login</a>
-    <a href="#/register">register</a> -->
+  <div id="app">
+    <!-- router-link默认会渲染为一个a标签  可以用tag属性渲染为指定标签 -->
+    <router-link to='/login' tag="span">login</router-link>
+    <router-link to='/register'>register</router-link>
 
-    <!-- router-link 默认渲染为一个a标签 -->
-    <router-link to="/login" tag="span">登陆</router-link>
-    <router-link to="/register">注册</router-link>
 
     <transition mode="out-in">
       <router-view></router-view>
     </transition>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script src="../../lib/vue-router.js"></script>
   <script>
-    // 后端路由：对于普通网站，所有的超链接都是URL地址，所有的URL地址都对应服务器上的资源
-    // 前端路由：对于单页面应用程序来说，主要通过URL的hash(#/)来实现不同页面之间的切换，同时，hash有一个特点：HTTP请求中不包含hash的相关内容；所以，单页面程序中的页面跳转主要用hash实现
-
     let login = {
-      template: '<h1>登陆组件</h1>'
+      template: '<div>登陆组件</div>'
     }
 
     let register = {
-      template: '<h1>注册组件</h1>'
+      template: '<div>注册组件</div>'
     }
 
-    //路由对象VueRouter
     let routerObj = new VueRouter({
-      routes: [ //路由匹配规则
+      routes: [ // 匹配路由规则
         {
-          path: '/login', //表示监听 哪个路由链接地址
-          component: login // component的属性值, 必须是一个组件的模版对象，不能是组建的引用名称
+          path: '/', // 指定根路径 重定向到login组件
+          redirect: '/login'
+        }, {
+          path: '/login', // 监听指定的链接
+          component: login // 值必须为一个组件的模板对象，不能是组建的引用名称
         }, {
           path: '/register',
           component: register
-        }, {
-          path: '/',
-          redirect: '/login' // 默认第一次进入页面，重定向为login组件
         }
       ],
-      linkActiveClass: 'active-item' //修改默认激活类名
+      linkActiveClass: 'active-item' // 修改默认的激活类名
     })
 
-    let vm = new Vue({
+    new Vue({
       el: '#app',
       data: {},
       methods: {},
-      router: routerObj //路由关联到实例身上
+      router: routerObj //关联路由对象到实例上
     })
   </script>
 </body>

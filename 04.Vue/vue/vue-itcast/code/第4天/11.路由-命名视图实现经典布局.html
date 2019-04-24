@@ -1,38 +1,39 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
   <style>
     html,
     body {
       margin: 0;
-      padding: 0;
+      padding: 0
     }
-    
+
     h1 {
       margin: 0;
       padding: 0;
     }
-    
+
     .container {
       display: flex;
       height: 500px;
     }
-    
+
     .header-box {
       background: lightgreen;
       height: 70px;
     }
-    
+
     .left-box {
       flex: 2;
       background: lightcyan
     }
-    
+
     .main-box {
       flex: 8;
       background: lightblue
@@ -41,15 +42,15 @@
 </head>
 
 <body>
-  <div id='app'>
+  <div id="app">
     <router-view></router-view>
     <div class="container">
-      <router-view name="left"></router-view>
-      <router-view name="main"></router-view>
+      <router-view name='left'></router-view>
+      <router-view name='main'></router-view>
     </div>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script src="../../lib/vue-router.js"></script>
   <script>
     let header = {
@@ -66,24 +67,13 @@
 
     let router = new VueRouter({
       routes: [{
-          path: '/',
-          components: {
-            default: 　header,
-            left,
-            main
-          }
+        path: '/',
+        components: {
+          default: header,
+          left,
+          main
         }
-        // {
-        //   path: '/',
-        //   component: header
-        // }, {
-        //   path: '/left',
-        //   component: left
-        // }, {
-        //   path: '/main',
-        //   component: main
-        // }
-      ]
+      }]
     })
 
     new Vue({
