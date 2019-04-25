@@ -1,54 +1,45 @@
 <!DOCTYPE html>
-<html lang='en'>
+
+<html>
 
 <head>
-  <meta charset='UTF-8'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-  <meta http-equiv='X-UA-Compatible' content='ie=edge'>
-  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+  <link rel="stylesheet" href="../../lib/bootstrap-3.3.7.css">
 </head>
 
 <body>
-  <div id='app'>
-    <input type="text" v-model="firstname"> +
-    <input type="text" v-model="lastname"> =
-    <input type="text" v-model="fullname">
+  <div id="app">
+    <form action="" class="form-inline">
+      <div class="form-group">
+        <input type="text" class="form-control" v-model="firstname">
+        <label for="">+</label>
+      </div>
+
+      <div class="from-group">
+        <input type="text" class="form-control" v-model="lastname">
+        <label for="">=</label>
+      </div>
+
+      <div class="form-group">
+        <input type="text" class="form-control" v-model="fullname">
+      </div>
+    </form>
   </div>
 
-  <script src='../../lib/vue.js'></script>
+  <script src="../../lib/vue.js"></script>
   <script>
-    /*
-     * watch、computed、methods的对比
-     * 1. computed属性的结果会被缓存，除非依赖的响应式属性变化才会被重新计算。主要当作属性来使用；
-     * 2. methods方式表示一个具体的操作，主要书写业务逻辑
-     * 3. watch对象，键是需要观察的表达式，值是对应回调函数，主要用来监听某些特定数据的变化，从而进行某些具体的业务逻辑操作；可以看作是computed和methods的结合体
-     */
-
-    /*
-     * nrm 的安装使用
-     * 作用： 提供了一些最常用的NPM包镜像地址，能够让我们快速的切换安装包时候的服务器地址
-     * npm i nrm -g 全局安装
-     * nrm ls 查看当前所有可用镜像源地址以及当前所使用的镜像源地址
-     * 使用 nrm use npm 切换不同的镜像源地址
-     */
-
-
     new Vue({
       el: '#app',
       data: {
         firstname: '',
-        lastname: ''
+        lastname: '',
       },
-      methods: {},
-      computed: { //计算属性
-        /*
-         * 注意：只是单纯的提供了几个常用的下载包的URL地址并能够让我们在这几个地址之间方便的进行切换，但是我们每次装包的时候使用的装包的工具都是使用npm
-         * 1. 计算属性在引用的时候，一定不要加上()去调用，直接把它当作普通属性去使用就好
-         * 2. 只要计算属性内部，任何一个data中的数据发生了变化，就会立即重新计算这个计算属性的值
-         * 3. 计算属性的求值结果，会被缓存起来，方便下次使用。知道下次数据发生变化，进行冲I想你计算
-         */
+      computed: {
         fullname() {
-          return `${this.firstname} - ${this.lastname}`
+          return this.firstname + this.lastname
         }
       }
     })
