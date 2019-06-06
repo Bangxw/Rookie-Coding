@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+  <head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta http-equiv='X-UA-Compatible' content='ie=edge'>
+    <title>Document</title>
+    <style>
+      .thin {
+        font-weight: 200
+      }
+      
+      .red {
+        color: red;
+      }
+      
+      .italic {
+        font-style: italic
+      }
+      
+      .active {
+        letter-spacing: .5rem
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id='app'>
+      <!-- class使用数组 -->
+      <p :class="['thin', 'red']">这是一个瘦瘦的标题</p>
+
+      <!-- 使用三元表达式 -->
+      <p :class="['thin','red', flag?'active':'']">Hello World!!!</p>
+
+      <!-- 在数组中使用对象 -->
+      <p :class="['thin', 'red', {'italic': flag}]">在数组中使用对象1</p>
+      <p :class="{red:true, italic:true, active:true, thin:true}">在数组中使用对象2</p>
+      <p :class="styleObj">在数组中使用对象3</p>
+    </div>
+
+    <script src='../../lib/vue.js'></script>
+    <script>
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          flag: true,
+          styleObj: {
+            red: true,
+            italic: false,
+            active: true,
+            thin: false
+          }
+        },
+      })
+    </script>
+  </body>
+
+</html>

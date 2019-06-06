@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>品牌列表案例</title>
+  <link rel="stylesheet" href="../../lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+  <div id="app">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">品牌添加</h3>
+      </div>
+      <div class="panel-body">
+        <form action="" class="form-inline">
+          <!-- <div class="form-group">
+            <label for="">ID:</label>
+            <input type="text" class="form-control" v-model="newid">
+          </div> -->
+          <div class="form-group">
+            <label for="">Name:</label>
+            <input type="text" class="form-control" v-model="newname" @keyup.f2="addItem">
+          </div>
+          <button type="button" class="btn btn-default" @click.prevent="addItem">添加</button>
+
+          <div class="form-group" style="margin-left: 50px">
+            <input type="text" class="form-control" v-model="keywords" placeholder="SEARCH" v-fontweight="300" v-fontitalic v-focus>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>CTime</th>
+            <th>Operate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="item in searchlist(keywords)">
+            <td>{{ item.id }}</td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.ctime | timeformat}}</td>
+            <td><a href="#" @click.prevent="delItem(item.id)">Delete</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="../../lib/vue.js"></script>
+  <script src="../../lib/axios.min.js"></script>
+  <script>
+    //全局自定义指令
+    Vue.filter('timeformat', (data, arg = 'yy-MM-dd hh:mm:ss') => {
+      let dt = new Date(data)
+      return arg.replace(/yyyy/i, dt.getFullYear())
+        .replace(/yy/, dt.getFullYear().toString().substr(-2))
+        .replace(/MM/, (dt.getMonth() + 1).toString().padStart(2, 0))
+        .replace(/dd/, dt.getDate().toString().padStart(2, 0))
+        .replace(/hh/, dt.getHours().toString().padStart(2, 0))
+        .replace(/mm/, dt.getMinutes().toString().padStart(2, 0))
+        .replace(/ss/, dt.getSeconds().toString().padStart(2, 0))
+    })
+
+    //自定义按键修饰符别名
+    Vue.config.keyCodes.f2 = 113
+
+    //global
+    Vue.directive('focus', {
+      /*
+       * 钩子函数的参数：
+       * 1. 被操作的dom元素
+       * 2. binding对象 {name, value, oldValue, expression, arg, modifiers}
+       * 3. vnode
+       * 4. oldVnode
+       */
+      bind(el, binding) { //每当指令绑定到元素上时，立即执行一次bind函数   和属性有关的操作在此添加
+        el.style.border = "1px solid #999"
+      },
+      inserted(el) { //插入到DOM时，会执行inserted函数  和行为有关的操作在此添加
+        el.focus()
+      },
+      updated(el) {} //当vnode执行多次时，会触发多次
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!',
+        newid: '',
+        newname: '',
+        keywords: '',
+        lists: []
+      },
+      methods: {
+        addItem() {
+          // this.lists.push({
+          //   id: this.newid,
+          //   name: this.newname,
+          //   ctime: new Date()
+          // })
+
+          let params = new URLSearchParams()
+          params.append('name', this.newname)
+          axios.post('http://127.0.0.1:3000/api/addproduct',params)
+          .then( response => {
+            this.updateItem()
+          })
+          this.newid = this.newname = ""
+        },
+        delItem(id) {
+          var params = new URLSearchParams();
+          params.append('delID', id);
+
+          axios({
+            url: 'http://127.0.0.1:3000/api/delproduct',
+            method: 'post',
+            data: params
+          }).then(response => {
+            this.updateItem()
+          })
+
+          // axios.post('http://127.0.0.1:3000/api/delproduct', params).then(response => {
+          //   console.log(response.data)
+          // })
+        },
+        updateItem() {
+          axios({
+            url: 'http://127.0.0.1:3000/api/getproductlist',
+            timeout: 3000
+          }).then(response => {
+            if (response.data.status) this.lists = response.data.message
+            else this.lists = [{
+              id: 1,
+              name: 'Facebook',
+              ctime: '1999-10-28 09:45'
+            }, {
+              id: 2,
+              name: 'Twitter',
+              ctime: new Date()
+            }, {
+              id: 3,
+              name: 'Google',
+              ctime: new Date()
+            }, {
+              id: 4,
+              name: 'Microsoft',
+              ctime: new Date()
+            }]
+          })
+        },
+        searchlist() {
+          return this.lists.filter(item => {
+            if (item.name.includes(this.keywords)) return item
+          })
+        }
+      },
+      directives: {
+        fontweight: (el, binding) => { //简写，等同于在update和bind种各写一份
+          el.style.fontWeight = binding.value
+        },
+        fontitalic: {
+          bind: (el, binding) => {
+            el.style.fontStyle = "italic"
+          }
+        }
+      },
+      created() {
+        this.updateItem()
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <div id="app">
+    <mycom1></mycom1>
+    <mycom2></mycom2>
+  </div>
+
+  <script src="../../lib/vue.js"></script>
+  <script>
+    var com1 = Vue.extend({
+      template: '<h1>这是Vue extende创建的组件1</h1>'
+    })
+
+    Vue.component('mycom1', com1)
+
+    Vue.component('mycom2', Vue.extend({
+      template: '<div>这是Vue extend创建的组件2</div>'
+    }))
+
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!',
+      },
+      methods: {}
+    })
+  </script>
+</body>
+
+</html>
