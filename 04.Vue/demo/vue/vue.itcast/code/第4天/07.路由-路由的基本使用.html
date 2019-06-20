@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+  <style>
+    /* 通过默认的class修改激活样式 */
+    .router-link-active,
+    .active-item {
+      font-weight: 800;
+      color: red;
+      background: green;
+      font-size: 20px;
+      text-decoration: underline
+    }
+
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+      transform: translateY(50px);
+    }
+
+    .v-enter-active,
+    .v-leave-active {
+      transition: all .8s linear
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <!-- router-link默认会渲染为一个a标签  可以用tag属性渲染为指定标签 -->
+    <router-link to='/login' tag="span">login</router-link>
+    <router-link to='/register'>register</router-link>
+
+
+    <transition mode="out-in">
+      <router-view></router-view>
+    </transition>
+  </div>
+
+  <script src="../../lib/vue.js"></script>
+  <script src="../../lib/vue-router.js"></script>
+  <script>
+    let login = {
+      template: '<div>登陆组件</div>'
+    }
+
+    let register = {
+      template: '<div>注册组件</div>'
+    }
+
+    let routerObj = new VueRouter({
+      routes: [ // 匹配路由规则
+        {
+          path: '/', // 指定根路径 重定向到login组件
+          redirect: '/login'
+        }, {
+          path: '/login', // 监听指定的链接
+          component: login // 值必须为一个组件的模板对象，不能是组建的引用名称
+        }, {
+          path: '/register',
+          component: register
+        }
+      ],
+      linkActiveClass: 'active-item' // 修改默认的激活类名
+    })
+
+    new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      router: routerObj //关联路由对象到实例上
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <div id="app">
+    <p ref="parent-text">我是，父组件的文本 MMMMMMMM...</p>
+    <p>此处是来自子组件的消息 ---- {{ msgFromSon }}</p>
+
+    <my-com :data-from-parent="parentmsg" @func="parentfunc"></my-com>
+  </div>
+
+  <template id="tmp">
+    <div>
+      <h1 ref="son-text">我是子组件的文本，WWWWWW....</h1>
+      <p>此处是来自父组件的文本 ----： {{dataFromParent}}</p>
+
+      <button @click="handle">点我，给父组件返回我的msg</button>
+    </div>
+  </template>
+
+  <script src="../../lib/vue.js"></script>
+  <script>
+    let myCom = {
+      template: '#tmp',
+      props: ['dataFromParent'],
+      data(){
+        return {
+          sonMsg: ''
+        }
+      },
+      mounted() {
+        this.sonMsg = this.$refs['son-text'].innerText
+      },
+      methods: {
+        handle (){
+          this.$emit('func', this.sonMsg)
+        }
+      }
+    }
+
+    let vm = new Vue({
+      el: '#app',
+      data: {
+        parentmsg: '',
+        msgFromSon: ''
+      },
+      methods: {
+        parentfunc(data) {
+          this.msgFromSon = data
+        }
+      },
+      mounted() {
+        this.parentmsg = this.$refs['parent-text'].innerText
+      },
+      components: {
+        myCom
+      }
+    })
+  </script>
+</body>
+
+</html>

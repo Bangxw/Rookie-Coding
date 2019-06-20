@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+</head>
+
+<body>
+  <div id="app">
+    <counter></counter>
+    <hr>
+    <counter></counter>
+    <hr>
+    <counter></counter>
+  </div>
+
+  <template id="com">
+    <div>
+      <input type="button" @click="increment" value="add 1">
+      <h3>{{ count }}</h3>
+    </div>
+  </template>
+
+  <script src="../../lib/vue.js"></script>
+  <script>
+    Vue.component('counter', {
+      template: '#com',
+      data() {
+        //组件会被多处调用，当以原有的方式建立data, 数据不会独立处理，只有以函数返回，才会在每次调用组件时，创建自己的data
+        return {
+          count: 0
+        }
+      },
+      methods: {
+        increment() {
+          this.count++
+        }
+      }
+    })
+
+    new Vue({
+      el: '#app',
+      data: {
+        message: 'Hello World!',
+      },
+      methods: {}
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatibal" content="ie=edge">
+  <title>Hello World!</title>
+  <style>
+    .router-link-active,
+    .active-item {
+      background: lightblue;
+      color: lightsalmon
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <router-link to="/login">login</router-link>
+    <router-link to="/register">register</router-link>
+
+    <router-view></router-view>
+  </div>
+
+  <script src="../../lib/vue.js"></script>
+  <script src="../../lib/vue-router.js"></script>
+  <script>
+    let login = {
+      template: '<h1>登陆组件</h1>'
+    }
+
+    let register = {
+      template: '<h1>注册组件</h1>'
+    }
+
+    let router = new VueRouter({
+      routes: [{
+        path: '/',
+        redirect: '/login'
+      }, {
+        path: '/login',
+        component: login
+      }, {
+        path: '/register',
+        component: register
+      }],
+      linkActiveClass: 'active-item'
+    })
+
+    let vm = new Vue({
+      el: '#app',
+      data: {},
+      methods: {},
+      router,
+      watch: {
+        '$route.path'(val) {
+          if(val == '/login') console.log('欢迎进入登陆页面')
+          else console.log('欢迎进入注册组件')
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

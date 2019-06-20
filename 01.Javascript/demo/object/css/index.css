@@ -1,0 +1,10 @@
+@font-face{
+    font-family: "consola";
+    src: url("../fonts/consola.eot"), url("../fonts/consola.svg"), url("../fonts/consola.ttf"), url("../fonts/consola.woff");
+    font-style: normal;
+    font-weight: normal;
+}
+
+body{
+    font-family: "consola","Microsot Yahei","宋体";
+}

@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Components Basic</title>
+    <link rel="shortcut icon" href="../Assets/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../Styles/main.css">
+
+    <style>
+        .demo-alert-box {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #f3beb8;
+            border: 1px solid #f09898;
+        }
+
+        .tab-button {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            margin-right: -1px;
+            outline: none;
+            background: #f0f0f0;
+        }
+
+        .tab-button.active {
+            background: #e0e0e0;
+        }
+
+        .tab {
+            width: 200px;
+            border: 1px solid #ccc;
+            padding: 10px 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-wrap">
+        <h3>组件基础</h3>
+
+        <h4># 基本示例</h4>
+        <div id="components-demo">
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+            <button-counter></button-counter>
+        </div>
+
+        <h4># 通过Prop向子组件传递数据</h4>
+        <div id="com-demo-0">
+            <blog-post title="My journey with Vue"></blog-post>
+            <br>
+            <blog-post title="Blogging with Vue"></blog-post>
+            <br>
+            <blog-post title="Why Vue is so fun"></blog-post>
+        </div>
+        <br>
+        <div id="com-demo-1">
+            <blog-post-1 v-for="post in posts" v-bind:key="post.id" v-bind:title="post.title"></blog-post-1>
+        </div>
+
+        <h4># 通过事件向父组件发送消息</h4>
+        <div id="blog-posts-events-demo">
+            <blog-post-2 v-for="post in posts" :key="post.id" :post="post" :post-font-size="postFontSize" @enlarge-text="postFontSize += 0.1"></blog-post-2>
+        </div>
+
+        <h4># 使用事件抛出一个值</h4>
+        <div id="blog-posts-3">
+            <blog-post-3 @enlarge-text="onEnlargeText" :post-font-size="postFontSize"></blog-post-3>
+        </div>
+
+        <h4># 在组件上使用v-model</h4>
+        <div id="custom-input-div">
+            <!-- <custom-input :value="searchText" @input="searchText = $event"></custom-input> -->
+            <custom-input v-model="searchText"></custom-input>
+        </div>
+
+        <h4># 通过插槽分发内容</h4>
+        <div id="custom-slots">
+            <alert-box>Something bad happend.</alert-box>
+        </div>
+
+        <h4># 动态组件</h4>
+        <div id="dynamic-component">
+            <button v-for="tab in tabs" :key="tab" :class="['tab-button',{active: currentTab == tab}]" @click="currentTab = tab">{{ tab }}</button>
+            <component :is="currentTabComponent" class="tab"></component>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        //基本示例
+        Vue.component('button-counter', {
+            data() { //一个组件的data选项必须是一个函数
+                return {
+                    count: 0
+                }
+            },
+            template: '<button v-on:click="count++">You clicked me {{count}} times.</button>'
+        })
+
+        new Vue({
+            el: '#components-demo'
+        })
+
+
+        //通过 Prop 向子组件传递数据
+        Vue.component('blog-post', {
+            props: ['title'],
+            template: '<span>{{ title }}</span>'
+        })
+
+        new Vue({
+            el: "#com-demo-0"
+        })
+
+        Vue.component('blog-post-1', {
+            template: '<span>blog-post-1 &nbsp;&nbsp;</span>'
+        })
+
+        new Vue({
+            el: '#com-demo-1',
+            data: {
+                posts: [{
+                    id: 1, title: 'My journey with vue'
+                }, {
+                    id: 2, title: 'Blogging with Vue'
+                }, {
+                    id: 3, title: 'Why Vue is so fun'
+                }]
+            }
+        })
+
+
+        //通过事件向父组件发送消息
+        Vue.component('blog-post-2', {
+            props: ['post', 'postFontSize'],
+            template: `
+                <div class="blog-post-2">
+                    <h5>{{ post.title }}</h5>
+                    <button @click="$emit('enlarge-text')">Enlarge text</button>
+                    <div v-html="post.content" :style="{fontSize: postFontSize + 'em'}"></div><br/>
+                </div>`
+        })
+
+        new Vue({
+            el: '#blog-posts-events-demo',
+            data: {
+                posts: [
+                    { id: 1, title: 'My journey with Vue', content: 'Hello Vue!' },
+                    { id: 2, title: 'Blogging with Vue', content: 'Hello Vue!' },
+                    { id: 3, title: 'Why Vue is so fun', content: 'Hello Vue!' },
+                ],
+                postFontSize: 1
+            }
+        })
+
+
+        //使用事件抛出一个值
+        Vue.component("blog-post-3", {
+            props: ['postFontSize'],
+            template: `
+                <div>
+                    <p :style="{fontSize: postFontSize + 'em'}">Test Text !!!</p>
+                    <button v-on:click="$emit('enlarge-text', 0.5)">Enlarge Text</button>
+                </div>`
+        })
+
+        new Vue({
+            el: "#blog-posts-3",
+            data: {
+                postFontSize: 0
+            },
+            methods: {
+                onEnlargeText(enalertAmount) {
+                    this.postFontSize += enalertAmount
+                }
+            }
+        })
+
+
+        //在组件上使用v-model
+        // Vue.component('custom-input', {
+        //     props: ['value'],
+        //     template: `<input v-bind:value="value" v-on:input="$emit('input', $event.target.value)">`
+        // })
+
+        // new Vue({
+        //     el: '#custom-input-div',
+        //     data: {
+        //         searchText: 'Test Text!!!'
+        //     }
+        // })
+
+        Vue.component('custom-input', {
+            props: ['value'],
+            template: `<input :value="value" @input="$emit('input',$event.target.value)">`
+        })
+
+        new Vue({
+            el: "#custom-input-div",
+            data: {
+                searchText: '12313'
+            }
+        })
+
+
+        //通过插槽分发内容
+        Vue.component('alert-box', {
+            template: `
+                <div class="demo-alert-box">
+                    <strong>Error!</strong>
+                    <slot></slot>
+                </div>`
+        })
+
+        new Vue({
+            el: "#custom-slots"
+        })
+
+
+        //动态组件
+        Vue.component('tab-home',{
+            template: '<div>Home Component</div>'
+        })
+
+        Vue.component('tab-posts', {
+            template: '<div>Posts component</div>'
+        })
+
+        Vue.component('tab-archive', {
+            template: '<div>Archive component</div>'
+        })
+
+        new Vue({
+            el: "#dynamic-component",
+            data: {
+                currentTab: 'Home',
+                tabs: ['Home', 'Posts', 'Archive']
+            },
+            computed: {
+                currentTabComponent() {
+                    return 'tab-' + this.currentTab.toLowerCase()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
