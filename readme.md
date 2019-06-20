@@ -3,32 +3,33 @@
 > - *I'd like to talk with the world, Talk to you about the world*
 > - *我想和这世界谈谈，和你谈谈这世界*
 
-## 目录
-
-1. 前端
-2. 文章列表
-
 ## 文章列表
 
-1. HTML
-   - [Html笔记](https://github.com/Bangxw/Front-End/blob/master/Html/html.md)
-2. JavaScript
-   - [JS基础总结](https://github.com/Bangxw/Front-End/blob/master/JavaScript/01.JavaScript基础总结.md)
-   - [JS算法](https://github.com/Bangxw/Front-End/blob/master/JavaScript/02.JavaScript算法.md)
-   - [JS常用的8种继承](https://github.com/Bangxw/Front-End/blob/master/JavaScript/03.Javascript常用的8中继承.md)
-   - [原型对象与原型链](https://github.com/Bangxw/Front-End/blob/master/JavaScript/04.原型对象与原型链.md)
-3. BootStrap
-   - [Bootscript笔记](https://github.com/Bangxw/Front-End/blob/master/Bootstrap/bootstrap.md)
-4. ECMAScript
-   - [ES6总结](https://github.com/Bangxw/Front-End/blob/master/ECMASctipt/es6.md)
-5. Vue
-   - [Vue总结](https://github.com/Bangxw/Front-End/blob/master/Vue/vue.md)
-6. Webpack
-   - [Webpack](https://github.com/Bangxw/Front-End/blob/master/Webpck/webpack.md)
-7. Other
-   - [Markdown语法](https://github.com/Bangxw/Front-End/blob/master/Other/markdown语法.md)
-   - [Node相关](https://github.com/Bangxw/Front-End/blob/master/Other/node相关.md)
-   - [VsCode的使用](https://github.com/Bangxw/Front-End/blob/master/Other/vscode的使用.md)
+1. JavaScript
+   - [JS基础总结](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/01.JavaScript基础总结.md)
+   - [JS算法](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/02.JavaScript算法.md)
+   - [JS常用的8种继承](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/03.Javascript常用的8中继承.md)
+   - [原型对象与原型链](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/04.原型对象与原型链.md)
+   - [ES6文档](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/05.ES6文档.md)
+   - [Promies学习](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/06.Promises讲解.md)
+2. Css
+   - [Css笔记](https://github.com/Bangxw/Rookie-Coding/blob/master/02.Css/css.md)
+3. Webpack
+   - [Webpack笔记](https://github.com/Bangxw/Rookie-Coding/blob/master/03.Webpack/readme.md)
+4. Vue
+   - [Vue总结](https://github.com/Bangxw/Rookie-Coding/blob/master/04.Vue/vue.md)
+5. Node
+   - [Node总结](https://github.com/Bangxw/Rookie-Coding/blob/master/05.Node/readme.md)
+6. BootStrap
+   - [Bootscript笔记](https://github.com/Bangxw/Rookie-Coding/blob/master/06.Bootstrap/bootstrap.md)
+7. jQuery
+   - [jQuery](https://github.com/Bangxw/Rookie-Coding/blob/master/07.jQuery/jqPromise.md)
+8.React
+   - [React](https://github.com/Bangxw/Rookie-Coding/blob/master/08.React/readme.md)
+9.Other
+   - [Markdown语法](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/markdown语法.md)
+   - [Node相关](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/node相关.md)
+   - [VsCode的使用](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/vscode的使用.md)
 
 ## 前端
 
