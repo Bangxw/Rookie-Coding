@@ -24,9 +24,9 @@
    - [Bootscript笔记](https://github.com/Bangxw/Rookie-Coding/blob/master/06.Bootstrap/bootstrap.md)
 7. jQuery
    - [jQuery](https://github.com/Bangxw/Rookie-Coding/blob/master/07.jQuery/jqPromise.md)
-8.React
+8. React
    - [React](https://github.com/Bangxw/Rookie-Coding/blob/master/08.React/readme.md)
-9.Other
+9. Other
    - [Markdown语法](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/markdown语法.md)
    - [Node相关](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/node相关.md)
    - [VsCode的使用](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/vscode的使用.md)
@@ -56,7 +56,7 @@
 - MVC是后端分层开发的概念
 - Mvvm是前端分层
 
-![img](JavaScript/lib/mvc&mvvm.png)
+![img](01.Javascript/lib/mvc&mvvm.png)
 
 ### 编程模式
 
