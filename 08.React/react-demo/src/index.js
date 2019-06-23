@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index/index.css';
+import * as serviceWorker from './serviceWorker';
+
 // import App from './index/App';
 // import ClickCounter from './chapter.01/ClickCounter'
 // import ControlPanel from './chapter.02/ControlPanel'
@@ -8,17 +10,11 @@ import './index/index.css';
 // import ControllerPanel from './chapter.03/flux/views/ControllerPanel'
 // import ControllerPanel from './chapter.03/redux.basic/views/ControllerPanel'
 // import ControllerPanel from './chapter.03/redux.smart.dumb/views/ControllerPanel'
-import ControllerPanel from './chapter.03/redux.context/views/ControllerPanel'
-import * as serviceWorker from './serviceWorker';
-
-import store from './Store.js'
-import Provider from './redux'
-
+// import Comp from './chapter.03/redux.context'
+import Comp from './chapter.03/react-redux'
 
 ReactDOM.render(
-  <Provider store={store}>
-    <ControlPanel />
-  </Provider>, document.getElementById('root'));
+  <Comp />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

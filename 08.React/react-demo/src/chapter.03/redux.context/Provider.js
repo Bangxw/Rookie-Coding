@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import { Component } from 'react'
 import PropTypes from 'prop-types'
 
 class Provider extends Component {
   getChildContext() {
     return {
-      store: this.props.Store
+      store: this.props.store
     }
   }
 
@@ -16,3 +16,9 @@ class Provider extends Component {
 Provider.childContextTypes = {
   store: PropTypes.object
 }
+
+Provider.propTypes = {
+  store: PropTypes.object.isRequired
+}
+
+export default Provider
