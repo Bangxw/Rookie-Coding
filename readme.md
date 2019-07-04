@@ -7,11 +7,12 @@
 
 1. JavaScript
    - [JS基础总结](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/01.JavaScript基础总结.md)
-   - [JS算法](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/02.JavaScript算法.md)
-   - [JS常用的8种继承](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/03.Javascript常用的8中继承.md)
-   - [原型对象与原型链](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/04.原型对象与原型链.md)
+   - [Javascript数组操作](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/02.Javascript数组操作.md)
+   - [原型对象与原型链](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/03.原型对象与原型链.md)
+   - [JS常用的8种继承](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/04.Javascript常用的8中继承.md)
    - [ES6文档](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/05.ES6文档.md)
    - [Promies学习](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/06.Promises讲解.md)
+   - [JS算法](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/07.JavaScript算法.md)
 2. Css
    - [Css笔记](https://github.com/Bangxw/Rookie-Coding/blob/master/02.Css/css.md)
 3. Webpack
