@@ -1,9 +1,15 @@
+// 1. 导入包
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-const myH1 = React.createElement('h1', {
-  id: 'myH1',
-  'title': 'this is a h1'
-}, '这是个H1')
+// 2. 创建虚拟DOM元素
 
-ReactDOM.render(myH1, document.getElementById('app'))
+// const myDiv = React.createElement('div', {
+//   id: 'test'
+// }, 'Hello div!')
+
+
+const myDiv = <div id="myDiv" title="div aaa">这是一个div元素</div>
+
+// 3. 调用 render 函数渲染
+ReactDOM.render(myDiv, document.getElementById('app'))
