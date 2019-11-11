@@ -1,83 +1,75 @@
 const path = require('path')
-const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const webpack = require('webpack')
 
 module.exports = {
   mode: 'development',
-  entry: './src/js/index.js',
+  entry: './src/main.js',
   output: {
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
     publicPath: '/',
-    path: path.resolve(__dirname, 'dist')
   },
   plugins: [
-    new ExtractTextPlugin('css/[name]-[hash:8].css'),
-    // new HtmlWebpackPlugin(),
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-      template: './src/template.html', //源模板文件
-      filename: 'index.html',
-      showErrors: true,
-      inject: true,
-      // chunks: ['index'],
-      favicon: './src/images/favicon.ico',
-      hash: true,
-      minify: {
-        caseSensitive: false, //是否大小写敏感
-        removeComments: true, // 去除注释
-        removeEmptyAttributes: true, // 去除空属性
-        collapseWhitespace: true //是否去除空格
-      }
+    new CleanWebpackPlugin(),
+    new webpack.BannerPlugin('©版权所有,翻版必究 2018-10-24'),
+    new MiniCssExtractPlugin({
+      filename: '[name].[hash:4].css',
+      chunkFilename: '[id].css'
     }),
-    new CleanWebpackPlugin(['dist']),
-    new webpack.BannerPlugin('©版权所有,翻版必究 2018-10-24')
+    new HtmlWebpackPlugin({
+      title: 'Hello World APP',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        minifyCSS: true,
+      },
+      filename: 'index.html',
+      template: './src/app.html',
+    }),
   ],
   module: {
-    rules: [
-      {
-        test: /\.(html|htm)$/,
-        use: ['html-loader']
-      },
-      {
-        test: /\.css$/,
-        // use: ["style-loader","css-loader"]
-        use: ExtractTextPlugin.extract({
-          fallback: 'style-loader',
-          use: 'css-loader'
-        })
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif|svg|ico)$/,
-        use: [
-          {
-            loader: 'url-loader',
-            options: {
-              limit: '10240',
-              name: 'img/[name].[hash:8].[ext]'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(ttf|eot|otf|woff|woff2)$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: 'font/[name].[hash:8].[ext]'
-          }
-        }]
-      },
-      {
-        test: /\.xml$/,
-        use: ['xml-loader']
-      }
-    ]
+    rules: [{
+      test: /\.js$/,
+      use: 'babel-loader',
+      exclude: /node_modules/,
+    }, {
+      test: /\.css$/,
+      use: [{
+        loader: MiniCssExtractPlugin.loader,
+        options: {
+          publicPath: '../',
+          hmr: process.env.NODE_ENV === 'development'
+        }
+      }, 'css-loader']
+    }, {
+      test: /\.(ttf|svg|woff|eot)$/,
+      use: [{
+        loader: 'file-loader',
+        options: {
+          name: '[name].[hash:4].[ext]',
+          outputPath: './assets/'
+        }
+      }]
+    }, {
+      test: /\.(png|jpg|jpeg|gif)$/,
+      use: [{
+        loader: 'url-loader',
+        options: {
+          limit: 8192
+        }
+      }]
+    }, {
+      test: /\.xml$/,
+      use: ["xml-loader"]
+    }]
   },
   devServer: {
-    // contentBase: './dist',
+    contentBase: './dist',
     port: 8080,
     inline: true
-  }
+  },
+  devtool: 'eval'
 }
