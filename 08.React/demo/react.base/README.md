@@ -7,7 +7,7 @@
 1. `npm run start`: 启动项目
 2. `npm run distill`: 打包项目，包含map文件
 3. `npm run test`：
-3. `npm run build`: build with no log
+4. `npm run build`: build with no log
 
 ### comment
 

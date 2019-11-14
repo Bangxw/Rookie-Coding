@@ -1,5 +1,17 @@
 # React
 
+## Getting Start
+
+### Quick Start
+
+```js
+npx create-react-app react.app // npx 临时使用create-react-app 用完后会删除
+cd react.app
+npm start
+
+npm eject // 自定义配置  源文件不能有任何改动之前就操作这个命令
+```
+
 1. `npm install --global create-react-app`
 
 React组件的数据分为两种，prop和state
