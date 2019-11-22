@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import '@styles/index.css';
+
 import * as serviceWorker from './serviceWorker';
+
+import App from '@pages/app/App';
+import { MouseTracker, } from '@pages/hooks-org'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

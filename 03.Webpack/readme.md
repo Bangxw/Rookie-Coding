@@ -371,6 +371,7 @@ devServer: {
 - extract-text-webpack-plugin
 - file-loader
 - html-webpack-plugin
+- pre-commit: 项目使用了git，在每次提交前进行代码规范检测
 - style-loader
 - url-loader
 - vue-hot-reload-api
