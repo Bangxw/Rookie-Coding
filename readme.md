@@ -28,8 +28,9 @@
 8. React
    - [React](https://github.com/Bangxw/Rookie-Coding/blob/master/08.React/readme.md)
 9. Other
+   - [每日一题](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/每日一题.md)
+   - [奇淫技巧](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/奇淫技巧.md)
    - [Markdown语法](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/markdown语法.md)
-   - [Node相关](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/node相关.md)
    - [VsCode的使用](https://github.com/Bangxw/Rookie-Coding/blob/master/Other/vscode的使用.md)
 
 ## 前端
