@@ -3,6 +3,8 @@ import { PropTypes, } from 'prop-types'
 import logo from '@images/logo.svg';
 import '@styles/App.css';
 import { Jumbotron, Form, Button, Row, Col, } from 'react-bootstrap'
+import { connect, } from 'react-redux'
+import { INCREASE, DECREASE, } from '@actions/common'
 
 class App extends React.Component {
   static getDerivedFromProps(props, state) {
@@ -12,6 +14,7 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = { msg: 'Learn React', }
+    this.linkHandle = this.linkHandle.bind(this)
   }
 
   componentWillMount() {
@@ -43,6 +46,11 @@ class App extends React.Component {
     console.log('component::will::unmount')
   }
 
+  linkHandle(e) {
+    e && e.preventDefault()
+    this.props.PayIncrease()
+  }
+
   render() {
     return (
       <div className="App" >
@@ -54,14 +62,32 @@ class App extends React.Component {
           <a
             className="App-link"
             href="https://reactjs.org"
+            onClick={this.linkHandle}
             rel="noopener noreferrer"
             target="_blank"
           >
-            {this.state.msg}
+            {this.props.wage}
           </a>
         </header>
       </div>
     );
+  }
+}
+
+function mapStateToProps(state) {
+  return {
+    wage: state,
+  }
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    PayIncrease: () => dispatch({
+      type: INCREASE,
+    }),
+    PayDecrease: () => dispatch({
+      type: DECREASE,
+    }),
   }
 }
 
@@ -170,4 +196,4 @@ UserDisplay.propTypes = {
   age: PropTypes.number.isRequired,
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

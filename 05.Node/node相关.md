@@ -30,10 +30,10 @@ npm_mirror: https://npm.taobao.org/mirrors/npm/
 
 1. 检查是否成功：`nvm -v`
 2. 使用淘宝node镜像：`nvm node_mirror https://npm.taobao.org/mirrors/node/`或者`nvm npm_mirror https://npm.taobao.org/mirrors/npm/`
-3. 安装指定版本的node：`nvm install 8.11.3`
-4. 查看当前电脑的node版本：`nvm ls`
-5. 切换node.js版本：`nvm use 8.11.3`
-6. 查看服务器可用列表：`nvm ls abailable`
+3. 查看服务器可用列表：`nvm ls available`
+4. 安装指定版本的node：`nvm install 8.11.3`
+5. 查看当前电脑的node版本：`nvm ls`
+6. 切换node.js版本：`nvm use 8.11.3`
 
 ## NPM (node package manager)
 

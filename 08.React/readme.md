@@ -31,7 +31,6 @@ UI = render(state)
 
 ## React中核心概念
 
-
 ### Diff算法
 
 * __tree diff__: 新旧两棵DOM树，逐层对比，就是Tree Diff。当整颗DOM逐层对比完毕，则所有需要被按需更新的元素，必然能够找到
@@ -572,3 +571,98 @@ this.setState((state, props) => {
 * UNSAFE_componentWillMount()
 * UNSAFE_componentWillUpdate()
 * UNSAFE_componentWillReceiveProps()
+
+## Redux这个鬼东西
+
+> redux和react没有半毛钱关系，react-redux才是react专门针对react的插件
+
+### 一.先玩玩redux
+
+步骤：
+
+1. 引入`createStore`
+2. 创建action
+3. 创建reducer
+4. 创建store
+5. 订阅事件和派发事件
+
+```js
+import { createStore } from 'redux'
+
+const increase = {
+  type: '涨工资'
+}
+const decrease = {
+  type: '扣工资'
+}
+
+const reducer = (state = 10000, action) => {
+  switch(action.type) {
+    case '涨工资': return state += 100;
+    case '扣工资': return state -= 100;
+    default: return state
+  }
+}
+
+const store = createStore(reducer)
+
+store.subscribe(() => {
+  console.log(store.getState())
+})
+store.dispatch(increase)
+```
+
+### 二.react-redux
+
+步骤：
+
+1. 引入`createStore Provider connect`
+2. 创建action
+3. 创建reducer
+4. 创建store
+5. 定义渲染数据的触发行为的方法
+6. 连接组件
+
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider, connect, } from 'react-redux'
+
+const increase = {
+  type: '涨工资'
+}
+const decrease = {
+  type: '扣工资'
+}
+
+const reducer = (state = 10000, action) => {
+  switch(action.type) {
+    case '涨工资': return state += 100;
+    case '扣工资': return state -= 100;
+    default: return state;
+  }
+}
+
+const store = createStore(reducer)
+
+function mapStateToProps(state) {
+  return {
+    tiger: state
+  }
+}
+function mapDispatchToProps(dispatch) {
+  return {
+    PayIncrease: () => dispatch(increase),
+    PayDecrease: () => dispatch(decrease)
+  }
+}
+
+MyComp = connect(mapStateToProps, mapDispatchToProps)(MyComp)
+
+ReactDOM.render(
+  <Provider store={store}>
+    <MyComp>
+  </Provider>, document.getElementById('root')
+)
+```
