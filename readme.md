@@ -6,8 +6,9 @@
 ## 文章列表
 
 1. JavaScript
-   - [JS基础总结](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/01.JavaScript基础总结.md)
-   - [Javascript数组操作](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/02.Javascript数组操作.md)
+   - [【JS基础】DOM](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/01.【JS基础】DOM.md)
+   - [【JS基础】BOM](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/02.【JS基础】BOM)
+   - [【JS基础】ECMAScript](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/03.【JS基础】ECMAScript.md)
    - [原型对象与原型链](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/03.原型对象与原型链.md)
    - [JS常用的8种继承](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/04.Javascript常用的8中继承.md)
    - [ES6文档](https://github.com/Bangxw/Rookie-Coding/blob/master/01.Javascript/05.ES6文档.md)
