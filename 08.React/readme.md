@@ -5,6 +5,7 @@
 ### Quick Start
 
 ```js
+/* Create a new React app */
 npx create-react-app react.app // npx 临时使用create-react-app 用完后会删除
 cd react.app
 npm start
@@ -14,11 +15,12 @@ npm eject // 自定义配置  源文件不能有任何改动之前就操作这�
 
 ### 配置alias
 
-修改webpack.config.js
+修改`webpack.config.js`
 
 1. `npm install --global create-react-app`
 
 React组件的数据分为两种，prop和state
+
 prop是组件的对外接口，state是组件的内部状态，对外用prop，内部用state
 
 1. View发起Action->
@@ -33,11 +35,11 @@ UI = render(state)
 
 ### Diff算法
 
-* __tree diff__: 新旧两棵DOM树，逐层对比，就是Tree Diff。当整颗DOM逐层对比完毕，则所有需要被按需更新的元素，必然能够找到
-* __component diff__: 在Tree Diff的时候，每一层中，组建级别的对比，叫做Component Diff
-  * 如果对比前后，组件的类型相同，则暂时认为此组建不需要被更新
-  * 如果对比前后，组件类型不同，则需要移除旧组件，创建新组件，并追加到页面上
-* __element diff__: 在进行组件对比的时候，如果两个组件类型相同，则需要进行元素级别的对比，这叫做Element Diff；
+- **tree diff**: 新旧两棵DOM树，逐层对比，就是Tree Diff。当整颗DOM逐层对比完毕，则所有需要被按需更新的元素，必然能够找到
+- **component diff**: 在Tree Diff的时候，每一层中，组建级别的对比，叫做Component Diff
+  - 如果对比前后，组件的类型相同，则暂时认为此组建不需要被更新
+  - 如果对比前后，组件类型不同，则需要移除旧组件，创建新组件，并追加到页面上
+- **element diff**: 在进行组件对比的时候，如果两个组件类型相同，则需要进行元素级别的对比，这叫做Element Diff；
 
 ### 创建Webpack项目
 
