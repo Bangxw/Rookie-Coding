@@ -1,5 +1,23 @@
 # CSS3 重点
 
+## CSS盒模型
+
+一. W3C的标准Box Model => **content-box**
+
+1. *元素空间尺寸*
+   - `Element width = [content width] + [padding] + [border width] + margin`
+2. *元素大小（内盒尺寸计算）*
+   - `Element width = [content width] + [padding] + [border width]`
+
+二. IE传统下Box Model(IE6以下) => **border-box**
+
+> content width包含内容宽度、边框宽度、内距宽度
+
+1. 元素空间尺寸（外盒尺寸计算）
+   - `Element width = [content width] + margin`
+2. 元素大小
+   - `Element width = content Width`
+
 ## 话说Transition这厮
 
 1. *transition-property*：none|all|property
@@ -76,3 +94,12 @@ animation: steps(正整数, start|end)
 
 [贝塞尔曲线讲解](https://www.jianshu.com/p/0c9b4b681724)
 [Cubic-bezier](http://cubic-bezier.com)
+
+## filter()
+
+- `url()`: 接受一个xml文件，该文件设置了一个svg滤镜
+- `blur()`: 高斯模糊
+- `brightness()`: 给图片应用一种线性乘法，使其看起来更亮或更暗。0%全黑，100%无变化，>100%更亮
+- `contrast()`: 调整图像的对比度。0%全黑，100%不变，>100%运用更低的对比度
+- `drop-shadow()`: 给图像设置一个阴影效果
+- 
