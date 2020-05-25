@@ -17,9 +17,9 @@
 11. css3过过渡与动画交互效果
 12. 媒体特性与Responsive布局
 
-## 二、css3选择器
+## 二、CSS3选择器
 
-![seletor](lib/seletor.png)
+![seletor](lib/selector.png)
 
 ### 动态伪类选择器
 
