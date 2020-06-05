@@ -4,13 +4,68 @@
 
 ### Quick Start
 
+#### 利用`create-react-app`直接创建工程
+
+> - 利用`create-react-app`直接创建工程，使用 antd 组件，并自定义 webpack 的配置以满足各类工程化需求
+
 ```js
-/* Create a new React app */
 npx create-react-app react.app // npx 临时使用create-react-app 用完后会删除
 cd react.app
 npm start
 
 npm eject // 自定义配置  源文件不能有任何改动之前就操作这个命令
+```
+
+> - react配置暴露后 实现antd按需加载和自定义主题
+
+```js
+// 1. 安装babel-plugin-import 和less-loader
+npm i babel-plugin-import antd less less-loader
+
+// 2. 修改package.json：添加antd库的样式
+"babel": {
+  "presets": [
+    "react-app"
+  ],
+  "plugins": [
+    [
+      "import",
+      {
+        "libraryName": "antd",
+        "style": "css"
+      }
+    ]
+  ]
+}
+
+// 3. 修改 config/webpack.config.js
+
+// style files regexes
+const cssRegex = /\.css$/;
+const cssModuleRegex = /\.module\.css$/;
+const sassRegex = /\.(scss|sass)$/;
+const sassModuleRegex = /\.module\.(scss|sass)$/;
+// 添加以下两行
+const lessRegex = /\.less$/;  
+const lessModuleRegex = /\.module\.less$/;
+
+// 类比sassModuleRegex, 添加lessRegex和lessModuleRegex 添加到module/rules/oneOf中
+{
+  test: lessRegex,
+  exclude: lessModuleRegex,
+  use: getStyleLoaders({ importLoaders: 2 }, 'less-loader'),
+},
+{
+  test: lessModuleRegex,
+  use: getStyleLoaders(
+    {
+      importLoaders: 2,
+      modules: true,
+      getLocalIdent: getCSSModuleLocalIdent,
+    },
+    'less-loader'
+  ),
+},
 ```
 
 ### 配置alias
