@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box-shadown {
+      width: 200px;
+      height: 100px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin: 20px;
+    }
+
+    div.first {
+      width: 200px;
+      height: 100px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 0 10px #06c;
+      margin: 20px;
+    }
+
+    div.second {
+      width: 200px;
+      height: 100px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      box-shadow: -5px 0 5px red, 0 5px 5px blue, 5px 0 5px green, 0 -5px 5px orange;
+      margin: 20px;
+    }
+
+    .top {
+      box-shadow: 0 -2px 5px red;
+    }
+
+    ._top {
+      box-shadow: 0 -4px 5px -4px red;
+    }
+
+    .right {
+      box-shadow: 2px 0 5px green;
+    }
+
+    ._right {
+      box-shadow: 4px 0 5px -3px green;
+    }
+
+    .bottom {
+      box-shadow: 0 2px 5px blue;
+    }
+
+    ._bottom {
+      box-shadow: 0 4px 5px -3px blue;
+    }
+
+    .left {
+      box-shadow: -2px 0 5px orange;
+    }
+
+    ._left {
+      box-shadow: -5px 0 5px -3px orange;
+    }
+
+    .x-offset-shadow {
+      width: 150px;
+      height: 150px;
+      border-radius: 5px;
+      box-shadow: 10px 0px #ccc;
+      background: orange;
+      text-align: center;
+      font-size: 12px;
+      line-height: 150px;
+      font-family: monaco;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="first"></div>
+  <div class="second"></div>
+  <h4>单边阴影</h4>
+  <div class="box-shadown top"></div>
+  <div class="box-shadown _top"></div>
+  <div class="box-shadown right"></div>
+  <div class="box-shadown _right"></div>
+  <div class="box-shadown bottom"></div>
+  <div class="box-shadown _bottom"></div>
+  <div class="box-shadown left"></div>
+  <div class="box-shadown _left"></div>
+
+  <h1>-----------------------------------</h1>
+  <div class="x-offset-shadow">
+    x-offset: 10px
+  </div>
+</body>
+</html>
