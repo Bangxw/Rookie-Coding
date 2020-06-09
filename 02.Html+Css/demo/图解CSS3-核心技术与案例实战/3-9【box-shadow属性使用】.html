@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <style>
-    .box-shadown {
+    .box-shadow {
       width: 200px;
       height: 100px;
       border-radius: 5px;
@@ -74,6 +74,33 @@
       line-height: 150px;
       font-family: monaco;
     }
+
+    .blur-radius-shadow {
+      width: 150px;
+      height: 150px;
+      border-radius: 5px;
+      box-shadow: 0 0 0px #aaa;
+      background: orange;
+      text-align: center;
+      font-size: 12px;
+      line-height: 150px;
+      font-family: monaco;
+      margin: 50px;
+    }
+
+    .spread-radius-shadow {
+      width: 150px;
+      height: 150px;
+      border-radius: 5px;
+      box-shadow: 0 0 0 10px #aaa;
+      background: orange;
+      text-align: center;
+      font-size: 12px;
+      line-height: 150px;
+      font-family: monaco;
+      margin: 50px;
+    }
+    
   </style>
 </head>
 <body>
@@ -81,18 +108,113 @@
   <div class="first"></div>
   <div class="second"></div>
   <h4>单边阴影</h4>
-  <div class="box-shadown top"></div>
-  <div class="box-shadown _top"></div>
-  <div class="box-shadown right"></div>
-  <div class="box-shadown _right"></div>
-  <div class="box-shadown bottom"></div>
-  <div class="box-shadown _bottom"></div>
-  <div class="box-shadown left"></div>
-  <div class="box-shadown _left"></div>
+  <div class="box-shadow top"></div>
+  <div class="box-shadow _top"></div>
+  <div class="box-shadow right"></div>
+  <div class="box-shadow _right"></div>
+  <div class="box-shadow bottom"></div>
+  <div class="box-shadow _bottom"></div>
+  <div class="box-shadow left"></div>
+  <div class="box-shadow _left"></div>
 
   <h1>-----------------------------------</h1>
   <div class="x-offset-shadow">
     x-offset: 10px
   </div>
+
+  <div class="blur-radius-shadow">
+    box-shadow
+  </div>
+
+  <div class="spread-radius-shadow">
+    spread-radius: 10px;
+  </div>
 </body>
+</html> -->
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>HTML5 Preview Panel</title>
+  <style>
+    div.buttons {
+      background: #000;
+      padding-left: 50px;
+    }
+
+    button {
+      color: var(--color);
+      transition: 0.25s;
+    }
+
+    .raise {
+      --color: #e6b422;
+      --hover: #f0c239;
+    }
+
+    .up {
+      --color: #f05654;
+      --hover: #40de5a;
+    }
+
+    .raise:hover,
+    .raise:focus {
+      box-shadow: 0 0.7em 0.5em -0.4em var(--hover);
+      transform: translateY(-0.25em);
+    }
+
+    .up:hover,
+    .up:focus {
+      box-shadow: inset 0 -3.25em 0 0 var(--hover);
+    }
+
+    button:hover,
+    button:focus {
+      border-color: var(--hover);
+      color: #fff;
+    }
+
+    button {
+      background: none;
+      border: 2px solid;
+      line-height: 1;
+      margin: 0.5em;
+      padding: 1em 2em;
+    }
+
+    .circle {
+      position: relative;
+      cursor: pointer;
+      width: 220px;
+      height: 220px;
+      overflow: hidden;
+      margin: 40px;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, .032);
+      transition: 0.25s;
+    }
+
+    .circle:hover {
+      background: transparent;
+      box-shadow:
+        inset 36px 0 0 hsla(90, 50%, 40%, 0.4),
+        inset 0 36px 0 hsla(240, 50%, 40%, 0.2),
+        inset -36px 0 0 hsla(300, 50%, 40%, 0.2),
+        inset 0 -36px 0 hsla(60, 50%, 40%, 0.2);
+
+    }
+  </style>
+</head>
+
+<body>
+  <div class="buttons">
+    <button class="raise">Raise</button>
+    <button class="up">Fill Up</button>
+  </div>
+
+  <div class="circle"></div>
+</body>
+
 </html>
