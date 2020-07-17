@@ -1,23 +1,5 @@
 # CSS3 重点
 
-## CSS盒模型
-
-一. W3C的标准Box Model => **content-box**
-
-1. *元素空间尺寸*
-   - `Element width = [content width] + [padding] + [border width] + margin`
-2. *元素大小（内盒尺寸计算）*
-   - `Element width = [content width] + [padding] + [border width]`
-
-二. IE传统下Box Model(IE6以下) => **border-box**
-
-> content width包含内容宽度、边框宽度、内距宽度
-
-1. 元素空间尺寸（外盒尺寸计算）
-   - `Element width = [content width] + margin`
-2. 元素大小
-   - `Element width = content Width`
-
 ## 话说Transition这厮
 
 1. *transition-property*：none|all|property

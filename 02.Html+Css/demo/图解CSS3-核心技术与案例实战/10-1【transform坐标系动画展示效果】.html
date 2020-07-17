@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 51px;
+      background: url(./images/axis.png) no-repeat;
+    }
+
+    .axis-orgin {
+      position: relative;
+      z-index: 1;
+    }
+
+    div.t-before {
+      position: absolute;
+      box-sizing: border-box;
+      left: 0;
+      top: 0;
+      width: 140px;
+      height: 86.52px;
+      border: 1px dashed #000;
+    }
+
+    div.t-after {
+      position: relative;
+      box-sizing: border-box;
+      width: 140px;
+      height: 86.52px;
+      font-size: 12px;
+      font-family: consolas;
+      color: #fff;
+      transition: all 5s linear;
+      transform-origin: 0 0;
+      background: linear-gradient(to bottom, rgba(130, 207, 241, 1) 0%, rgba(56, 174, 234, 1) 100%);
+      padding: 5px;
+    }
+
+    .btns-field {
+      position: relative;
+      margin-left: 350px;
+      margin-top: -100px;
+      z-index: 2;
+    }
+
+    .button-bevel {
+      min-width: 80px;
+      padding: 4px 0;
+      margin: 8px 5px;
+      vertical-align: top;
+      border-radius: 4px;
+      border: none;
+      font: 12px bold;
+      text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+      text-decoration: none;
+      color: #fff;
+      box-shadow: #1994d3 0 3px 2px, rgba(0, 0, 0, 0.3) 0 8px 6px;
+      background: linear-gradient(to bottom, rgba(130, 207, 241, 1) 0%, rgba(56, 174, 234, 1) 100%);
+      transition: 0.1s linear;
+      cursor: pointer;
+      outline: none;
+    }
+
+    #btn-matrix,
+    #btn-mulMatrix {
+      box-shadow: #dc6903 0 3px 2px, rgba(0, 0, 0, 0.3) 0 8px 6px;
+      background: linear-gradient(to bottom, rgba(252, 167, 91, 1) 0%, rgba(255, 120, 0, 1) 100%);
+    }
+
+    .button-bevel:active {
+      position: relative;
+      top: 3px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="axis-orgin">
+    <div class="t-before"></div>
+    <div class="t-after"></div>
+  </div>
+
+  <div class="btns-field">
+    <button class="button-bevel" id="btn-translate">translate();</button><br />
+    <button class="button-bevel" id="btn-rotate">rotate();</button><br />
+    <button class="button-bevel" id="btn-scale">scale();</button><br />
+    <button class="button-bevel" id="btn-skew">skew</button><button class="button-bevel"
+      id="btn-matrix">matrix();</button><br>
+    <button id="btn-mulFunc" class="button-bevel">&nbsp;transform: translate(90px, 60px)
+      rotate(30deg)&nbsp;</button><br>
+    <button id="btn-mulMatrix" class="button-bevel">&nbsp;transform: matrix(0.866025, 0.5, -0.5, 0.866025, 90, 60)
+      &nbsp;</button>
+  </div>
+
+  <script>
+    let tAfter = document.getElementsByClassName('t-after')[0]
+
+    const tx = 90, ty = 60;
+    const scaleX = 0.64, scaleY = 0.68;
+    const rXita = 30;
+    const skewX = 20, skewY = 20;
+
+    document.getElementById('btn-translate').onclick = function () {
+      tranFunc(`translate(${tx}px, ${ty}px)`);
+    }
+
+    document.getElementById('btn-scale').onclick = function () {
+      tranFunc(`scale(${scaleX}, ${scaleY})`);
+    }
+
+    document.getElementById('btn-rotate').onclick = function () {
+      tranFunc(`rotate(${rXita}deg)`);
+    }
+
+    document.getElementById('btn-skew').onclick = function () {
+      tranFunc(`skew(${skewX}deg, ${skewY}deg)`);
+      // tranFunc(`skewX(${skewX}deg`);
+      // tranFunc(`skewY(${skewY}deg`);
+    }
+
+    document.getElementById('btn-mulFunc').onclick = function () {
+      tranFunc(`translate(90px, 60px) rotate(30deg)`);
+    }
+
+    document.getElementById('btn-matrix').onclick = function () {
+      // translate
+      // tAfter.style.transform = `matrix(1, 0, 0, 1, ${tx}, ${ty})`
+
+      // scale
+      // tAfter.style.transform = `matrix(${scaleX}, 0, 0, ${scaleY}, 0, 0)`
+
+      // rotate
+      // tAfter.style.transform = `matrix(${Math.cos(Math.PI / 180 * rXita)}, ${Math.sin(Math.PI / 180 * rXita)}, ${-Math.sin(Math.PI / 180 * rXita)}, ${Math.cos(Math.PI / 180 * rXita)}, 0, 0)`
+
+      // skew
+      tAfter.style.transform = `matrix(1, ${Math.tan(Math.PI / 180 * skewY)}, ${Math.tan(Math.PI / 180 * skewX)}, 1, 0, 0)`
+
+      tAfter.style.background = `linear-gradient(to bottom, rgba(252, 167, 91, 1) 0%, rgba(255, 120, 0, 1) 100%)`
+      tAfter.innerHTML = tAfter.style.transform
+    }
+
+    document.getElementById('btn-mulMatrix').onclick = function () {
+
+      const radianR = Math.PI / 180 * rXita;
+
+      // tAfter.style.transform = `matrix(1, 0, 0, 1, ${tx}, ${ty}) 
+      //                           matrix(${Math.cos(radianR)}, ${Math.sin(radianR)}, ${-Math.sin(radianR)}, ${Math.cos(radianR)}, 0, 0)
+      //                           matrix(${scaleX}, 0, 0, ${scaleY}, 0, 0)
+      //                           matrix(1, ${Math.tan(Math.PI / 180 * skewY)}, ${Math.tan(Math.PI / 180 * skewX)}, 1, 0, 0)`
+
+      tAfter.style.transform = `matrix(${Math.cos(radianR)}, ${Math.sin(radianR)}, ${-Math.sin(radianR)}, ${Math.cos(radianR)}, ${tx}, ${ty})`
+
+      tAfter.style.background = `linear-gradient(to bottom, rgba(252, 167, 91, 1) 0%, rgba(255, 120, 0, 1) 100%)`
+      tAfter.innerHTML = tAfter.style.transform
+    }
+
+    function tranFunc(param) {
+      tAfter.style.transform = param;
+      tAfter.style.background = `linear-gradient(to bottom, rgba(130, 207, 241, 1) 0%, rgba(56, 174, 234, 1) 100%)`
+      tAfter.innerHTML = tAfter.style.transform
+    }
+  </script>
+</body>
+
+</html>
