@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background: url(images/timing-function.png) no-repeat 0 463px;
+    }
+
+    div {
+      border: 1px solid #ccc;
+      padding: 5px;
+      width: 600px;
+      font-size: 12px;
+      font-family: 'consolas';
+      margin-bottom: 20px;
+      line-height: 18px;
+    }
+
+    div>span {
+      display: block;
+      line-height: 20px;
+      background: #f00;
+      margin: 5px 0;
+      color: #fff;
+      text-indent: 10px;
+      width: 200px;
+      word-wrap: normal;
+      word-break: keep-all;
+    }
+
+    div.steps span {
+      width: 150px;
+    }
+
+    div.bezier span:nth-of-type(1) {
+      transition-timing-function: ease;
+    }
+
+    div.bezier span:nth-of-type(2) {
+      transition-timing-function: ease-in;
+    }
+
+    div.bezier span:nth-of-type(3) {
+      transition-timing-function: ease-out;
+    }
+
+    div.bezier span:nth-of-type(4) {
+      transition-timing-function: ease-in-out;
+    }
+
+    div.bezier span:nth-of-type(5) {
+      transition-timing-function: linear;
+    }
+
+    div.bezier span:nth-of-type(6) {
+      transition-timing-function: cubic-bezier(0.3, 0, 0.7, 2);
+    }
+
+    div.steps span:nth-of-type(1) {
+      transition-timing-function: steps(5, jump-start);
+    }
+
+    div.steps span:nth-of-type(2) {
+      transition-timing-function: steps(5, jump-end);
+    }
+
+    div.steps span:nth-of-type(3) {
+      transition-timing-function: steps(5, jump-none);
+    }
+
+    div.steps span:nth-of-type(4) {
+      transition-timing-function: steps(5, jump-both);
+    }
+
+    div.steps span:nth-of-type(5) {
+      transition-timing-function: step-start;
+    }
+
+    div.steps span:nth-of-type(6) {
+      transition-timing-function: step-end;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bezier">
+    transition: width 10s; <br>
+    width: 600px;
+    <span>ease</span>
+    <span>ease-in</span>
+    <span>ease-out</span>
+    <span>ease-in-out</span>
+    <span>linear</span>
+    <span>cubic-bezier(0.3, 0, 0.7, 2)</span>
+  </div>
+
+  <div class="steps">
+    transform: translate(450px); <br>
+    transition: transform 10s;
+    <div id="stepTime" style="width: auto; margin: 0;margin-top: 5px;">
+      Time: 0s
+    </div>
+    <span>steps(5, jump-start)</span>
+    <span>steps(5, jump-end)</span>
+    <span>steps(5, jump-none)</span>
+    <span>steps(5, jump-both)</span>
+    <span>step-start</span>
+    <span>step-end</span>
+  </div>
+  <br>
+  <button id="btn-bezier">cubic-bezier</button>
+  <button id="btn-steps">steps</button>
+
+  <script>
+    document.getElementById('btn-bezier').onclick = function () {
+      let bezier = document.getElementsByClassName('bezier')[0]
+      let bezierSon = bezier.children
+      for (var i = 0; i < bezierSon.length; i++) {
+        if (bezierSon[i].tagName.toLowerCase() == 'span') {
+          bezierSon[i].style.transitionDuration = '10s'
+          bezierSon[i].style.width = "600px"
+        }
+      }
+    }
+    document.getElementById('btn-steps').onclick = function () {
+      let steps = document.getElementsByClassName('steps')[0]
+      let stepsSon = steps.children
+      for (var i = 0; i < stepsSon.length; i++) {
+        if (stepsSon[i].tagName.toLowerCase() == 'span') {
+          stepsSon[i].style.transitionDuration = '10s'
+          stepsSon[i].style.transform = 'translate(450px)'
+        }
+      }
+
+      let t = 0
+      let timer = setInterval(function () {
+        t = t + 100
+        if (t == 2000 || t == 4000 || t == 6000 || t == 8000 || t == 10000) document.getElementById('stepTime').innerHTML = "Time：<b style='color: green'>" + t / 1000 + 's</b>'
+        if (t > 10000) clearInterval(timer)
+      }, 100)
+    }
+  </script>
+</body>
+
+</html>
