@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex布局</title>
+  <style>
+    .wrap {
+      border: 2px dashed darkolivegreen;
+      width: 120px;
+      height: 180px;
+      font-size: 12px;
+      float: left;
+      margin: 0 50px 50px 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .wrap>div {
+      width: 30px;
+      text-align: center;
+      line-height: 30px;
+    }
+
+    .wrap>div:nth-of-type(1) {
+      background: rgba(255, 0, 0, 0.3);
+    }
+
+    .wrap>div:nth-of-type(2) {
+      background: rgba(0, 255, 0, 0.3);
+    }
+
+    .wrap>div:nth-of-type(3) {
+      background: rgba(0, 0, 255, 0.3);
+    }
+
+    .wrap>div:nth-of-type(4) {
+      background: rgba(0, 255, 255, 0.3);
+    }
+
+    .wrap>div:nth-of-type(5) {
+      background: rgba(255, 0, 255, 0.3);
+    }
+
+    .wrap>div:nth-of-type(6) {
+      background: rgba(255, 255, 0, 0.3);
+    }
+
+    .wrap>div:nth-of-type(7) {
+      background: rgba(128, 0, 0, 0.3);
+    }
+
+    .wrap>div:nth-of-type(8) {
+      background: rgba(0, 128, 0, 0.3);
+    }
+
+    .wrap>div:nth-of-type(9) {
+      background: rgba(0, 0, 128, 0.3);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap" style="align-items: flex-start;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="wrap" style="align-items: center;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="wrap" style="align-items: flex-end;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="wrap" style="align-items: stretch;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+  <div class="wrap" style="align-items: baseline;">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+  </div>
+</body>
+
+</html>

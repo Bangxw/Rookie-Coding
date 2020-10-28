@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>裸奔白菜-渐变实例</title>
+  <style>
+    /* 纸张 */
+    div:first-child {
+      position: relative; width: 215px; height: 270px; border: 29px solid #f9f9f9; background-size: 100% 30px; box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+      background-image: repeating-linear-gradient(to top, #f9f9f9, #f9f9f9 29px, #ccc 30px);
+    }
+    div:first-child>span {
+      font-size: 12px; position: absolute; bottom: 10px; right: 0px; color: #ccc; font-family: '宋体';
+    }
+
+    /* 进度条/斑马线 */
+    div:nth-of-type(2) {
+      height: 15px; width: 215px; border: 1px solid #ccc; border-radius: 10px; animation: loading 5s linear infinite;
+      background-image: repeating-linear-gradient(45deg, #f9f9f9, #f9f9f9 15px, #1294f6 15px, #1294f6 30px); 
+    }
+
+    @keyframes loading {
+      from { background-position-x: 0px; }
+      to { background-position-x: 215px; }
+    }
+
+    /* 黑白棋盘 */
+    div:nth-of-type(3) {
+      width: 250px; height: 250px; box-shadow: 0 1px 25px #000;
+      background: repeating-conic-gradient(#fff, #fff 90deg, #000 90deg, #000 180deg); 
+      background-size: 50px 50px;
+    }
+
+    /* 太极 */
+    div:nth-of-type(4) {
+      width: 200px; height: 200px; border-radius: 50%; box-shadow: 0 1px 25px #000;
+      background-image:
+        radial-gradient(circle 100px at center 50px, #000, #000 15px, #fff 15px, #fff 50%, transparent 50%),
+        radial-gradient(circle 100px at center 150px, #fff, #fff 15px, #000 15px, #000 50%, transparent 50%),
+        conic-gradient(#fff, #fff 50%, #000 50%);
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <span>晨光文具</span>
+  </div><br>
+
+  <div></div><br>
+
+  <div></div><br>
+
+  <div></div>
+</body>
+
+</html>

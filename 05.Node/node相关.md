@@ -30,10 +30,10 @@ npm_mirror: https://npm.taobao.org/mirrors/npm/
 
 1. 检查是否成功：`nvm -v`
 2. 使用淘宝node镜像：`nvm node_mirror https://npm.taobao.org/mirrors/node/`或者`nvm npm_mirror https://npm.taobao.org/mirrors/npm/`
-3. 安装指定版本的node：`nvm install 8.11.3`
-4. 查看当前电脑的node版本：`nvm ls`
-5. 切换node.js版本：`nvm use 8.11.3`
-6. 查看服务器可用列表：`nvm ls abailable`
+3. 查看服务器可用列表：`nvm ls available`
+4. 安装指定版本的node：`nvm install 8.11.3`
+5. 查看当前电脑的node版本：`nvm ls`
+6. 切换node.js版本：`nvm use 8.11.3`
 
 ## NPM (node package manager)
 
@@ -62,3 +62,18 @@ npm_mirror: https://npm.taobao.org/mirrors/npm/
 * `npm i nrm -g` 全局安装
 * `nrm ls` 查看当前所有可用镜像源地址以及当前所使用的镜像源地址
 * 使用 `nrm use npm` 切换不同的镜像源地址
+
+## NPX
+
+> 这个是在 npmv5.2.0引入的一条命令（查看），引入这个命令的目的是为了提升开发者使用包内提供的命令行工具的体验。
+
+```JS
+npx create-react-app my-cool-new-app // 这条命令会临时安装 create-react-app 包，命令完成后会删掉，不会出现在 global中。下次再执行，还是会重新临时安装。
+```
+
+特点：
+
+* 临时安装可执行依赖包，不用全局安装，不用担心长期的污染。
+* 可以执行依赖包中的命令，安装完成自动运行。
+* 自动加载node_modules中依赖包，不用指定$PATH。
+* 可以指定node版本、命令的版本，解决了不同项目使用不同版本的命令的问题。

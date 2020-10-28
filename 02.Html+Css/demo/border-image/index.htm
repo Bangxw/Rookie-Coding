@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style type="text/css">
+    div {
+      width: 120px;
+      height: 60px;
+      border: 27px solid #000;
+      margin-bottom: 50px;
+      margin-left: 200px;
+    }
+
+    code {
+      position: absolute;
+      font: 10px Consolas;
+      color: #50a14f;
+    }
+
+    div:nth-child(1) {
+      border-image: url(./border.png) 27 stretch;
+    }
+
+    div:nth-child(2) {
+      border-image: url(./border.png) 27 repeat;
+    }
+
+    div:nth-child(3) {
+      border-image: url(./border.png) 27 round;
+    }
+
+    div:nth-child(4) {
+      border-image: url(./border.png) 27 space;
+    }
+
+    div:nth-child(5) {
+      border-image: url(./border.png) 30% 35% 40% 20%;
+    }
+
+    div:nth-child(6) {
+      border-image: url(./border-circle.png) 27 round;
+    }
+
+    div:nth-child(7) {
+      border-image: url(./border-circle.png) 27 fill round;
+    }
+
+    div:nth-child(8) {
+      border-image: url(./border-circle.png) 20 fill space;
+    }
+
+    div:nth-child(9) {
+      border-image: url(./border-circle.png) 27 round;
+      border-image-outset: 70px;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <code>
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border.png) 27 <span style="color: tomato;font-weight: bold;">stretch</span>;
+    </code>
+  </div>
+  <div>
+    <code>
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border.png) 27 <span style="color: tomato;font-weight: bold;">repeat</span>;
+    </code>
+  </div>
+  <div>
+    <code>
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border.png) 27 <span style="color: tomato;font-weight: bold;">round</span>;
+    </code>
+  </div>
+  <div>
+    <code>
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border.png) 27 <span style="color: tomato;font-weight: bold;">space</span>;
+    </code>
+  </div>
+  <div>
+    <code>
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border.png) 27 <span style="color: tomato;font-weight: bold;">space</span>;
+    </code>
+  </div>
+  <div>
+    <code style="color: #000;">
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border-circle.png) 27 round;
+    </code>
+  </div>
+  <div>
+    <code style="margin-left: 150px;color: #000;">
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border-circle.png) 27 fill round;
+    </code>
+  </div>
+  <div>
+    <code style="margin-left: 150px;color: #000;">
+      width: 120px;<br>
+      height: 60px;<br>
+      border: 27px solid #000;<br>
+      border-image: url(./border-circle.png) 20 fill space;
+    </code>
+  </div>
+
+  <div>
+    <code style="margin-left: 150px;color: #000;"></code>
+  </div>
+
+  <span style="display: block;height: 200px;"></span>
+</body>
+
+</html>

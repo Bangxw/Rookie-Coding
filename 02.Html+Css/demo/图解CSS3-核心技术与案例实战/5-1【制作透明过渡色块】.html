@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    table {
+      border-collapse: collapse;
+      text-align: center;
+    }
+
+    td {
+      width: 80px;
+      height: 80px;
+    }
+
+    tr:nth-of-type(2) td{
+      background: red;
+    }
+
+    tr:nth-of-type(3) td{
+      background: green;
+    }
+
+    tr:nth-of-type(4) td{
+      background: blue;
+    }
+
+    tr td:first-child {
+      background: #000;
+      color: #fff;
+    }
+
+    tr td:nth-of-type(2) {
+      opacity: 1;
+    }
+
+    tr td:nth-of-type(3) {
+      opacity: 0.8;
+    }
+
+    tr td:nth-of-type(4) {
+      opacity: 0.6;
+    }
+
+    tr td:nth-of-type(5) {
+      opacity: 0.4;
+    }
+
+    tr td:nth-of-type(6) {
+      opacity: 0.2;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo">
+    <div class="row">
+      <table>
+        <tr style="background: #000;color: #fff;">
+          <td></td>
+          <td>1.0</td>
+          <td>0.8</td>
+          <td>0.6</td>
+          <td>0.4</td>
+          <td>0.2</td>
+        </tr>
+        <tr>
+          <td>red</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>green</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>blue</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</body>
+
+</html>

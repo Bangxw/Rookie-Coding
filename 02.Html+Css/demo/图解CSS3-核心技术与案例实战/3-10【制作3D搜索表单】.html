@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>制作3D搜索表单</title>
+  <style>
+    #formWarpper {
+      width: 450px;
+      padding: 8px;
+      margin: 20px;
+      overflow: hidden;
+      border-width: 1px;
+      border-style: solid;
+      border-color: #dedede #bababa #aaa #bababa;
+      box-shadow:
+        0 3px 3px rgba(255, 255, 255, .1),
+        0 3px 0 #bbb,
+        0 4px 0 #aaa,
+        0 5px 5px #444;
+      border-radius: 10px;
+      background-color: #f6f6f6;
+      background-image: linear-gradient(top, #f6f6f6, #eae8e8);
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#eae8e8));
+    }
+
+    #formWarpper .search {
+      width: 330px;
+      height: 20px;
+      padding: 10px 5px;
+      float: left;
+      font: bold 16px 'lucida sans', 'trebuchet MS', 'Tahoma';
+      border: 1px solid #ccc;
+      box-shadow: 0 1px 1px #ddd inset, 0 1px 0 #fff;
+      border-radius: 3px;
+    }
+
+    #formWarpper .search:focus {
+      outline: 0;
+      border-color: #aaa;
+      box-shadow: 0 1px 1px #bbb inset;
+    }
+
+    #formWarpper .search::-webkit-input-placeholder {
+      color: #999;
+      font-weight: normal;
+    }
+
+    #formWarpper .btn {
+      float: right;
+      border: 1px solid #00748f;
+      height: 42px;
+      width: 100px;
+      padding: 0;
+      cursor: pointer;
+      font: bold 15px Arial, Helvetica;
+      color: #fafafa;
+      text-transform: uppercase;
+      background-color: #0483a0;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#31b2c3), to(#0483a0));
+      border-radius: 3px;
+      text-shadow: 0 1px 0 rgba(0, 0, 0, .3);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .3) inset, 0 1px 0 #fff;
+    }
+
+    #formWrapper .btn:hover,
+    #fromWrapper .btn:focus {
+      background-color: #31b2c3;
+      background-image: -webkit-gradient(linear, left top, left bottom, from(#0483a0), to(#31b2c3));
+    }
+
+    #fromWrapper .btn:active {
+      outline: 0;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, .5) inset;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="" id="formWarpper">
+    <div class="formFiled clearfix">
+      <input type="text" placeholder="Search for CSS3, HTML5, jQuery..." class="search">
+      <input type="submit" class="btn submit" value="go">
+    </div>
+  </form>
+</body>
+
+</html>

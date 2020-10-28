@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>:not 选择器使用</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0
+    }
+
+    ul {
+      width: 690px;
+      margin: 20px auto;
+      letter-spacing: -4px;
+      word-spacing: -4px;
+      font-size: 0;
+    }
+
+    li {
+      font-size: 16px;
+      letter-spacing: normal;
+      word-spacing: normal;
+      display: inline-block;
+      *display: inline;
+      zoom: 1;
+      list-style: none outside none;
+      margin: 5px;
+    }
+
+    img {
+      width: 128px;
+      height: 128px;
+    }
+
+    .gallery li:nth-child(2) {
+      filter: grayscale(1); /* 灰度图像 */
+    }
+
+    .gallery li:nth-child(3) {
+      filter: sepia(1); /* 将图像转换为深褐色 */
+    }
+
+    .gallery li:nth-child(4) {
+      filter: saturate(0.5); /* 饱和度 */
+    }
+
+    .gallery li:nth-child(5) {
+      filter: hue-rotate(90deg); /* 色相旋转 */
+    }
+
+    .gallery li:nth-child(6) {
+      filter: invert(1) /* 反色 */
+    }
+
+    .gallery li:nth-child(7) {
+      filter: opacity(0.2) /* 透明度 */
+    }
+
+    .gallery li:nth-child(8) {
+      filter: blur(3px); /* 模糊 */
+    }
+
+    .gallery li:nth-child(9) {
+      filter: drop-shadow(5px 5px 5px #ccc); /* 阴影 */
+    }
+
+    .gallery li:nth-child(10) {
+      filter: saturate(6) hue-rotate(361deg) brightness(.09);
+    }
+
+    .gallery:hover li:not(:hover) {
+      filter: blur(2px) grayscale(1);
+      opacity: .7;
+    }
+  </style>
+</head>
+
+<body>
+  <ul class="gallery">
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+    <li>
+      <img src="http://www.w3cplus.com/sites/default/files/filter.jpg" alt="">
+    </li>
+  </ul>
+</body>
+
+</html>

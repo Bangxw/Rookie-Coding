@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>制作话边框</title>
+  <style type="text/css">
+    .demo {
+      width: 240px;
+      border: 20px solid rgba(104, 104, 142, .5);
+      border-radius: 10px;
+      padding: 80px 60px;
+      color: #f36;
+      font-size: 25px;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    .multipleBg {
+      background:
+        url(./images/bg-tl.png) no-repeat left top,
+        url(./images/bg-tr.png) no-repeat right top,
+        url(./images/bg-bl.png) no-repeat left bottom,
+        url(./images/bg-br.png) no-repeat right bottom,
+        url(./images/bg-repeat.png) repeat left top;
+      background-origin: border-box, border-box, border-box, border-box, padding-box;
+      background-clip: border-box;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="demo multipleBg">我使用了五张背景图片。制作这样的效果 </div>
+</body>
+
+</html>

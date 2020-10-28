@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    div {
+      border: 1px solid #ccc;
+      padding: 5px;
+      width: 600px;
+      font-size: 12px;
+      font-family: 'consolas';
+      margin-bottom: 20px;
+      line-height: 18px;
+    }
+
+    div>span {
+      display: block;
+      line-height: 20px;
+      background: #f00;
+      margin: 5px 0;
+      color: #fff;
+      text-indent: 10px;
+      width: 200px;
+      word-wrap: normal;
+      word-break: keep-all;
+    }
+
+    div.animation-field span {
+      width: 150px;
+      animation-duration: 5s;
+      animation-iteration-count: 4;
+      animation-fill-mode: forwards;
+    }
+
+    div.animation-field span:nth-of-type(1) {
+      animation-direction: normal;
+    }
+
+    div.animation-field span:nth-of-type(2) {
+      animation-direction: reverse;
+    }
+
+    div.animation-field span:nth-of-type(3) {
+      animation-direction: alternate;
+    }
+
+    div.animation-field span:nth-of-type(4) {
+      animation-direction: alternate-reverse;
+    }
+
+    @keyframes move450 {
+      from {
+        transform: translate(0);
+      }
+
+      to {
+        transform: translate(450px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="animation-field">
+    <div id="stepTime" style="width: auto; margin: 0;margin-top: 5px;">
+      animation-duration: 10s;<br>
+      animation-iteration-count: 2;<br>
+      animation-fill-mode: forwards;
+    </div>
+    <span>normal</span>
+    <span>reverse</span>
+    <span>alternate</span>
+    <span>alternate-reverse</span>
+  </div>
+  <br>
+  <button id="start">start</button>
+
+  <script>
+    document.getElementById('start').onclick = function () {
+      let moveSpan = document.getElementsByClassName('animation-field')[0]
+      let moveSpanSon = moveSpan.children
+      for (var i = 0; i < moveSpanSon.length; i++) {
+        if (moveSpanSon[i].tagName.toLowerCase() == 'span') {
+          moveSpanSon[i].style.animationName = 'move450'
+        }
+      }
+
+      // let t = 0
+      // let timer = setInterval(function () {
+      //   t = t + 100
+      //   if (t == 2000 || t == 4000 || t == 6000 || t == 8000 || t == 10000) document.getElementById('stepTime').innerHTML = "Time：<b style='color: green'>" + t / 1000 + 's</b>'
+      //   if (t > 10000) clearInterval(timer)
+      // }, 100)
+    }
+  </script>
+</body>
+
+</html>

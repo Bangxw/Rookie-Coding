@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS3线性渐变——从顶部到底部渐变</title>
+  <style>
+    .first-field>div {
+      width: 400px;
+      height: 100px;
+      border: 1px solid #666;
+      line-height: 100px;
+      text-align: center;
+      font-weight: 900;
+      font-size: 15px;
+      color: #fff;
+      margin: 10px auto;
+    }
+
+    .toTop {
+      background-image: linear-gradient(to top, orange, green);
+    }
+
+    .toTop-deg {
+      background-image: linear-gradient(0deg, red, orange, yellow, green, blue, indigo, violet);
+    }
+
+    .toBottom {
+      background-image: linear-gradient(to bottom, orange, green);
+    }
+
+    .toBottom-deg {
+      background-image: linear-gradient(180deg, orange, green);
+    }
+
+    .toTopLeft {
+      background-image: linear-gradient(to top left, orange, green);
+    }
+
+    .toTopLeft-deg {
+      background-image: linear-gradient(337.5deg, orange, green);
+    }
+
+    .line-block {
+      width: 1000px;
+      border-radius: 5px;
+      border: 2px solid #000;
+      background: #fff;
+      margin: 15px auto;
+      position: relative;
+    }
+
+    .line-block>div {
+      border-radius: 3px;
+      height: 40px;
+      border: 2px solid #fff;
+    }
+
+    div.cursor {
+      position: absolute;
+      height: 55px;
+      width: 16px;
+      top: -10px;
+      margin-left: -11px;
+      border: 3px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 3px 5px #aaa;
+    }
+
+    div.cursor::before {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: block;
+      content: "";
+      width: 12px;
+      height: 51px;
+      border-radius: 8px;
+      border: 2px solid #000;
+    }
+
+    div.cursor::after {
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      display: block;
+      content: "";
+      width: 6px;
+      height: 45px;
+      border-radius: 8px;
+      border: 3px solid #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="first-field">
+    <div class="toTop">使用关键词：top</div>
+    <div style="background-image: repeating-linear-gradient(to top, orange 60px, green 90px);">使用关键词：top</div>
+    <div class="toTop-deg">使用角度：0deg/360deg/-360deg</div>
+    <hr>
+    <div class="toBottom">使用关键字：to bottom</div>
+    <div class="toBottom-deg">使用角度：180deg/-180deg</div>
+    <hr>
+    <div class="toTopLeft">使用关键字：top left</div>
+    <div class="toTopLeft-deg">使用角度：337.5deg/-22.5deg</div>
+  </div>
+
+  <hr>
+  <div class="line-block">
+    <div style="background: linear-gradient(90deg, red 0%,green 40%, blue 80%);"></div>
+    <div class="cursor" style="left: 0; background: red;"></div>
+    <div class="cursor" style="left: 40%; background: green;"></div>
+    <div class="cursor" style="left: 80%; background: blue;"></div>
+  </div>
+
+  <div class="line-block">
+    <div style="background: linear-gradient(90deg, red 0%, 20%,green 40%, blue 80%);"></div>
+    <div class="cursor" style="left: 0; background: red;"></div>
+    <div class="cursor" style="left: 40%; background: green;"></div>
+    <div class="cursor" style="left: 80%; background: blue;"></div>
+  </div>
+
+  <div style="margin:0 auto;background:linear-gradient(90deg, red, orange 10% 30%, yellow 50% 70%, green 90%); width: 500px;height: 20px;"></div>
+
+
+  <div style="background-image: repeating-linear-gradient(45deg, blue, red);height: 200px;"></div>
+</body>
+
+</html>

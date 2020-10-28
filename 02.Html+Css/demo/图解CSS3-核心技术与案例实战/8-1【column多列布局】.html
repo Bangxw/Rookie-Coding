@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    article {
+      width: 500px;
+      column-width: auto;
+      column-count: 3;
+      column-rule: dotted 1px #f00;
+      column-fill: auto;
+      column-gap: 50px;
+    }
+
+    h2 {
+      column-span: all;
+    }
+
+    p{
+      break-inside: avoid;
+    }
+  </style>
+</head>
+
+<body>
+  <article>
+    <h2>My Very Special Columns</h2>
+    <p class="p1">This is a bunch of text split into three columns using the CSS `columns` property. The text is equally
+      distrubuted over the columns.</p>
+    <p>This is a bunch of text split into three columns using the CSS `columns` property. The text is equally
+      distrubuted over the columns.</p>
+  </article>
+</body>
+
+</html>
