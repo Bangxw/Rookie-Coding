@@ -53,7 +53,7 @@ input大小 input-lg input-sm
 input
 label sr-only   control-label
 
-###  button/a
+### button/a
 
 .btn .btn-default .btn-success .btn-primary .btn-info .btn-error .btn-danger .btn-link
 .btn-lg .btn-sm
@@ -65,5 +65,5 @@ btn-block => width: 100%
 圆角 .img-rounded
 原形 .img-circle
 带有边框的圆角图形 .img-thumbnail
- 
+
 ## Bootstrap渐进

@@ -40,6 +40,26 @@ UI = render(state)
    * 默认的打包路径是: `dist`
    * 4.x中新增了`mode`为必选项，可选的值为： `development、production`
 
+### 在项目中使用React
+
+1. 运行`npm i react react-dom -S`安装包
+   * react: 专门用于创建组件和虚拟Dom的，同时组件的生命周期都在这个包中
+   * react-dom: 专门进行dom操作，最主要的应用场景就是`ReactDOM.render()`
+2. 创建容器: `<div id="app"></div>`
+3. 导入包: `import React form 'React'; import ReactDOM from 'react-dom'`
+4. 创建DOM元素: `const myH1 = createElement('h1', null, '文本内容')`
+5. 渲染: `ReactDOM.render(myH1, document.getElementById('app'))`
+
+### Jsx语法
+
+1. 安装bebel插件 (注意：版本7与之前差距很大)
+   * 如果有安装先卸载以前的：`npm uninstall --save babel-core babel-preset-* babel-ransform-runtime`
+   * `npm i @babel/core babel-loader@8 @babel/preset-env`
+   * `npm i @babel/plugin-transform-runtime`
+2. 安装能够识别转换jsx语法的包
+   * `npm i @babel/preset-react -D`
+3. 添加 `.babelrc` 文件
+
 ## 模块化的应用要点
 
 架构：
