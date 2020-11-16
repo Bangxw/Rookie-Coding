@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
+  <style>
+    #myDiv {
+      width: 100px;
+      height: 100px;
+      background: green;
+      transition: width 2s;
+      color: #f00;
+    }
+
+    #myDiv:hover {
+      width: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="myDiv">
+
+  </div>
+
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../libs/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('myDiv').addEventListener('transitionend', function() {
+      this.innerText = 'transition -- end'
+    })
+  </script>
+</body>
