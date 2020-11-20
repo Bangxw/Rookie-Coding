@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h3>模态框 <small>modal.js</small></h3>
+    <hr>
+    <button class="btn btn-info" data-toggle="modal" data-target="#my-dialog" data-whatever="@mdo">Button:
+      @mdo</button>
+    <br><br>
+    <a class="btn btn-info" data-toggle="modal" href="#my-dialog" data-whatever="@fat">Link: @fat</a>
+  </div>
+  <div class="modal fade" id="my-dialog" role="modal" aria-labelledby="my-dialog-label">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="my-dialog-label">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          <form action="" class="form-inline">
+            <div class="form-group">
+              <label for="">Email </label>
+              <input type="email" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-default" data-dismiss="modal">Close</button>
+          <button class="btn btn-primary">Apply</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../libs/js/bootstrap.min.js"></script>
+  <script>
+    $('#my-dialog').on('shown.bs.modal', function (e) {
+      var button = $(e.relatedTarget)
+      var recipient = button.data("whatever")
+      var modal = $(this)
+      modal.find('.modal-title').text('Modal title ' + recipient)
+      modal.find('input[type="email"]').val(recipient)
+    })
+
+    // $('#my-dialog').modal('show')
+    // $('#my-dialog').modal('hide')
+
+    $('#my-dialog').modal({
+      backdrop: false,
+      // keyboard: true,
+      // show: false,
+      // remote: './01-type.html'	// load的内容放置到.modal-content中
+    })
+  </script>
+</body>
+
+</html>

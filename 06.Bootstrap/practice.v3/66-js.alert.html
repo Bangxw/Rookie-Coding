@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="alert alert-warning alert-dismissible fade in" role="alert">
+      <button class="close" data-dismiss="alert">&times;</button>
+      <strong>Holy guacamole!</strong> Best check yo self, you're not looking too good.
+    </div>
+
+    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+      <button class="close" data-dismiss="alert">&times;</button>
+      <h4>Oh snap! You got an error!</h4>
+      <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+        lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+      <p>
+        <button class="btn btn-danger">Take this action</button>
+        <button class="btn btn-default">Or do this</button>
+      </p>
+    </div>
+
+
+
+
+    <div class="alert alert-success" role="alert">.alert-success</div>
+    <div class="alert alert-danger" role="alert">.alert-danger</div>
+    <div class="alert alert-warning" role="alert">.alert-warning</div>
+    <div class="alert alert-info" role="alert">.alert-info</div>
+    <hr>
+    <div class="alert alert-success role=" alert">
+      欢迎访问<a href="http://to-be.fun" class="alert-link">to-be.fun</a>
+    </div>
+
+    <div class="alert alert-danger alert-dismissible fade in" role="alert">
+      <button class="close" data-dismiss="alert">&times;</button>
+      <h4>Oh snap! You got an error!</h4>
+      <p>Change this and that and try again. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget
+        lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum.</p>
+      <p>
+        <button class="btn btn-danger">Take this action</button>
+        <button class="btn btn-default">Or do this</button>
+      </p>
+    </div>
+  </div>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../libs/js/bootstrap.min.js"></script>
+  <script>
+    $('div.alert').on('close.bs.alert', function () {
+      alert('About to be deleted!')
+    }).on('closed.bs.alert', function () {
+      alert('Delete Successful!')
+    })
+  </script>
+</body>
+
+</html>

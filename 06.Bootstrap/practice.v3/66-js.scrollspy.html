@@ -1,0 +1,68 @@
+<link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
+<style>
+  /* .container { border: 1px solid #ccc; } */
+  .content-p {
+    height: 150px;
+  }
+
+  .content-p:nth-of-type(1) {
+    background: linear-gradient(rgb(24, 144, 255), rgb(82, 196, 26));
+  }
+
+  .content-p:nth-of-type(2) {
+    background: linear-gradient(rgb(82, 196, 26), rgb(24, 144, 255));
+  }
+
+  .content-p:nth-of-type(3) {
+    background: linear-gradient(rgb(24, 144, 255), rgb(82, 196, 26));
+  }
+
+  .content-p:nth-of-type(4) {
+    background: linear-gradient(rgb(82, 196, 26), rgb(24, 144, 255));
+  }
+</style>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" class="navbar-brand">LOGO</a>
+    </div>
+    <div class="collapse navbar-collapse js-navbar-scrollspy" id="my-navbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#home">Home</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trigger dropdown
+            <span class="caret"></span>
+          </a>
+          <ol class="dropdown-menu" role="menu">
+            <li><a href="#one">Link One</a></li>
+            <li><a href="#two">Link Two</a></li>
+          </ol>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="container">
+  <div data-spy="scroll" data-target=".navbar" style="position: relative; height: 300px; overflow-y: auto;"
+    id="my-scrollspy" data-offset="300">
+    <H4 id="home">Home</H4>
+    <hr>
+    <p class="content-p"></p>
+
+    <H4 id="profile">Profile</H4>
+    <hr>
+    <p class="content-p"></p>
+
+    <H4 id="one">One</H4>
+    <hr>
+    <p class="content-p"></p>
+
+    <H4 id="two">Two</H4>
+    <hr>
+    <p class="content-p"></p>
+  </div>
+</div>
+
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>

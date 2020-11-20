@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
+  <style>
+    #carousel-panel {
+      width: 533px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="carousel-panel">
+    <div id="carousel-example-generic" class="carousel slide">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="./img/carousel-01.gif" alt="">
+        </div>
+        <div class="item">
+          <img src="./img/carousel-02.gif" alt="">
+        </div>
+        <div class="item">
+          <img src="./img/carousel-03.gif" alt="">
+        </div>
+      </div>
+
+      <a href="#carousel-example-generic" class="left carousel-control" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a href="#carousel-example-generic" class="right carousel-control" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>
+    </div>
+  </div>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../libs/js/bootstrap.min.js"></script>
+  <script>
+    $('.carousel').carousel({
+      interval: 2000
+    })
+  </script>
+</body>
+
+</html>
