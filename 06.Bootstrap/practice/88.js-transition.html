@@ -4,33 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Bootstrap Document</title>
   <link rel="stylesheet" href="../libs/css/bootstrap.min.css">
   <style>
-    #myDiv {
-      width: 100px;
-      height: 100px;
-      background: green;
-      transition: width 2s;
-      color: #f00;
+    .trans-div {
+      width: 200px;
+      height: 200px;
+      background: #ff0;
+      transition: all 2s linear;
     }
 
-    #myDiv:hover {
-      width: 200px;
+    .trans-div:hover {
+      width: 500px;
     }
   </style>
 </head>
 
 <body>
-  <div id="myDiv">
-
+  <div class="container">
+    <div class="trans-div" id="myDiv"></div>
   </div>
-
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="../libs/js/bootstrap.min.js"></script>
   <script>
-    document.getElementById('myDiv').addEventListener('transitionend', function() {
-      this.innerText = 'transition -- end'
+    document.getElementById('myDiv').addEventListener('transitionend', function () {
+      console.log(111)
     })
+    $.support.transition = false
   </script>
 </body>
+
+</html>
