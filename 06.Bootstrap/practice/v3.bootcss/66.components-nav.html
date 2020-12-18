@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../../libs/v3.assets/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h4>标签页</h4>
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <hr>
+
+    <h4>胶囊式标签页</h4>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul><br>
+    <ul class="nav nav-pills nav-stacked">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <hr>
+
+    <h4>两端对齐的标签页</h4>
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+    <hr>
+
+    <h4>禁用的链接</h4>
+    <ul class="nav nav-tabs nav-justified">
+      <li role="presentation" class="active"><a href="#">Home</a></li>
+      <li role="presentation" class="disabled"><a href="#">Profile</a></li>
+      <li role="presentation"><a href="#">Messages</a></li>
+    </ul>
+  </div>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../../libs/v3.assets/js/bootstrap.min.js"></script>
+  <script>
+    $('ul.nav a').click(function (e) {
+      e.preventDefault()
+      $(this).tab('show')
+    })
+  </script>
+</body>
+
+</html>

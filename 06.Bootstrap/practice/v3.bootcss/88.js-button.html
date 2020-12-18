@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../../libs/v3.assets/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <button class="btn btn-primary" data-toggle="button">
+      Single toggle
+    </button>
+    <hr>
+    <div class="btn-group" data-toggle="buttons">
+      <label for="" class="btn btn-primary active">
+        <input type="checkbox" checked> Checkbox 1(pre-checked)
+      </label>
+      <label for="" class="btn btn-primary">
+        <input type="checkbox" checked> Checkbox 2
+      </label>
+      <label for="" class="btn btn-primary">
+        <input type="checkbox" checked> Checkbox 3
+      </label>
+    </div>
+    <hr>
+    <div class="btn-groups" data-toggle="buttons">
+      <label for="" class="btn btn-primary active">
+        <input type="radio" name="options" checked> Radio 1(preselected)
+      </label>
+      <label for="" class="btn btn-primary">
+        <input type="radio" name="options" checked> Radio 2
+      </label>
+      <label for="" class="btn btn-primary">
+        <input type="radio" name="options" checked> Radio 3
+      </label>
+    </div>
+  </div>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../../libs/v3.assets/js/bootstrap.min.js"></script>
+  <script>
+    $('#my-button').on('click', function () {
+      var $btn = $(this).button('loading')
+
+    })
+  </script>
+</body>
+
+</html>

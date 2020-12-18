@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../../libs/v3.assets/css/bootstrap.min.css">
+  <style>
+    .trans-div {
+      width: 200px;
+      height: 200px;
+      background: #ff0;
+      transition: all 2s linear;
+    }
+
+    .trans-div:hover {
+      width: 500px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="trans-div" id="myDiv"></div>
+  </div>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../../libs/v3.assets/js/bootstrap.min.js"></script>
+  <script>
+    document.getElementById('myDiv').addEventListener('transitionend', function () {
+      console.log(111)
+    })
+    $.support.transition = false
+  </script>
+</body>
+
+</html>

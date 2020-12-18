@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../../libs/v3.assets/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <h4>Tooltips</h4>
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="right" title="Tooltip on right">Tooltip on right</button>
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+    <button class="btn btn-default" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+    <hr>
+
+    <a href="#"
+       id="hover-link"
+       data-toggle="tooltip"
+       data-animation="true"
+       data-container="h4"
+       data-html="true"
+       data-delay='{"hide": 500, "show": 200}'
+       data-placement="auto bottom"
+       data-trigger="hover"
+       >Hover over me</a>
+    <div class="tooltip top" id="test">
+      <div class="tooltip-arrow"></div>
+      <div class="tooltip-inner">
+        Some tooltip text!
+      </div>
+    </div>
+
+  </div>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="../../libs/v3.assets/js/bootstrap.min.js"></script>
+  <script>
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip({
+        container: 'body',
+        template: '<div class="tooltip" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
+      })
+    })
+  </script>
+</body>
+
+</html>
