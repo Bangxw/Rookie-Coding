@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Document</title>
+  <link rel="stylesheet" href="../bootstrap-4.5.0/dist/css/bootstrap.min.css">
+  <style>
+    div.bd-example>span {
+      display: inline-flex;
+      width: 130px;
+      height: 50px;
+      font-size: 13px;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      font-family: consolas;
+    }
+
+    div.br-example>span {
+      display: inline-flex;
+      width: 120px;
+      height: 60px;
+      font-size: 12px;
+      justify-content: center;
+      align-items: center;
+      margin-right: 8px;
+      margin-bottom: 8px;
+      font-family: consolas;
+    }
+  </style>
+</head>
+
+<body style="margin-left: 30px">
+  <div class="container">
+    <h4>1. Borders</h4>
+    <div class="bd-example mb-3">
+      <span class="border bg-light">.border</span>
+      <span class="border-top bg-light">.border-top</span>
+      <span class="border-right bg-light">.border-right</span>
+      <span class="border-left bg-light">.border-left</span>
+      <span class="border-bottom bg-light">.border-bottom</span>
+    </div>
+    <div class="bd-example mb-3">
+      <span class="border border-0 bg-light">.border<br />.border-0</span>
+      <span class="border border-top-0 bg-light">.border<br />.border-top-0</span>
+      <span class="border border-right-0 bg-light">.border<br />.border-right-0</span>
+      <span class="border border-bottom-0 bg-light">.border<br />.border-bottom-0</span>
+      <span class="border border-left-0 bg-light">.border<br />.border-left-0</span>
+    </div>
+    <div class="bd-example mb-3">
+      <span class="border border-primary bg-light">.border<br />.border-primary</span>
+      <span class="border border-secondary bg-light">.border<br />.border-secondary</span>
+      <span class="border border-success bg-light">.border<br />.border-success</span>
+      <span class="border border-danger bg-light">.border<br />.border-danger</span>
+      <span class="border border-warning bg-light">.border<br />.border-warning</span><br>
+      <span class="border border-info bg-light">.border<br />.border-info</span>
+      <span class="border border-light bg-light">.border<br />.border-light</span>
+      <span class="border border-dark bg-light">.border<br />.border-dark</span>
+      <span class="border border-white bg-light">.border<br />.border-white</span>
+    </div>
+    <div class="br-example">
+      <span class="border border-dark rounded">.rounded</span>
+      <span class="border border-dark rounded-top">.rounded-top</span>
+      <span class="border border-dark rounded-right">.rounded-right</span>
+      <span class="border border-dark rounded-bottom">.rounded-bottom</span>
+      <span class="border border-dark rounded-left">.rounded-left</span><br>
+      <span class="border border-dark rounded-circle" style="height: 120px;">.rounded-circle</span>
+      <span class="border border-dark rounded-pill">.rounded-pill</span>
+      <span class="border border-dark rounded-0">.rounded-0</span>
+      <span class="border border-dark rounded-sm">.rounded-sm</span>
+      <span class="border border-dark rounded-lg">.rounded-lg</span>
+    </div>
+
+    <hr>
+
+    <h4>2. Clearfix</h4>
+    <div class="clearfix">
+      <button class="btn btn-secondary float-left">向左浮动</button>
+      <button class="btn btn-secondary float-right">向右浮动</button>
+    </div>
+
+    <hr>
+
+    <h4>3. Close Icon</h4>
+    <div class="clearfix">
+      <button class="close" type="button">
+        <span>&times;</span>
+      </button>
+    </div>
+
+    <hr>
+
+    <h4>4. Colors</h4>
+    <div class="row" style="font-family: consolas;font-size: 13px;">
+      <div class="col-2">
+        <p class="text-primary">.text-primary</p>
+        <p class="text-secondary">.text-secondary</p>
+        <p class="text-success">.text-success</p>
+        <p class="text-warning">.text-warning</p>
+        <p class="text-danger">.text-danger</p>
+        <p class="text-info">.text-info</p>
+        <p class="text-light bg-dark">.text-light</p>
+        <p class="text-dark">.text-dark</p>
+        <p class="text-body">.text-body</p>
+        <p class="text-muted">.text-muted</p>
+        <p class="text-white bg-dark">.text-white</p>
+        <p class="text-black-50">.text-black-50</p>
+        <p class="text-white-50 bg-dark">.text-white-50</p>
+      </div>
+      <div class="col-2">
+        <p class="p-2 mb-2 bg-primary text-white">.bg-primary</p>
+        <p class="p-2 mb-2 bg-secondary text-white">.bg-secondary</p>
+        <p class="p-2 mb-2 bg-success text-white">.bg-success</p>
+        <p class="p-2 mb-2 bg-warning text-white">.bg-warning</p>
+        <p class="p-2 mb-2 bg-danger text-white">.bg-danger</p>
+        <p class="p-2 mb-2 bg-info text-white">.bg-info</p>
+        <p class="p-2 mb-2 border bg-light">.bg-light</p>
+        <p class="p-2 mb-2 bg-dark text-white">.bg-dark</p>
+        <p class="p-2 mb-2 border bg-white">.bg-white</p>
+        <p class="p-2 mb-2 border bg-transparent">.bg-transparent</p>
+      </div>
+      <div class="col-3">
+        <p class="p-2 mb-2 bg-gradient-primary text-white">.bg-gradient-primary</p>
+        <p class="p-2 mb-2 bg-gradient-secondary text-white">.bg-gradient-secondary</p>
+        <p class="p-2 mb-2 bg-gradient-success text-white">.bg-gradient-success</p>
+        <p class="p-2 mb-2 bg-gradient-warning text-white">.bg-gradient-warning</p>
+        <p class="p-2 mb-2 bg-gradient-danger text-white">.bg-gradient-danger</p>
+        <p class="p-2 mb-2 bg-gradient-info text-white">.bg-gradient-info</p>
+        <p class="p-2 mb-2 border bg-gradient-light">.bg-gradient-light</p>
+        <p class="p-2 mb-2 bg-gradient-dark text-white">.bg-gradient-dark</p>
+      </div>
+    </div>
+
+    <hr>
+
+    <h4>5. Display</h4>
+    <div class="my-3">
+      <div class="d-inline p-2 bg-primary text-white">.d-inline</div>
+      <div class="d-inline p-2 bg-secondary text-white">.d-inline</div>
+    </div>
+    <div class="d-block p-2 bg-primary text-white">.d-block</div>
+    <div class="d-block p-2 mb-2 bg-secondary text-white">.d-block</div>
+    <div>
+      <p class="d-none">Hidden on all</p>
+      <p class="d-none d-sm-block">Hidden only on xs</p>
+      <p class="d-sm-none d-md-block">Hidden only on sm</p>
+      <p class="d-md-none d-lg-block">Hidden only on md</p>
+      <p class="d-lg-none d-xl-block">Hidden only on lg</p>
+      <p class="d-xl-none">Hidden only on xl</p>
+      <p class="d-block">Visible on all</p>
+      <p class="d-none d-sm-none">Visible only on xs</p>
+      <p class="d-none d-sm-block d-md-none">Visible only on sm</p>
+      <p class="d-none d-md-block d-lg-none">Visible only on md</p>
+      <p class="d-none d-lg-block d-xl-none">Visible only on lg</p>
+      <p class="d-none d-xl-block">Visible only on xl</p>
+    </div>
+
+    <hr>
+
+    <h4>6. Responsive embed</h4>
+    <!-- <div class="d-none">
+      <div class="embed-responsive embed-responsive-21by9">
+        <iframe  class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0"></iframe>
+      </div>
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe  class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0"></iframe>
+      </div>
+      <div class="embed-responsive embed-responsive-4by3">
+        <iframe  class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0"></iframe>
+      </div>
+      <div class="embed-responsive embed-responsive-1by1">
+        <iframe  class="embed-responsive-item" src="https://www.youtube-nocookie.com/embed/playlist?list=PLb0IAmt7-GS3fZ46IGFirdqKTIxlws7e0"></iframe>
+      </div>
+    </div> -->
+
+    <hr>
+    <h4>7. Flex</h4>
+    <div>
+      <div class="d-flex p-2 bg-light mb-2">.d-flex</div>
+      <div class="d-inline-flex p-2 bg-light mb-2">.d-inline-flex</div>
+      <div class="d-sm-flex p-2 bg-light mb-2">.d-sm-flex</div>
+      <div class="d-md-flex p-2 bg-light mb-2">.d-md-flex</div>
+      <div class="d-lg-flex p-2 bg-light mb-2">.d-lg-flex</div>
+      <div class="d-xl-flex p-2 bg-light mb-2">.d-xl-flex</div>
+    </div>
+    <div class="d-flex flex-row bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row-reverse bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-column bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-column-reverse bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-sm-row-reverse flex-md-column-reverse bg-light mb-3">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-start bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-center bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-end bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-around bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-between bg-light mb-3">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+
+    <div class="d-flex flex-row justify-content-start align-items-start bg-light mb-2" style="height: 100px;">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-start align-items-center bg-light mb-2" style="height: 100px;">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-start align-items-end bg-light mb-2" style="height: 100px;">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-start align-items-baseline bg-light mb-2" style="height: 100px;">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border" style="font-size: 30px">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-start align-items-stretch bg-light mb-3" style="height: 100px;">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row justify-content-start align-items-start bg-light mb-3" style="height: 100px;">
+      <div class="p-2 border align-self-start">Flex item1</div>
+      <div class="p-2 border align-self-center">Flex item2</div>
+      <div class="p-2 border align-self-end">Flex item3</div>
+      <div class="p-2 border align-self-baseline" style="font-size: 30px">Flex item4</div>
+      <div class="p-2 border align-self-stretch">Flex item5</div>
+    </div>
+
+    <div class="d-flex flex-row bg-light mb-3">
+      <div class="p-2 flex-fill border">Flex item1</div>
+      <div class="p-2 flex-md-fill border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+
+    <div class="d-flex flex-row bg-light mb-2">
+      <div class="p-2 flex-grow-1 border">Flex item1</div>
+      <div class="p-2 flex-md-fill flex-grow-0 border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-row bg-light mb-3">
+      <div class="p-2 flex-shrink-1 border" style="width: 300px;">Flex item1</div>
+      <div class="p-2 flex-shrink-0 border" style="width: 300px;">Flex item2</div>
+      <div class="p-2 border" style="width: 300px;">Flex item3</div>
+    </div>
+
+    <div class="d-flex bg-light mb-2">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 ml-auto border">Flex item2</div>
+      <div class="p-2 ml-auto border">Flex item3</div>
+    </div>
+    <div class="d-flex flex-column align-items-start bg-light mb-2" style="height: 200px">
+      <div class="p-2 border">Flex item1</div>
+      <div class="p-2 mt-auto mb-auto border">Flex item2</div>
+      <div class="p-2 border">Flex item3</div>
+    </div>
+
+
+    <div class="d-flex flex-wrap bg-light mb-2">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+      <div class="p-2 border">Flex item 11</div>
+      <div class="p-2 border">Flex item 12</div>
+      <div class="p-2 border">Flex item 13</div>
+      <div class="p-2 border">Flex item 14</div>
+      <div class="p-2 border">Flex item 15</div>
+    </div>
+    <div class="d-flex flex-nowrap bg-light mb-2">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+      <div class="p-2 border">Flex item 11</div>
+      <div class="p-2 border">Flex item 12</div>
+      <div class="p-2 border">Flex item 13</div>
+      <div class="p-2 border">Flex item 14</div>
+      <div class="p-2 border">Flex item 15</div>
+    </div>
+    <div class="d-flex flex-wrap-reverse bg-light mb-4">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+      <div class="p-2 border">Flex item 11</div>
+      <div class="p-2 border">Flex item 12</div>
+      <div class="p-2 border">Flex item 13</div>
+      <div class="p-2 border">Flex item 14</div>
+      <div class="p-2 border">Flex item 15</div>
+    </div>
+
+    <div class="d-flex flex-wrap bg-light mb-3">
+      <div class="p-2 order-0 border">Flex item 1</div>
+      <div class="p-2 order-1 border">Flex item 2</div>
+      <div class="p-2 order-10 border">Flex item 3</div>
+      <div class="p-2 order-3 border">Flex item 4</div>
+    </div>
+
+    <div class="d-flex flex-wrap align-content-start bg-light mb-2" style="height: 200px;">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+    </div>
+    <div class="d-flex flex-wrap align-content-center bg-light mb-2" style="height: 200px;">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+    </div>
+    <div class="d-flex flex-wrap align-content-end bg-light mb-2" style="height: 200px;">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+    </div>
+    <div class="d-flex flex-wrap align-content-between bg-light mb-2" style="height: 200px;">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+    </div>
+    <div class="d-flex flex-wrap align-content-around bg-light mb-2" style="height: 200px;">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+    </div>
+    <div class="d-flex flex-wrap align-content-stretch bg-light mb-2" style="height: 200px;">
+      <div class="p-2 border">Flex item 1</div>
+      <div class="p-2 border">Flex item 2</div>
+      <div class="p-2 border">Flex item 3</div>
+      <div class="p-2 border">Flex item 4</div>
+      <div class="p-2 border">Flex item 5</div>
+      <div class="p-2 border">Flex item 6</div>
+      <div class="p-2 border">Flex item 7</div>
+      <div class="p-2 border">Flex item 8</div>
+      <div class="p-2 border">Flex item 9</div>
+      <div class="p-2 border">Flex item 10</div>
+    </div>
+
+    <hr>
+    <h4>Float</h4>
+    <div class="clearfix">
+      <div class="float-none p-2 border">.float-none</div>
+      <div class="float-left p-2 border">.float-left</div>
+      <div class="float-right p-2 border">.float-right</div>
+      <div class="float-sm-right p-2 border">.float-sm-right</div>
+    </div>
+
+    <hr>
+    <h4>image-replacement</h4>
+    <h1 class="text-hide" style="background-image: url('./img/x64.svg')">Bootstrap</h1>
+
+    <hr>
+    <h4>interactions</h4>
+    <div>
+      <p class="user-select-all">This paragraph will be entirely selected when clicked by the user.</p>
+      <p class="user-select-none">This paragraph has the default select behavior.</p>
+      <p class="user-select-auto">This paragraph will not be selectable when clicked by the user.</p>
+    </div>
+
+    <hr>
+    <h4>Overflow</h4>
+    <div class="overflow-auto" style="width: 100px;height: 100px;">This is an example of using .overflow-auto on an element with set width and height dimensions. By design, this content will vertically scroll.</div><br>
+    <div class="overflow-hidden" style="width: 100px;height: 100px;">This is an example of using .overflow-hidden on an element with set width and height dimensions.</div>
+
+    <hr>
+    <h4>Position</h4>
+    <div style="position: relative;">
+      <div class="position-static border border-success" style="margin-left: 20px; left: 130px;">.position-static</div>
+      <div class="position-relative border border-info" style="margin-left: 20px; left: 130px;top:0">.position-relative</div>
+      <div class="position-absolute border border-info" style="margin-left: 0px; left:130px;top:80px">.position-absolute</div>
+      <div class="position-fixed border border-info" style="top: 100px; left:0">.position-fixed</div>
+      
+    </div>
+    <div class="position-sticky border border-info" style="bottom: 0">.position-sticky</div>
+    <div class="d-none fixed-top border border-info" style="bottom: 0">.fixed-top</div>
+
+    <hr>
+    <h4>Shadows</h4>
+    <div>
+      <div class="shadow p-3 mb-3">.shadow</div>
+      <div class="shadow-none p-3 bg-light mb-3">.shadow-none</div>
+      <div class="shadow-sm p-3 mb-3">.shadow-sm</div>
+      <div class="shadow-lg p-3">.shadow-lg</div>
+    </div>
+
+    <hr>
+    <h4>Sizing</h4>
+    <div>
+      <div class="w-25 p-2 border mb-1">.w-25</div>
+      <div class="w-50 p-2 border mb-1">.w-50</div>
+      <div class="w-75 p-2 border mb-1">.w-75</div>
+      <div class="w-100 p-2 border mb-1">.w-100</div>
+      <div class="w-auto p-2 border mb-1">.w-auto</div>
+      <div class="mw-100 p-2 border mb-1">.mw-100</div>
+      <div class="min-vw-100 p-2 border mb-1">.min-vw-100</div>
+    </div>
+    <div style="height: 200px;">
+      <div class="d-inline-block h-25 p-2 border mr-1">.h-25</div>
+      <div class="d-inline-block h-50 p-2 border mr-1">.h-50</div>
+      <div class="d-inline-block h-75 p-2 border mr-1">.h-75</div>
+      <div class="d-inline-block h-100 p-2 border mr-1">.h-100</div>
+      <div class="d-inline-block h-auto p-2 border mr-1">.h-auto</div>
+      <div class="d-inline-block mh-100 p-2 border mr-1">.mh-100</div>
+      <div class="d-inline-block min-vh-100 p-2 border mr-1">.min-vh-100</div>
+    </div>
+
+    <hr>
+    <h4>Spacing</h4>
+    <div>
+      <div class="border p-2 my-0">.p-2</div>
+      <div class="border p-2 my-1">.p-2</div>
+      <div class="border p-2 my-2">.p-2</div>
+      <div class="border p-2 my-3">.p-2</div>
+      <div class="border p-2 my-4">.p-2</div>
+      <div class="border p-2 my-5">.p-2</div>
+    </div>
+    <div class="mx-auto w-50 border">.mx-auto</div>
+    <div class="row mx-md-n5">
+      <div class="col px-md-5"><div class="p-3 border">Column</div></div>
+      <div class="col px-md-5"><div class="p-3 border">Column</div></div>
+    </div>
+
+    <hr>
+    <h4>Text</h4>
+    <div>
+      <p class="text-justify">Ambitioni dedisse scripsisse iudicaretur. Cras mattis iudicium purus sit amet fermentum. Donec sed odio operae, eu vulputate felis rhoncus. Praeterea iter est quasdam res quas ex communi. At nos hinc posthac, sitientis piros Afros. Petierunt uti sibi concilium totius Galliae in diem certam indicere. Cras mattis iudicium purus sit amet fermentum.</p>
+      <p class="text-left">.text-left</p>
+      <p class="text-center">.text-center</p>
+      <p class="text-md-center">.text-center</p>
+      <p class="text-right">.text-right</p>
+    </div>
+    <div>
+      <p class="text-wrap bg-light" style="width: 4rem;">.text-wrap</p>
+      <p class="text-nowrap bg-light" style="width: 4rem;">.text-nowrap</p>
+      <p class="text-truncate bg-light" style="width: 4rem">.text-truncate</p>
+    </div>
+    <div>
+      <p class="bg-light text-break" style="width: 20rem;">wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww</p>
+    </div>
+    <div>
+      <p class="text-uppercase">.text-uppercase</p>
+      <p class="text-lowercase">.text-lowercase</p>
+      <p class="text-capitalize">.text-capitalize</p>
+    </div>
+    <div>
+      <p class="font-weight-bold">.font-weight-bold</p>
+      <p class="font-weight-bolder">.font-weight-bolder</p>
+      <p class="font-weight-normal">.font-weight-normal</p>
+      <p class="font-weight-light">.font-weight-light</p>
+      <p class="font-weight-lighter">.font-weight-lighter</p>
+      <p class="font-italic">.font-italic</p>
+    </div>
+    <div>
+      <p class="text-monospace">.text-monospace</p>
+    </div>
+    <div>
+      <p>
+        <a href="#" class="text-reset">.text-reset</a>
+      </p>
+    </div>
+    <div>
+      <a class="text-decoration" href="#">.text-decoration-none</a>
+    </div>
+
+    <hr>
+    <h4>垂直对齐</h4>
+    <table style="height: 100px;">
+      <tbody>
+        <tr>
+          <td class="align-baseline">.baseline</td>
+          <td class="align-top">.align-top</td>
+          <td class="align-middle">.align-middle</td>
+          <td class="align-bottom">.align-bottom</td>
+          <td class="align-text-top">.align-text-top</td>
+          <td class="align-text-bottom">.align-text-bottom</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="vh-100"></div>
+  </div>
+</body>
+
+</html>

@@ -5,105 +5,244 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bootstrap Document</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../bootstrap-4.5.0/dist/css/bootstrap.min.css">
   <style>
-    div {
-      font-family: consolas;
+    body {
+      font-family: consolas, '宋体';
       font-size: 13px;
+    }
+
+    h6 {
+      color: #222;
+    }
+
+    [class*=col] {
+      text-align: center;
     }
   </style>
 </head>
 
-<body>
+<body class="">
   <div class="container">
-    <div class="row border">
-      <div class="col-sm bg-primary py-3">.col-sm</div>
-      <div class="col-sm bg-secondary  py-3">.col-sm</div>
-      <div class="col-sm bg-light  py-3">.col-sm</div>
+    <h4>Layout</h4>
+    <div class="text-white">
+      <h6>1.Equal-width</h6>
+      <div class="row">
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+      </div>
+      <h6 class="mt-4">2. Equal-width multi-line</h6>
+      <div class="row">
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+        <div class="w-100"></div>
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+      </div>
+      <h6 class="mt-4">3.Setting one column width</h6>
+      <div class="row">
+        <div class="col-5 p-1 border bg-gradient-primary">.col-5</div>
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+        <div class="col p-1 border bg-gradient-primary">.col</div>
+      </div>
+      <h6 class="mt-4">4.Variable width content</h6>
+      <div class="row justify-content-md-center border border-dark">
+        <div class="col p-1  col-md-3 border bg-gradient-primary">.col .col-md-3</div>
+        <div class="col-md-auto p-1  border bg-gradient-primary">.col-md-auto(根据内容自由伸张)</div>
+        <div class="col p-1  col-md-3 border bg-gradient-primary">.col .col-md-3</div>
+      </div>
+
+      <hr>
+
+      <h6>1. All breakpoints</h6>
+      <div class="row mb-1">
+        <div class="col p-1 border bg-gradient-info">.col</div>
+        <div class="col p-1 border bg-gradient-info">.col</div>
+        <div class="col p-1 border bg-gradient-info">.col</div>
+        <div class="col p-1 border bg-gradient-info">.col</div>
+      </div>
+      <div class="row">
+        <div class="col-8 p-1 border bg-gradient-info">.col-8</div>
+        <div class="col-4 p-1 border bg-gradient-info">.col-4</div>
+      </div>
+      <h6 class="mt-4">2. Stacked to horizontal</h6>
+      <div class="row">
+        <div class="col-sm-8 p-1 border bg-gradient-info">.col-sm-8</div>
+        <div class="col-sm-4 p-1 border bg-gradient-info">.col-sm-4</div>
+      </div>
+      <h6 class="mt-4">3. mix and match</h6>
+      <div class="row">
+        <div class="col-6 col-md-4 p-1 border bg-gradient-info">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4 p-1 border bg-gradient-info">.col-6 .col-md-4</div>
+        <div class="col-6 col-md-4 p-1 border bg-gradient-info">.col-6 .col-md-4</div>
+      </div>
     </div>
-
-    <div class="d-flex border mx-n3">
-      <div class="py-3 flex-grow-1 px-3 bg-primary">.col-sm</div>
-      <div class="py-3 flex-grow-1 px-3 bg-secondary">.col-sm</div>
-      <div class="py-3 flex-grow-1 px-3 bg-light">.col-sm</div>
-    </div>
-
-    <hr>
-
-    <h4>自动布局列</h4>
-    <div class="row mb-3 bg-light">
-      <div class="col border">1 of 2</div>
-      <div class="col border">2 of 2</div>
-    </div>
-    <div class="row mb-2 bg-light">
-      <div class="col border">1 of 3</div>
-      <div class="col border">2 of 3</div>
-      <div class="col border">3 of 3</div>
-    </div>
-    <div class="row bg-light">
-      <div class="col border">column</div>
-      <div class="col border">column</div>
-      <div class="w-100"></div>
-      <div class="col border">column</div>
-      <div class="col border">column</div>
-    </div>
-    <hr>
-
-    <div class="row bg-light">
-      <div class="col border">.col</div>
-      <div class="col-5 border">.col-5</div>
-      <div class="col border">.col</div>
-      <div class="col border">.col</div>
-    </div>
-
-    <hr>
-
-    <h4>可变宽度的弹性空间</h4>
-    <div class="row bg-light">
-      <div class="col border">.col</div>
-      <div class="col border">.col</div>
-      <div class="col-auto border">.col-auto (根据内容自由伸张)</div>
-      <div class="col-2 border">.col-2</div>
-    </div>
-
-    <hr>
-
-    <h4>覆盖所有设备</h4>
-    <div class="row mb-1 bg-light">
-      <div class="col border">.col</div>
-      <div class="col border">.col</div>
-      <div class="col border">.col</div>
-      <div class="col border">.col</div>
-    </div>
-    <div class="row bg-light">
-      <div class="col-8 border">.col-8</div>
-      <div class="col-4 border">.col-4</div>
-    </div>
-
-    <hr>
-
-    <h4>混合布局</h4>
-    <div class="row bg-light mb-2">
-      <div class="col-12 border col-md-8">.col-12 .col-md-8</div>
-      <div class="col-6 border col-md-4">.col-6 .col-md-4</div>
-    </div>
-    <div class="row bg-light">
-      <div class="col-6 col-md-4 border">.col-6 .col-md-4</div>
-      <div class="col-6 col-md-4 border">.col-6 .col-md-4</div>
-      <div class="col-6 col-md-4 border">.col-6 .col-md-4</div>
-    </div>
-
-    <hr>
-
-    <h4>Gutters</h4>
-    <div class="row mx-lg-n5 bg-light">
-      <div class="col border">Custom column padding</div>
-      <div class="col border">Custom column padding</div>
-    </div>
-
-    <h4></h4>
   </div>
-  <script></script>
+
+  <div class="container px-md-5">
+    <h6 class="mt-4">4. Gutters</h6>
+    <div class="row mx-md-n5 text-white">
+      <div class="col py-1 px-md-5 border bg-gradient-info">
+        <div class="border border-white">.col .px-md-5</div>
+      </div>
+      <div class="col py-1 px-md-5 border bg-gradient-info">
+        <div class="border border-white">.col .px-md-5</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container text-white">
+    <h6 class="mt-4">5. Row columns</h6>
+    <span style="margin-left: -1rem;" class="text-primary">(.row-cols-3)</span>
+    <div class="row row-cols-3 mb-1">
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+    </div>
+    <span style="margin-left: -1rem;" class="text-primary">(.row-cols-4)</span>
+    <div class="row row-cols-4 mb-1">
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col-5 p-1 border bg-gradient-info">.col-5</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+    </div>
+    <span style="margin-left: -1rem;" class="text-primary">(.row-cols-1 .row-cols-sm-2 .row-cols-md-4)</span>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4">
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+      <div class="col p-1 border bg-gradient-info">.col</div>
+    </div>
+
+    <hr>
+
+    <h6>1.Vertical alignment</h6>
+    <span class="text-primary" style="margin-left: -1rem;">(row.align-items-start)</span>
+    <div class="row align-items-start mb-3 text-dark" style="height: 60px;background: #eee">
+      <div class="col p-1 border">.col</div>
+      <div class="col p-1 border">.col</div>
+      <div class="col p-1 border">.col</div>
+    </div>
+    <span class="text-primary" style="margin-left: -1rem;">(row.align-items-center)</span>
+    <div class="row align-items-center mb-3 text-dark" style="height: 60px;background: #eee">
+      <div class="col p-1 border">.col</div>
+      <div class="col p-1 border">.col</div>
+      <div class="col p-1 border">.col</div>
+    </div>
+    <span class="text-primary" style="margin-left: -1rem;">(row.align-items-end)</span>
+    <div class="row align-items-end mb-3 text-dark" style="height: 60px;background: #eee">
+      <div class="col p-1 border">.col</div>
+      <div class="col p-1 border">.col</div>
+      <div class="col p-1 border">.col</div>
+    </div>
+    <div class="row text-primary">
+      <div class="col">(row.align-self-start)</div>
+      <div class="col">(row.align-self-center)</div>
+      <div class="col">(row.align-self-end)</div>
+    </div>
+    <div class="row text-dark" style="height: 60px;background: #eee">
+      <div class="col align-self-start p-1 border">.col</div>
+      <div class="col align-self-center p-1 border">.col</div>
+      <div class="col align-self-end p-1 border">.col</div>
+    </div>
+
+    <h6 class="mt-4">2.Horizontal alignment</h6>
+    <span class="text-primary" style="margin-left: -1rem;">(row.justify-content-start)</span>
+    <div class="row justify-content-start border border-info text-white mb-3">
+      <div class="col-3 border bg-gradient-info p-1">.col-3</div>
+      <div class="col-2 border bg-gradient-info p-1">.col-2</div>
+      <div class="col-1 border bg-gradient-info p-1">.col-1</div>
+    </div>
+    <span class="text-primary" style="margin-left: -1rem;">(row.justify-content-center)</span>
+    <div class="row justify-content-center border border-info text-white mb-3">
+      <div class="col-3 border bg-gradient-info p-1">.col-3</div>
+      <div class="col-2 border bg-gradient-info p-1">.col-2</div>
+      <div class="col-1 border bg-gradient-info p-1">.col-1</div>
+    </div>
+    <span class="text-primary" style="margin-left: -1rem;">(row.justify-content-end)</span>
+    <div class="row justify-content-end border border-info text-white mb-3">
+      <div class="col-3 border bg-gradient-info p-1">.col-3</div>
+      <div class="col-2 border bg-gradient-info p-1">.col-2</div>
+      <div class="col-1 border bg-gradient-info p-1">.col-1</div>
+    </div>
+    <span class="text-primary" style="margin-left: -1rem;">(row.justify-content-between)</span>
+    <div class="row justify-content-between border border-info text-white mb-3">
+      <div class="col-3 border bg-gradient-info p-1">.col-3</div>
+      <div class="col-2 border bg-gradient-info p-1">.col-2</div>
+      <div class="col-1 border bg-gradient-info p-1">.col-1</div>
+    </div>
+    <span class="text-primary" style="margin-left: -1rem;">(row.justify-content-around)</span>
+    <div class="row justify-content-around border border-info text-white">
+      <div class="col-3 border bg-gradient-info p-1">.col-3</div>
+      <div class="col-2 border bg-gradient-info p-1">.col-2</div>
+      <div class="col-1 border bg-gradient-info p-1">.col-1</div>
+    </div>
+
+    <h6 class="mt-4">3.No gutters</h6>
+    <div class="row border border-info mb-2">
+      <div class="col-6 border bg-gradient-info p-1">.col-6</div>
+      <div class="col-6 border bg-gradient-info p-1">.col-6</div>
+    </div>
+    <span class="text-primary">(row.no-gutters)</span>
+    <div class="row no-gutters border border-info">
+      <div class="col-6 border bg-gradient-info p-1">.col-6</div>
+      <div class="col-6 border bg-gradient-info p-1">.col-6</div>
+    </div>
+
+    <h6 class="mt-4">4.Column wrapping</h6>
+    <div class="row">
+      <div class="col-9 border bg-gradient-success p-1">.col-9</div>
+      <div class="col-4 border bg-gradient-success p-1">.col-4</div>
+      <div class="col-6 border bg-gradient-success p-1">.col-6</div>
+    </div>
+
+    <h6 class="mt-4">5.Column breaks</h6>
+    <div class="row mb-2">
+      <div class="col-6 col-sm-3 border bg-gradient-success p-1">.col-6 .col-sm-3</div>
+      <div class="col-6 col-sm-3 border bg-gradient-success p-1">.col-6 .col-sm-3</div>
+      <div class="w-100"></div>
+      <div class="col-6 col-sm-3 border bg-gradient-success p-1">.col-6 .col-sm-3</div>
+      <div class="col-6 col-sm-3 border bg-gradient-success p-1">.col-6 .col-sm-3</div>
+    </div>
+    <div class="row">
+      <div class="col-6 col-sm-4 border bg-gradient-success p-1">.col-6 .col-sm-4</div>
+      <div class="col-6 col-sm-4 border bg-gradient-success p-1">.col-6 .col-sm-4</div>
+      <div class="w-100 d-none d-md-block"></div>
+      <div class="col-6 col-sm-4 border bg-gradient-success p-1">.col-6 .col-sm-4</div>
+      <div class="col-6 col-sm-4 border bg-gradient-success p-1">.col-6 .col-sm-4</div>
+    </div>
+
+    <hr>
+
+    <h6 class="mt-4">1.Column wrapping</h6>
+    <div class="row mb-3">
+      <div class="col border bg-gradient-success p-1">First in DOM (null)</div>
+      <div class="col order-12 border bg-gradient-success p-1">Second in DOM (.order-12)</div>
+      <div class="col order-1 border bg-gradient-success p-1">Thid in DOM (.order-1)</div>
+    </div>
+    <div class="row mb-3 border border-primary">
+      <div class="col border bg-gradient-success p-1">.col-md-4</div>
+      <div class="col offset-md-4 border bg-gradient-success p-1">.col-md-4 .offset-md-4</div>
+    </div>
+    <div class="row mb-3 border border-primary">
+      <div class="col-md-3 offset-md-3 border bg-gradient-success p-1">.col-md-3 .offset-md-3 </div>
+      <div class="col-md-3 offset-md-3 border bg-gradient-success p-1">.col-md-3 .offset-md-3 </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-6 offset-md-3 border bg-gradient-success p-1">.col-md-6 .offset-md-3</div>
+    </div>
+
+    <div class="row mb-3">
+      <div class="col-sm-5 col-md-6 border bg-gradient-success p-1">col-sm-5 col-md-6</div>
+      <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0 border bg-gradient-success p-1">col-sm-5 col-md-6</div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-sm-6 col-md-5 col-lg-6 border bg-gradient-success p-1">col-sm-5 col-md-6</div>
+      <div class="col-sm-6 col-md-5 col-lg-6 offset-md-2 offset-lg-0 border bg-gradient-success p-1">col-sm-5 col-md-6</div>
+    </div>
+  </div>
 </body>
 
 </html>
