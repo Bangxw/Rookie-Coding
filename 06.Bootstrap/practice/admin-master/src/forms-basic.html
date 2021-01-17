@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <div class="wrapper">
+  <div class="wrapper md-wrapper">
     <div class="navbar-bg"></div>
     <nav class="navbar master-navbar">
       <form action="" class="form-inline mr-auto">
@@ -28,7 +28,7 @@
         <div class="dropdown mr-5 text-uppercase" id="toggle-language">
           <a href="#" class="d-flex text-decoration-none text-white" data-toggle="dropdown" href="#">
             <img src="./assets/images/lang/national-flag-us.svg" width="22" alt="">
-            <span class="ml-2">English</span>
+            <span class="ml-2 d-none d-md-inline-block">English</span>
           </a>
           <div class="dropdown-menu bg-secondary">
             <a href="#" class="dropdown-item py-2">
@@ -66,7 +66,8 @@
               </div>
             </li>
             <li class="media px-4 my-4">
-              <div class="bg-primary rounded-circle mr-3 notify-avatar"><i class="bi bi-exclamation-triangle-fill"></i></div>
+              <div class="bg-primary rounded-circle mr-3 notify-avatar"><i class="bi bi-exclamation-triangle-fill"></i>
+              </div>
               <div class="media-body">
                 You're caught up on this filter. <br>
                 <small class="text-info text-uppercase">10 days ago</small>
@@ -112,7 +113,8 @@
 
     <aside class="master-sidebar">
       <a href="index.html" class="d-block text-dark text-center text-decoration-none my-4">
-        <h2>Master Admin</h2>
+        <h2 class="d-none d-md-block">Master Admin</h2>
+        <h2 class="d-md-none">MA</h2>
       </a>
 
       <ul class="list-unstyled aside-menu">
@@ -120,7 +122,10 @@
           <h5>Dashboard</h5>
         </li>
         <li class="aside-menu-item">
-          <a class="collapsed" href="#menu-dashboard-list" data-toggle="collapse"><i class="bi bi-speedometer mr-4"></i>Dashboard</a>
+          <a class="has-submenu" href="#menu-dashboard-list" data-toggle="collapse">
+            <i class="bi bi-speedometer"></i>
+            <span class="ml-4">Dashboard</span>
+          </a>
           <ol id="menu-dashboard-list" class="collapse list-unstyled" data-parent=".aside-menu">
             <li><a class="aside-link" href="#">Ecommerce</a></li>
             <li><a class="aside-link" href="#">CRM</a></li>
@@ -131,8 +136,9 @@
           <h5>Overview</h5>
         </li>
         <li class="aside-menu-item">
-          <a class="collapsed" href="#menu-layout-list" data-toggle="collapse">
-            <i class="bi bi-grid-fill mr-4"></i>Layout <span class="float-right">&gt;</span>
+          <a class="has-submenu" href="#menu-layout-list" data-toggle="collapse">
+            <i class="bi bi-grid-fill"></i>
+            <span class="ml-4">Layout</span>
           </a>
           <ol id="menu-layout-list" class="collapse list-unstyled" data-parent=".aside-menu">
             <li><a class="aside-link" href="#">Ecommerce</a></li>
@@ -140,8 +146,9 @@
             <li><a class="aside-link" href="#">Projects</a></li>
           </ol>
 
-          <a class="collapsed" href="#menu-blank-page-list" data-toggle="collapse">
-            <i class="bi bi-kanban mr-4"></i>Blank Page<span class="float-right">&gt;</span>
+          <a class="has-submenu" href="#menu-blank-page-list" data-toggle="collapse">
+            <i class="bi bi-kanban"></i>
+            <span class="ml-4">Blank Page</span>
           </a>
           <ol id="menu-blank-page-list" class="collapse list-unstyled" data-parent=".aside-menu">
             <li><a class="aside-link" href="#">Ecommerce</a></li>
@@ -149,8 +156,9 @@
             <li><a class="aside-link" href="#">Projects</a></li>
           </ol>
 
-          <a class="collapsed" href="#menu-bootstrap-list" data-toggle="collapse">
-            <i class="bi bi-bootstrap-fill mr-4"></i></i>Bootstrap<span class="float-right">&gt;</span>
+          <a class="has-submenu" href="#menu-bootstrap-list" data-toggle="collapse">
+            <i class="bi bi-bootstrap-fill"></i></i>
+            <span class="ml-4">Bootstrap</span>
           </a>
           <ol id="menu-bootstrap-list" class="collapse list-unstyled" data-parent=".aside-menu">
             <li><a class="aside-link" href="#">Ecommerce</a></li>
@@ -165,8 +173,9 @@
           <h5>Pages</h5>
         </li>
         <li class="aside-menu-item">
-          <a class="collapsed" href="#menu-pages-list" data-toggle="collapse">
-            <i class="bi bi-grid-fill mr-4"></i>Layout <span class="float-right">&gt;</span>
+          <a class="has-submenu" href="#menu-pages-list" data-toggle="collapse">
+            <i class="bi bi-grid-fill"></i>
+            <span class="ml-4">Layout</span>
           </a>
           <ol id="menu-pages-list" class="collapse list-unstyled" data-parent=".aside-menu">
             <li><a class="aside-link" href="#">Ecommerce</a></li>
@@ -189,7 +198,8 @@
         </nav>
       </div>
       <div class="master-body">
-        <p class="text-muted pl-4"><small>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password,
+        <p class="text-muted pl-4"><small>Most common form control, text-based input fields. Includes support for all
+            HTML5 types: text, password,
             datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</small></p>
         <div class="row mt-3">
           <div class="col-12 col-md-6">
