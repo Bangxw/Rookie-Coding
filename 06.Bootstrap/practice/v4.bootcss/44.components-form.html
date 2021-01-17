@@ -6,82 +6,367 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../bootstrap-4.5.0/dist/css/bootstrap.min.css">
   <title>Document</title>
-  <style>
-  </style>
+  <!-- <style>
+    .custom-file-input.selected:lang(en)::after {
+      content: "" !important;
+    }
+
+    .custom-file {
+      overflow: hidden;
+    }
+
+    .custom-file-input {
+      white-space: nowrap;
+    }
+  </style> -->
 </head>
 
 <body>
   <div class="container">
-    <h6>概览</h6>
-    <form action="">
+    <form action="" class="mb-5">
       <div class="form-group">
-        <label for="ex1-email">Email address</label>
-        <input type="email" class="form-control" id="ex1-email" placeholder="Enter Email">
-        <small id="emailHelp" class="form-text text-muted">we'll never share your email with anyone else.</small>
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email">
+        <small class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="form-group">
-        <label for="ex1-pwd">Password</label>
-        <input type="password" class="form-control" id="ex1-pwd" placeholder="Password">
+        <label for="password">Password:</label>
+        <input type="password" class="form-control" id="password">
       </div>
       <div class="form-check">
-        <input type="checkbox" class="form-check-input" id="ex1-check">
-        <label for="ex1-check" class="form-check-label">Check me out</label>
+        <input type="checkbox" class="form-check-input" id="check">
+        <label for="check" class="form-check-label">复选框</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" id="radio">
+        <label for="radio" class="form-check-label">单选框</label>
+      </div>
+      <div class="form-check disabled">
+        <input type="radio" disabled class="form-check-input" id="radio">
+        <label for="radio" class="form-check-label">禁用单选框</label>
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <select name="city" id="city" multiple class="form-control">
+          <option value="1">北京</option>
+          <option value="2">上海</option>
+          <option value="3">广州</option>
+          <option value="4">深圳</option>
+          <option value="5">成都</option>
+          <option value="6">重庆</option>
+          <option value="7">杭州</option>
+          <option value="8">武汉</option>
+          <option value="9">长沙</option>
+          <option value="10">天津</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="info">Info:</label>
+        <textarea name="info" id="info" cols="30" rows="10" class="form-control"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="file">File:</label>
+        <input type="file" class="form-control-file" id="file">
+      </div>
+      <div class="form-group">
+        <label for="range">Range input:</label>
+        <input type="range" class="form-control-range">
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-    <hr class="mt-5 mb-5">
-    <form action="">
-      <div class="form-group">
-        <label for="">Email address:</label>
-        <input type="email" class="form-control" placeholder="name@example.com">
+
+    <form action="" class="mb-5">
+      <input type="text" class="form-control form-control-lg mb-2" placeholder="form-control-lg">
+      <input type="text" class="form-control mb-2" placeholder="default input">
+      <input type="text" class="form-control form-control-sm mb-2" placeholder="form-control-sm">
+      <input type="text" class="form-control" readonly>
+      <input type="text" readonly class="form-control-plaintext" value="readobly text">
+    </form>
+
+    <form action="" class="mb-5">
+      <div class="form-check form-check-inline">
+        <input type="checkbox" class="form-check-input" id="check">
+        <label for="check" class="form-check-label">复选框</label>
       </div>
-      <div class="form-group">
-        <label for="">Examil select:</label>
-        <select name="" id="" class="form-control">
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
-        </select>
+      <div class="form-check form-check-inline">
+        <input type="radio" class="form-check-input" id="radio">
+        <label for="radio" class="form-check-label">单选框</label>
       </div>
-      <div class="form-group">
-        <label for="">Example multiple select:</label>
-        <select name="" id="" class="form-control">
-          <option value="">1</option>
-          <option value="">2</option>
-          <option value="">3</option>
-          <option value="">4</option>
-          <option value="">5</option>
-        </select>
+      <div class="form-check form-check-inline disabled">
+        <input type="radio" disabled class="form-check-input" id="radio">
+        <label for="radio" class="form-check-label">禁用单选框</label>
       </div>
-      <div class="form-group">
-        <label for="">Example textarea:</label>
-        <textarea class="form-control" cols="30" rows="3"></textarea>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input position-static">
       </div>
-      <div class="form-group">
-        <label for="">Example file input:</label>
-        <input type="file" class="form-control-file">
-      </div>
-      <div class="form-group">
-        <label for="">Example Range input:</label>
-        <input type="range" class="form-control-range">
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input position-static">
       </div>
     </form>
-    <hr class="mt-5 mb-5">
-    <input type="text" class="form-control form-control-lg mb-2">
-    <input type="text" class="form-control form-control mb-2">
-    <input type="text" class="form-control form-control-sm mb-4">
 
-    <select name="" id="" class="form-control form-control-lg mb-2"></select>    
-    <select name="" id="" class="form-control mb-2"></select>    
-    <select name="" id="" class="form-control form-control-sm mb-2"></select> 
-    
-    <input type="text" readonly class="form-control" value="Password">
-    <input type="text" readonly class="form-control-plaintext" value="Password">
+    <form action="">
+      <div class="row mb-2">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name">
+        </div>
+      </div>
+      <div class="form-row mb-2">
+        <div class="col">
+          <input type="text" class="form-control" placeholder="First name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" placeholder="Last name">
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" placeholder="Email">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="password">Password:</label>
+          <input type="password" class="form-control" id="password" placeholder="Password">
+        </div>
+      </div>
+      <div class="form-group mb-5">
+        <label for="address">Address:</label>
+        <input type="text" class="form-control" id="address" placeholder="1234 Main St">
+      </div>
+
+      <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email:</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <legend class="col-form-label col-sm-2 pt-0">Radios:</legend>
+        <div class="col-sm-10">
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radios" id="check1">
+            <label for="check1" class="form-check-label">First radio</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radios" id="check2">
+            <label for="check2" class="form-check-label">Second radio</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">Checkbox:</div>
+        <div class="col-sm-10">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="check3">
+            <label for="form-check-label" for="check3">Checkbox</label>
+          </div>
+        </div>
+      </div>
+    </form>
+
+    <form action="" class="form-inline mb-5">
+      <div class="form-group mr-sm-2">
+        <label for="name" class="sr-only">Name</label>
+        <input type="text" class="form-control" id="name">
+      </div>
+      <div class="input-group mr-sm-2">
+        <div class="input-group-prepend">
+          <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control">
+      </div>
+      <div class="form-check">
+        <input type="checkbox" class="form-check-input" id="check">
+        <label for="check" class="form-check-label">Remeber me</label>
+      </div>
+    </form>
+
+    <form action="" class="was-validated mb-5">
+      <div class="form-row">
+        <div class="col-md-4 mb-3">
+          <label for="name1">First name</label>
+          <input type="text" class="form-control is-valid" id="name1" value="Mark" required>
+          <p class="valid-feedback">Looks good!</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="name2">Last name</label>
+          <input type="text" class="form-control is-valid" id="name2" value="Otto" required>
+          <p class="valid-feedback">Looks good!</p>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="username">Username</label>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text">@</span>
+            </div>
+            <input type="text" class="form-control is-invalid" id="username" placeholder="Username" required>
+            <div class="invalid-feedback">Please choose a username</div>
+            <div class="valid-feedback">Looks good!</div>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="city">City</label>
+          <input type="text" class="form-control is-invalid" id="city" placeholder="City" required>
+          <p class="invalid-feedback">Please provide a valid city.</p>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="state">State</label>
+          <input type="text" class="form-control is-invalid" id="state" placeholder="State" required>
+          <p class="invalid-feedback">Please provide a valid state.</p>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="zip">Zip</label>
+          <input type="text" class="form-control is-invalid" id="zip" placeholder="Zip" required>
+          <p class="invalid-feedback">Please provide a valid zip.</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input is-invalid" id="check" required>
+          <label for="check">Agree to terms and conditions</label>
+          <p class="invalid-feedback">You must agree before submitting.</p>
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+
+    <hr class="mb-5">
+
+    <!-- 禁用浏览器默认的反馈工具提示 -->
+    <form novalidate>
+      <div class="form-group row">
+        <label for="email" class="col-sm-2 col-form-label">Email</label>
+        <div class="col-sm-10">
+          <input type="email" class="form-control" id="email" required>
+          <!-- 验证失败时显示的反馈信息 -->
+          <span class="invalid-feedback">请输入正确格式的邮箱</span>
+          <!-- 验证通过时显示的反馈信息 -->
+          <span class="valid-feedback">Looks good！</span>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="password" class="col-sm-2 col-form-label mb-4">Password</label>
+        <div class="col-sm-10 mb-4">
+          <input type="password" class="form-control" id="password" pattern="[A-Za-z0-9]{6,30}" required>
+          <div class="invalid-tooltip">密码长度至少为六位，只能是大小写字母和数字</div>
+          <div class="valid-tooltip">Looks good!</div>
+        </div>
+      </div>
+      <fieldset class="form-group">
+        <div class="row">
+          <legend class="col-form-label col-sm-2 pt-0">Radio</legend>
+          <div class="col-sm-10">
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" name="radio" id="radio-01" required>
+              <label for="radio-01" class="form-check-label">radio 01</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" name="radio" id="radio-02">
+              <label for="radio-02" class="form-check-label">radio 02</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" name="radio" id="radio-03" disabled>
+              <label for="radio-03" class="form-check-label">radio 02</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <div class="form-grop row">
+        <label for="" class="col-sm-2 col-form-label pt-0 mb-3">Checkbox</label>
+        <div class="col-sm-10 mb-3">
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" required>
+            <label for="check" class="form-check-label">Check me out!</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col">
+          <button class="btn btn-primary">Sign in</button>
+        </div>
+      </div>
+    </form>
+
+    <h5 class="mb-5">自定义表单</h5>
+    <form>
+      <div class="row">
+        <div class="col-2 mb-3">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck1">
+            <label for="customCheck1" class="custom-control-label">Checkbox</label>
+          </div>
+        </div>
+        <div class="col-4 mb-3">
+          <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" id="customCheck">
+            <label for="customCheck" class="custom-control-label">Checkbox (indeterminate)</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="customRadio1" name="customRadio">
+        <label for="customRadio1" class="custom-control-label">Radio 1</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="customRadio2" name="customRadio">
+        <label for="customRadio2" class="custom-control-label">Radio 2</label>
+      </div>
+      <div class="custom-control custom-radio custom-control-inline">
+        <input type="radio" class="custom-control-input" id="customRadio3" name="customRadio" disabled>
+        <label for="customRadio3" class="custom-control-label">Radio 3 (Disabled)</label>
+      </div>
+
+      <div class="custom-control custom-switch mt-3 mb-3">
+        <input type="checkbox" class="custom-control-input" id="customSwitch">
+        <label for="customSwitch" class="custom-control-label">Switch element</label>
+      </div>
+
+      <select class="custom-select mb-3">
+        <option selected>Open this select menu</option>
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+      </select>
+
+      <input type="range" class="custom-range mb-5" max=5 min=0 step=0.5>
+
+      <div class="input-group mb-4">
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
+          <label class="custom-file-label" for="customFileInput">Select file</label>
+        </div>
+        <!-- <div class="input-group-append">
+          <button class="btn btn-primary" type="button" id="customFileInput">Upload</button>
+        </div> -->
+      </div>
+    </form>
   </div>
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="../bootstrap-4.5.0/dist/js/bootstrap.bundle.js"></script>
+  <script>
+    $(function () {
+      $("form").submit(function (event) {
+        if ($(this)[0].checkValidity() === false) {
+          event.preventDefault();// 阻止提交表单
+          event.stopPropagation();
+        }
+        $(this).addClass("was-validated");
+      });
+      $('#customCheck').prop('indeterminate', true)
+    })
+
+    document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+      var name = document.getElementById("customFileInput").files[0].name;
+      var nextSibling = e.target.nextElementSibling
+      nextSibling.innerText = name
+    })
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="navbar-bg"></div>
+    <nav class="navbar master-navbar">
+      <form action="" class="form-inline mr-auto">
+        <div class="form-group mr-5">
+          <a href="#" class="text-white font-size-15" id="toggle-aside-nav">
+            <i class="bi bi-grid-1x2"></i>
+          </a>
+        </div>
+        <div class="input-group" id="search-field">
+          <input type="text" class="form-control" placeholder="Search...">
+          <div class="input-group-append">
+            <button class="btn btn-light" type="submit"><i class="bi bi-search"></i></button>
+          </div>
+        </div>
+      </form>
+      <div class="d-flex align-items-center">
+        <div class="dropdown mr-5 text-uppercase" id="toggle-language">
+          <a href="#" class="d-flex text-decoration-none text-white" data-toggle="dropdown" href="#">
+            <img src="./assets/images/lang/national-flag-us.svg" width="22" alt="">
+            <span class="ml-2">English</span>
+          </a>
+          <div class="dropdown-menu bg-secondary">
+            <a href="#" class="dropdown-item py-2">
+              <img src="./assets/images/lang/national-flag-ch.svg" width="20" alt=""><span>中文</span>
+            </a>
+            <a href="#" class="dropdown-item py-2">
+              <img src="./assets/images/lang/national-flag-fr.svg" width="20" alt=""><span>français</span>
+            </a>
+            <a href="#" class="dropdown-item py-2">
+              <img src="./assets/images/lang/national-flag-ge.svg" width="20" alt=""><span>Deutsche</span>
+            </a>
+            <a href="#" class="dropdown-item py-2">
+              <img src="./assets/images/lang/national-flag-jp.svg" width="20" alt=""><span>日本の</span>
+            </a>
+            <a href="#" class="dropdown-item py-2">
+              <img src="./assets/images/lang/national-flag-ko.svg" width="20" alt=""><span>한국어</span>
+            </a>
+          </div>
+        </div>
+        <div class="dropdown mr-5" id="notification-info">
+          <a href="" class="text-white beep" data-toggle="dropdown" href="#">
+            <i class="bi bi-chat-text font-size-16"></i>
+          </a>
+          <ul class="list-unstyled dropdown-menu text-muted font-size-13">
+            <li>
+              <h3 class="dropdown-header font-size-14">Notification!
+                <a href="#"><small class="float-right">Clear all</small></a>
+              </h3>
+            </li>
+            <li class="media px-4 my-4">
+              <div class="bg-success rounded-circle mr-3 notify-avatar"><i class="bi bi-lightbulb-fill"></i></div>
+              <div class="media-body">
+                Potential security vulnerability found in the lodash.defaultsdeep dependency.<br>
+                <small class="text-info text-uppercase">2 min ago</small>
+              </div>
+            </li>
+            <li class="media px-4 my-4">
+              <div class="bg-primary rounded-circle mr-3 notify-avatar"><i class="bi bi-exclamation-triangle-fill"></i></div>
+              <div class="media-body">
+                You're caught up on this filter. <br>
+                <small class="text-info text-uppercase">10 days ago</small>
+              </div>
+            </li>
+            <li class="media px-4 my-4">
+              <div class="bg-info rounded-circle mr-3 notify-avatar"><i class="bi bi-github"></i></div>
+              <div class="media-body">
+                Template update is available now! <br>
+                <small class="text-info text-uppercase">2 min ago</small>
+              </div>
+            </li>
+            <li class="media px-4 my-4">
+              <div class="bg-danger rounded-circle mr-3 notify-avatar"><i class="bi bi-hand-thumbs-down-fill"></i></div>
+              <div class="media-body">
+                Template update is available now! <br>
+                <small class="text-info text-uppercase">2 min ago</small>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="dropdown ml-1" id="user-account">
+          <a href="#" class="d-flex align-items-center text-light text-decoration-none" data-toggle="dropdown">
+            <div class="bg-light rounded-circle mr-2">
+              <img src="./assets/images/avatar.svg" class="rounded-circle" width="28" alt="">
+            </div>
+            <div class="line-height-1">
+              <span class="account-username">Dominic Keller</span> <br>
+              <span class="account-position"><small>Founder</small></span>
+            </div>
+          </a>
+          <div class="dropdown-menu">
+            <h6 class="dropdown-header">Welcome!</h6>
+            <a class="dropdown-item py-2" href="#"><i class="bi bi-person-fill"></i></i><span>My Account</span></a>
+            <a class="dropdown-item py-2" href="#"><i class="bi bi-gear-fill"></i><span>Profile</span></a>
+            <a class="dropdown-item py-2" href="#"><i class="bi bi-star-half"></i><span>Stars</span></a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item font-size-14" href="#"><i class="bi bi-power"></i><span>Logout</span></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <aside class="master-sidebar">
+      <a href="index.html" class="d-block text-dark text-center text-decoration-none my-4">
+        <h2>Master Admin</h2>
+      </a>
+
+      <ul class="list-unstyled aside-menu">
+        <li class="aside-menu-header">
+          <h5>Dashboard</h5>
+        </li>
+        <li class="aside-menu-item">
+          <a class="collapsed" href="#menu-dashboard-list" data-toggle="collapse"><i class="bi bi-speedometer mr-4"></i>Dashboard</a>
+          <ol id="menu-dashboard-list" class="collapse list-unstyled" data-parent=".aside-menu">
+            <li><a class="aside-link" href="#">Ecommerce</a></li>
+            <li><a class="aside-link" href="#">CRM</a></li>
+            <li><a class="aside-link" href="#">Projects</a></li>
+          </ol>
+        </li>
+        <li class="aside-menu-header">
+          <h5>Overview</h5>
+        </li>
+        <li class="aside-menu-item">
+          <a class="collapsed" href="#menu-layout-list" data-toggle="collapse">
+            <i class="bi bi-grid-fill mr-4"></i>Layout <span class="float-right">&gt;</span>
+          </a>
+          <ol id="menu-layout-list" class="collapse list-unstyled" data-parent=".aside-menu">
+            <li><a class="aside-link" href="#">Ecommerce</a></li>
+            <li><a class="aside-link" href="#">CRM</a></li>
+            <li><a class="aside-link" href="#">Projects</a></li>
+          </ol>
+
+          <a class="collapsed" href="#menu-blank-page-list" data-toggle="collapse">
+            <i class="bi bi-kanban mr-4"></i>Blank Page<span class="float-right">&gt;</span>
+          </a>
+          <ol id="menu-blank-page-list" class="collapse list-unstyled" data-parent=".aside-menu">
+            <li><a class="aside-link" href="#">Ecommerce</a></li>
+            <li><a class="aside-link" href="#">CRM</a></li>
+            <li><a class="aside-link" href="#">Projects</a></li>
+          </ol>
+
+          <a class="collapsed" href="#menu-bootstrap-list" data-toggle="collapse">
+            <i class="bi bi-bootstrap-fill mr-4"></i></i>Bootstrap<span class="float-right">&gt;</span>
+          </a>
+          <ol id="menu-bootstrap-list" class="collapse list-unstyled" data-parent=".aside-menu">
+            <li><a class="aside-link" href="#">Ecommerce</a></li>
+            <li><a class="aside-link" href="#">CRM</a></li>
+            <li><a class="aside-link" href="#">Projects</a></li>
+          </ol>
+        </li>
+        <li class="aside-menu-header">
+          <h5>Components</h5>
+        </li>
+        <li class="aside-menu-header">
+          <h5>Pages</h5>
+        </li>
+        <li class="aside-menu-item">
+          <a class="collapsed" href="#menu-pages-list" data-toggle="collapse">
+            <i class="bi bi-grid-fill mr-4"></i>Layout <span class="float-right">&gt;</span>
+          </a>
+          <ol id="menu-pages-list" class="collapse list-unstyled" data-parent=".aside-menu">
+            <li><a class="aside-link" href="#">Ecommerce</a></li>
+            <li><a class="aside-link" href="#">CRM</a></li>
+            <li><a class="aside-link" href="#">Projects</a></li>
+          </ol>
+        </li>
+      </ul>
+    </aside>
+
+    <section class="master-content">
+      <div class="master-header">
+        <h5>Advanced Forms</h5>
+        <nav aria-label="breadcrumb" class="master-header-breadcrumb">
+          <ol class="breadcrumb mb-0 bg-transparent">
+            <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+            <li class="breadcrumb-item"><a href="#">Forms</a></li>
+            <li class="breadcrumb-item active">Advanced Forms</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="master-body">
+        <p class="text-muted pl-4"><small>Most common form control, text-based input fields. Includes support for all HTML5 types: text, password,
+            datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</small></p>
+        <div class="row mt-3">
+          <div class="col-12 col-md-6">
+            <div class="card">
+              <div class="card-header">
+                <h5 class="mb-0">Input Text</h5>
+              </div>
+              <div class="card-body">
+                <form action="">
+                  <div class="form-group">
+                    <label for="">Default Input Text</label>
+                    <input type="text" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="">Phone Number</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <div class="input-group-text"><i class="bi-telephone"></i></div>
+                      </div>
+                      <input type="text" class="form-control" maxlength="11" minlength="11">
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="">Purchase Code</label>
+                    <input type="text" class="form-control purchase-code" placeholder="ASDF-GHIJ-KLMN-OPQR">
+                  </div>
+                </form>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-12 col-md-6">
+
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</body>
+
+</html>
