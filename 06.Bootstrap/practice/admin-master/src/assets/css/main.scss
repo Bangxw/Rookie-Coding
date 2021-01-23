@@ -1,325 +1,402 @@
-  @import './common';
-  html {
-    font-size: 10px;
+@import '_common.scss';
+
+html {
+  font-size: 10px;
+}
+
+body {
+  background-color: $body_bgcolor;
+  font-family: $body_font;
+  font-size: 1.4rem;
+}
+
+.icon {
+  width: 2rem;
+  height: 2rem;
+  // vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+// 01. 重置一些 Bootstrap v4 默认样式
+// 02. 页面整体布局相关
+// 10. 全局 Utilities
+/* ============================================================== */
+/* 01. 重置一些 Bootstrap v4 默认样式 */
+/* ============================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headline_font;
+}
+
+.form-control {
+  font-size: 1.6rem;
+  font-family: $headline_font;
+}
+
+.card {
+  box-shadow: $box_shadow;
+  border-width: 0;
+
+  .card-header {
+    background-color: #fff;
+    color: $primary_color;
   }
-  
-  body {
-    background-color: $body_bgcolor;
-    font-family: $body_font;
-    font-size: 1.4rem;
-    line-height: 1.2;
-  }
-  
-  // 01. 重置一些 Bootstrap v4 默认样式
-  // 02. 页面整体布局相关
-  // 10. 全局 Utilities
-  /* ============================================================== */
-  /* 01. 重置一些 Bootstrap v4 默认样式 */
-  /* ============================================================== */
-  
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+}
+
+.media-body {
+  small {
     font-family: $headline_font;
   }
-  
-  .form-control {
-    font-size: 1.6rem;
-  }
-  
-  .card {
-    box-shadow: $box_shadow;
-    border-width: 0;
-    .card-header {
-      background-color: #fff;
-      color: $primary_color;
-    }
-  }
-  
-  .media-body {
-    font-family: $headline_font;
-  }
-  /* ============================================================== */
-  /* 02. 页面整体布局相关 */
-  /* ============================================================== */
-  
-  .wrapper {
-    .navbar-bg {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 115px;
-      background-color: $primary_color;
-      z-index: -1;
-    }
+}
+
+/* ============================================================== */
+/* 02. 页面整体布局相关 */
+/* ============================================================== */
+
+// 【< 576px】 hide sidebar, click button to display the sidebar
+// 【< 992px && >=768px】  show mini-bar, click button to display the sidebar
+// 【>= 992px】 show sidebar, hide click button
+
+.wrapper {
+  .navbar-bg {
+    position: relative;
+    width: 100%;
+    height: 120px;
+    padding-left: $sidebar_width + $sm_page_padding;
+    padding-right: $sm_page_padding;
+    background-color: $primary_color;
+
     .master-navbar {
-      height: 70px;
-      left: 250px;
-      right: 5px;
-      position: absolute;
-      z-index: 890;
+      height: 85px;
+      padding: 0;
       background: transparent;
-      padding: 0 30px;
+
       #search-field {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        max-width: 250px;
+
         .form-control {
           border-color: #fff;
         }
+
         .form-control:focus {
           border-color: #fff;
           box-shadow: none;
         }
+
+        button {
+          font-size: 1.6rem;
+        }
       }
+
       >div:last-child {
         .dropdown-menu {
           margin-top: 10px;
           right: 0;
           left: auto;
+
           a.dropdown-item span {
             margin-left: 10px;
           }
         }
+
         #notification-info {
           .dropdown-menu {
-            min-width: 26rem;
+            min-width: 30rem;
+
             .notify-avatar {
               width: 2rem;
               height: 2rem;
               text-align: center;
-              line-height: 2rem;
               color: #fff;
             }
           }
         }
       }
     }
-    .master-sidebar {
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 250px;
-      background-color: #fff;
-      z-index: 666;
-      .aside-menu-header {
-        margin-top: 10px;
-        padding: 3px 15px;
-        color: #a1a8ae;
-        text-transform: uppercase;
-        letter-spacing: 0.8px;
-      }
-      .aside-menu-item {
-        position: relative;
-        font-family: $headline_font;
-        a {
-          display: block;
-          color: #78828a;
-          text-decoration: none;
-        }
-        a.aside-link {
-          padding: 10px 0 10px 6rem;
-        }
-        a.aside-link.actived,
-        a.aside-link:hover {
-          color: $primary_color;
-        }
-        a[aria-expanded="true"] {
-          color: $primary_color;
-          font-weight: bold;
-        }
-      }
-      .aside-menu-item>a {
-        position: relative;
-        font-size: 15px;
-        padding: 10px 0 10px 25px;
-      }
-      .aside-menu-item>a.has-submenu:after {
-        content: '>';
-        position: absolute;
-        font-weight: bold;
-        right: 2.5rem;
-        font-family: monospace;
-      }
-      .aside-menu-item>a.has-submenu[aria-expanded="false"]:after {
-        transform: rotate(0);
-        transition: all .5s;
-      }
-      .aside-menu-item>a.has-submenu[aria-expanded="true"]:after {
-        transform: rotate(90deg);
-        transition: all .5s;
-      }
-    }
-    .master-content {
-      padding-left: 280px;
-      padding-right: 30px;
-      padding-top: 80px;
-      width: 100%;
-      position: relative;
-      .master-header {
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
-        background-color: #fff;
-        border-radius: 3px;
-        border: none;
-        position: relative;
-        margin-bottom: 30px;
-        padding: 20px;
-        display: flex;
-        align-items: center;
-        .master-header-breadcrumb {
-          margin-left: auto;
-          font-size: .8rem;
-        }
-      }
-    }
   }
-  
-  .wrapper.md-wrapper {
-    .master-content {
-      padding-left: 95px !important;
-    }
-    .master-sidebar {
-      width: 65px !important;
-      .aside-menu-header,
-      .aside-menu-item>a.has-submenu:after,
-      .aside-menu-item>a.has-submenu span {
-        display: none;
-      }
-      .aside-menu-item>ol {
-        position: absolute;
-        left: 6.5rem;
-        background: #fff;
-        margin-top: -40px;
-        border-top-right-radius: 5px;
-        border-bottom-right-radius: 5px;
-        box-shadow: $box_shadow;
-      }
-      .aside-menu-item {
-        padding: 1rem;
-        a[aria-expanded="true"] {
-          background: $primary_color;
-          color: #fff !important;
-          border-radius: 4px;
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
-        }
-      }
-      .aside-menu-item>a {
-        padding-left: 1.6rem !important;
-      }
-      a.aside-link {
-        padding: .8rem 2rem !important;
-      }
-    }
-  }
-  
-  .navbar,
-  .master-sidebar,
-  .master-content,
-  .main-footer {
-    transition: all .5s;
-  }
-  /* ============================================================== */
-  /* 10. 全局 Utilities */
-  /* ============================================================== */
-  
-  .line-height-1 {
-    line-height: 1;
-  }
-  
-  .font-size-12 {
-    font-size: 1.2rem;
-  }
-  
-  .font-size-13 {
-    font-size: 1.3rem;
-  }
-  
-  .font-size-14 {
-    font-size: 1.4rem;
-  }
-  
-  .font-size-15 {
-    font-size: 1.5rem;
-  }
-  
-  .font-size-16 {
-    font-size: 1.6rem;
-  }
-  
-  .font-size-18 {
-    font-size: 1.8rem;
-  }
-  
-  .font-size-24 {
-    font-size: 2.4rem;
-  }
-  
-  .beep:after {
-    content: '';
-    position: absolute;
+
+  .master-sidebar {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+    position: fixed;
     top: 0;
-    right: -8px;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background-color: #ffa426;
+    left: 0;
+    height: 100%;
+    width: 250px;
+    background-color: #fff;
+    z-index: $basis_z_index + 1;
+
+    .aside-menu-header {
+      margin-top: 10px;
+      padding: 3px 15px;
+      color: #a1a8ae;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .aside-menu-item {
+      position: relative;
+      font-family: $headline_font;
+
+      a {
+        display: block;
+        color: #78828a;
+        text-decoration: none;
+      }
+
+      a.aside-link {
+        padding: .8rem 0 .8rem 6rem;
+      }
+
+      a.aside-link.actived,
+      a.aside-link:hover {
+        color: $primary_color;
+      }
+
+      a[aria-expanded="true"] {
+        color: $primary_color;
+        font-weight: bold;
+      }
+    }
+
+    .aside-menu-item>a {
+      position: relative;
+      font-size: 15px;
+      padding: 1.8rem 0 1.8rem 2.5rem;
+    }
+
+    .aside-menu-item>a.has-submenu:after {
+      content: ">";
+      position: absolute;
+      font-weight: bold;
+      right: 2.5rem;
+      font-family: monospace;
+    }
+
+    .aside-menu-item>a.has-submenu[aria-expanded="false"]:after {
+      transform: rotate(0);
+      transition: all 0.5s;
+    }
+
+    .aside-menu-item>a.has-submenu[aria-expanded="true"]:after {
+      transform: rotate(90deg);
+      transition: all 0.5s;
+    }
+  }
+
+  .master-content {
+    position: relative;
+    width: 100%;
+    padding-left: $sidebar_width + $sm_page_padding;
+    padding-right: $sm_page_padding;
+    margin-top: -35px;
+
+    .master-header {
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
+      background-color: #fff;
+      border-radius: 3px;
+      border: none;
+      position: relative;
+      margin-bottom: 30px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+
+      h3 {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.navbar,
+.master-sidebar,
+.master-content,
+.main-footer {
+  transition: all .8s;
+}
+
+.asidebar-show:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: $basis_z_index;
+  background-color: #000;
+  opacity: 0;
+  animation: shade-layer .8s forwards;
+}
+
+@keyframes shade-layer {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: .5;
+  }
+}
+
+/* ============================================================== */
+/* 10. 全局 Utilities */
+/* ============================================================== */
+
+.line-height-1 {
+  line-height: 1;
+}
+
+.font-size-12 {
+  font-size: 1.2rem;
+}
+
+.font-size-13 {
+  font-size: 1.3rem;
+}
+
+.font-size-14 {
+  font-size: 1.4rem;
+}
+
+.font-size-15 {
+  font-size: 1.5rem;
+}
+
+.font-size-16 {
+  font-size: 1.6rem;
+}
+
+.font-size-18 {
+  font-size: 1.8rem;
+}
+
+.font-size-24 {
+  font-size: 2.4rem;
+}
+
+.beep:after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  right: -6px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #ffa426;
+  opacity: 1;
+  animation: notify-beep 1.5s ease-out infinite;
+}
+
+@keyframes notify-beep {
+  0% {
     opacity: 1;
-    animation: notify-beep 1.5s ease-out infinite;
   }
-  
-  @keyframes notify-beep {
-    0% {
-      opacity: 1;
-    }
-    60% {
-      opacity: 0.2;
-      transform: scale(0.6);
-    }
-    100% {
-      opacity: 1;
-    }
+
+  60% {
+    opacity: 0.2;
+    transform: scale(0.6);
   }
-  
-  @media screen and (min-width: 768px) {}
-  
-  @media screen and (max-width: 767px) {
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .master-header-breadcrumb {
+    margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 991px) and (min-width: 576px) {
+  .wrapper {
+
+    .navbar-bg,
     .master-content {
-      padding-left: 95px !important;
+      padding-left: $mini_sidebar_width + $xs_page_padding;
+      padding-right: $sm_page_padding;
     }
+
+    .master-navbar {
+      height: 70px;
+
+      #search-field {
+        width: 50%;
+      }
+    }
+
     .master-sidebar {
       width: 65px !important;
+
       .aside-menu-header,
       .aside-menu-item>a.has-submenu:after,
       .aside-menu-item>a.has-submenu span {
         display: none;
       }
+
       .aside-menu-item>ol {
         position: absolute;
         left: 6.5rem;
         background: #fff;
-        margin-top: -40px;
+        margin-top: -53px;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
         box-shadow: $box_shadow;
       }
+
       .aside-menu-item {
         padding: 1rem;
+
         a[aria-expanded="true"] {
           background: $primary_color;
           color: #fff !important;
-          border-radius: 4px;
-          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.23);
+          border-radius: .4rem;
+          box-shadow: 0 .3rem .6rem rgba(0, 0, 0, 0.23);
         }
       }
+
       .aside-menu-item>a {
-        padding-left: 1.6rem !important;
+        padding: 1rem 0 1.1rem 1.6rem;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
       }
+
       a.aside-link {
-        padding: .8rem 2rem !important;
+        padding: 0.8rem 2rem !important;
       }
     }
   }
+}
+
+@media screen and (max-width: 575px) {
+  .wrapper {
+
+    .navbar-bg,
+    .master-content {
+      padding-left: $xs_page_padding;
+      padding-right: $xs_page_padding;
+    }
+
+    .navbar-bg .master-navbar {
+      height: 70px;
+    }
+
+    .master-sidebar {
+      position: absolute;
+      left: -$sidebar_width;
+    }
+
+    .master-content {
+      .master-header {
+        margin-top: -4.7rem;
+      }
+    }
+  }
+}

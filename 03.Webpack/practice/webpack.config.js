@@ -20,7 +20,7 @@ module.exports = {
       chunkFilename: '[id].css'
     }),
     new HtmlWebpackPlugin({
-      title: 'Hello World APP',
+      title: 'Hello World APP----',
       minify: {
         removeComments: true,
         collapseWhitespace: true,

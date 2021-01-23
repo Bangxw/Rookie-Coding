@@ -1,7 +1,22 @@
+@font-face {
+  font-family: 'Open Sans Light';
+  src: url('../fonts/OpenSans-Light.ttf');
+  src: url('../fonts/OpenSans-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Light.woff2') format('woff2'),
+    url('../fonts/OpenSans-Light.woff') format('woff'),
+    url('../fonts/OpenSans-Light.ttf') format('truetype');
+}
+
 $primary_color: #6777ef;
 $body_bgcolor : #f4f6f9;
-
 $box_shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
 
 $headline_font: 'Candara';
-$body_font: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, '华文细黑', sans-serif;
+$body_font: 'Open Sans Light', 'Helvetica Neue', Helvetica, '华文细黑', sans-serif;
+
+$sidebar_width: 250px;
+$mini_sidebar_width: 65px;
+$xs_page_padding: 20px;
+$sm_page_padding: 30px;
+
+$basis_z_index: 88;
