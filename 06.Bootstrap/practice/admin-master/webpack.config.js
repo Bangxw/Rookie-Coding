@@ -17,7 +17,7 @@ let htmlWebpackPluginConfig = function (file, chunks) {
       src: [
         "https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js",
         "https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js",
-        "//at.alicdn.com/t/font_1862331_du2ytcslobb.js",
+        "//at.alicdn.com/t/font_1862331_a81hvpnc99g.js",
       ],
       href: [
         'https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css',

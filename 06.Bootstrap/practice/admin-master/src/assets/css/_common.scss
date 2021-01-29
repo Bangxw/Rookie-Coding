@@ -5,14 +5,29 @@
     url('../fonts/OpenSans-Light.woff2') format('woff2'),
     url('../fonts/OpenSans-Light.woff') format('woff'),
     url('../fonts/OpenSans-Light.ttf') format('truetype');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'Open Sans Regular';
+  src: url('../fonts/OpenSans-Regular.ttf');
+  src: url('../fonts/OpenSans-Regular.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/OpenSans-Regular.woff2') format('woff2'),
+    url('../fonts/OpenSans-Regular.woff') format('woff'),
+    url('../fonts/OpenSans-Regular.ttf') format('truetype');
+  font-weight: normal;
 }
 
 $primary_color: #6777ef;
 $body_bgcolor : #f4f6f9;
 $box_shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
 
-$headline_font: 'Candara';
-$body_font: 'Open Sans Light', 'Helvetica Neue', Helvetica, '华文细黑', sans-serif;
+$secondary_font: 'Open Sans Light';
+$primary_font: 'Open Sans Regular',
+'Helvetica Neue',
+Helvetica,
+'华文细黑',
+sans-serif;
 
 $sidebar_width: 250px;
 $mini_sidebar_width: 65px;

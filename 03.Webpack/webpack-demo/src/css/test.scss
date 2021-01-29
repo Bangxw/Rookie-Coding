@@ -1,0 +1,21 @@
+$font-stack: Helvetica, sans-serif;
+$primary-color: #333;
+$secondary-color: #6777ef;
+body {
+  font: 100% $font-stack;
+  color: $primary-color;
+}
+
+@mixin border-radius($radius) {
+  border-radius: $radius;
+  -ms-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+}
+
+.box {
+  @include border-radius(10px);
+  width: 100px;
+  height: 100px;
+  border: 1px solid $secondary-color;
+}

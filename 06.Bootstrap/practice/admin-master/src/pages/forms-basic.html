@@ -20,23 +20,18 @@
         <div class="mr-3 mr-md-5 d-sm-none">
           <a href="#" class="text-white font-size-15" id="toggle-aside-nav">
             <svg class="icon" aria-hidden="true">
-              <use xlink:href="#icon-menu"></use>
+              <use xlink:href="#icon-apps"></use>
             </svg>
           </a>
         </div>
-        <div class="input-group" id="search-field">
+
+        <div id="search-field">
           <input type="text" class="form-control" placeholder="Search...">
-          <div class="input-group-append">
-            <button class="btn btn-light" type="submit">
-              <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-search"></use>
-              </svg>
-            </button>
-          </div>
         </div>
+
         <div class="ml-auto d-flex align-items-center">
-          <div class="dropdown mr-4 mr-md-5 text-uppercase" id="toggle-language">
-            <a href="#" class="d-flex text-decoration-none text-white" data-toggle="dropdown" href="#">
+          <div class="dropdown mr-3 mr-md-4 text-uppercase" id="toggle-language">
+            <a href="#" class="d-flex align-items-center text-decoration-none text-white" data-toggle="dropdown" href="#">
               <img src="./assets/images/national-flag-en.png" width="20" alt="">
               <span class="ml-2 d-none d-md-block">English</span>
             </a>
@@ -58,28 +53,34 @@
               </a>
             </div>
           </div>
-          <div class="dropdown mr-4 mr-md-5" id="notification-info">
+          <div class="dropdown mr-3 mr-md-4" id="notification-info">
             <a href="" class="text-white beep" data-toggle="dropdown" href="#">
               <svg class="icon" aria-hidden="true">
-                <use xlink:href="#icon-xiaoxi"></use>
+                <use xlink:href="#icon-messages"></use>
               </svg>
             </a>
             <ul class="list-unstyled dropdown-menu text-muted font-size-13">
               <li>
-                <h3 class="dropdown-header font-size-14">Notification!
+                <h5 class="dropdown-header">Notification!
                   <a href="#"><small class="float-right">Clear all</small></a>
-                </h3>
+                </h5>
               </li>
               <li class="media px-4 my-4">
-                <div class="bg-success rounded-circle mr-3 notify-avatar"><i class="bi bi-lightbulb-fill"></i></div>
+                <div class="bg-primary rounded-circle mr-3 notify-avatar">
+                  <svg class="icon">
+                    <use xlink:href="#icon-lamp"></use>
+                  </svg>
+                </div>
                 <div class="media-body">
-                  You can control your history and other browsing data, like saved form entries.
                   You can delete all of your data or just some from a specific time.<br>
                   <small class="text-info text-uppercase">2 min ago</small>
                 </div>
               </li>
               <li class="media px-4 my-4">
-                <div class="bg-primary rounded-circle mr-3 notify-avatar"><i class="bi bi-exclamation-triangle-fill"></i>
+                <div class="bg-success rounded-circle mr-3 notify-avatar">
+                  <svg class="icon">
+                    <use xlink:href="#icon-check"></use>
+                  </svg>
                 </div>
                 <div class="media-body">
                   You're caught up on this filter. <br>
@@ -87,14 +88,22 @@
                 </div>
               </li>
               <li class="media px-4 my-4">
-                <div class="bg-info rounded-circle mr-3 notify-avatar"><i class="bi bi-github"></i></div>
+                <div class="bg-warning rounded-circle mr-3 notify-avatar">
+                  <svg class="icon">
+                    <use xlink:href="#icon-hand-dislike"></use>
+                  </svg>
+                </div>
                 <div class="media-body">
                   Template update is available now! <br>
                   <small class="text-info text-uppercase">2 min ago</small>
                 </div>
               </li>
               <li class="media px-4 my-4">
-                <div class="bg-danger rounded-circle mr-3 notify-avatar"><i class="bi bi-hand-thumbs-down-fill"></i></div>
+                <div class="bg-danger rounded-circle mr-3 notify-avatar">
+                  <svg class="icon">
+                    <use xlink:href="#icon-close"></use>
+                  </svg>
+                </div>
                 <div class="media-body">
                   Template update is available now! <br>
                   <small class="text-info text-uppercase">2 min ago</small>
@@ -114,11 +123,29 @@
             </a>
             <div class="dropdown-menu">
               <h6 class="dropdown-header">Welcome!</h6>
-              <a class="dropdown-item py-3 pr-5" href="#"><i class="bi bi-person-fill"></i></i><span>My Account</span></a>
-              <a class="dropdown-item py-3 pr-5" href="#"><i class="bi bi-gear-fill"></i><span>Profile</span></a>
-              <a class="dropdown-item py-3 pr-5" href="#"><i class="bi bi-star-half"></i><span>Stars</span></a>
+              <a class="dropdown-item py-2 href=" #">
+                <svg class="icon">
+                  <use xlink:href="#icon-user"></use>
+                </svg>
+                <span>My Account</span>
+              </a>
+              <a class="dropdown-item py-2" href="#">
+                <svg class="icon">
+                  <use xlink:href="#icon-settings"></use>
+                </svg>
+                <span>Profile</span></a>
+              <a class="dropdown-item py-2" href="#">
+                <svg class="icon">
+                  <use xlink:href="#icon-star"></use>
+                </svg>
+                <span>Stars</span></a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item font-size-14" href="#"><i class="bi bi-power"></i><span>Logout</span></a>
+              <a class="dropdown-item" href="#">
+                <svg class="icon">
+                  <use xlink:href="#icon-logout"></use>
+                </svg>
+                <span>Logout</span>
+              </a>
             </div>
           </div>
         </div>
@@ -127,18 +154,20 @@
 
     <aside class="master-sidebar">
       <a href="index.html" class="d-block text-dark text-center text-decoration-none my-4">
-        <h2 class="d-none d-lg-block">Master Admin</h2>
-        <h2 class="d-lg-none">MA</h2>
+        <h4 class="d-none d-lg-block">Master Admin</h4>
+        <h4 class="d-lg-none">MA</h4>
       </a>
 
       <ul class="list-unstyled aside-menu">
         <li class="aside-menu-header">
-          <h5>Dashboard</h5>
+          <h6>Dashboard</h6>
         </li>
         <li class="aside-menu-item">
           <a class="has-submenu" href="#menu-dashboard-list" data-toggle="collapse">
-            <i class="bi bi-speedometer"></i>
-            <span class="ml-4">Dashboard</span>
+            <svg class="icon">
+              <use xlink:href="#icon-board"></use>
+            </svg>
+            <span class="ml-3">Dashboard</span>
           </a>
           <ol id="menu-dashboard-list" class="collapse list-unstyled" data-parent=".aside-menu">
             <li><a class="aside-link" href="#">Ecommerce</a></li>
@@ -147,49 +176,14 @@
           </ol>
         </li>
         <li class="aside-menu-header">
-          <h5>Overview</h5>
-        </li>
-        <li class="aside-menu-item">
-          <a class="has-submenu" href="#menu-layout-list" data-toggle="collapse">
-            <i class="bi bi-grid-fill"></i>
-            <span class="ml-4">Layout</span>
-          </a>
-          <ol id="menu-layout-list" class="collapse list-unstyled" data-parent=".aside-menu">
-            <li><a class="aside-link" href="#">Ecommerce</a></li>
-            <li><a class="aside-link" href="#">CRM</a></li>
-            <li><a class="aside-link" href="#">Projects</a></li>
-          </ol>
-
-          <a class="has-submenu" href="#menu-blank-page-list" data-toggle="collapse">
-            <i class="bi bi-kanban"></i>
-            <span class="ml-4">Blank Page</span>
-          </a>
-          <ol id="menu-blank-page-list" class="collapse list-unstyled" data-parent=".aside-menu">
-            <li><a class="aside-link" href="#">Ecommerce</a></li>
-            <li><a class="aside-link" href="#">CRM</a></li>
-            <li><a class="aside-link" href="#">Projects</a></li>
-          </ol>
-
-          <a class="has-submenu" href="#menu-bootstrap-list" data-toggle="collapse">
-            <i class="bi bi-bootstrap-fill"></i></i>
-            <span class="ml-4">Bootstrap</span>
-          </a>
-          <ol id="menu-bootstrap-list" class="collapse list-unstyled" data-parent=".aside-menu">
-            <li><a class="aside-link" href="#">Ecommerce</a></li>
-            <li><a class="aside-link" href="#">CRM</a></li>
-            <li><a class="aside-link" href="#">Projects</a></li>
-          </ol>
-        </li>
-        <li class="aside-menu-header">
-          <h5>Components</h5>
-        </li>
-        <li class="aside-menu-header">
-          <h5>Pages</h5>
+          <h6>Pages</h6>
         </li>
         <li class="aside-menu-item">
           <a class="has-submenu" href="#menu-pages-list" data-toggle="collapse">
-            <i class="bi bi-grid-fill"></i>
-            <span class="ml-4">Layout</span>
+            <svg class="icon">
+              <use xlink:href="#icon-cpu"></use>
+            </svg>
+            <span class="ml-3">Errors</span>
           </a>
           <ol id="menu-pages-list" class="collapse list-unstyled" data-parent=".aside-menu">
             <li><a class="aside-link" href="#">Ecommerce</a></li>
@@ -203,10 +197,10 @@
     <section class="master-content">
       <div class="master-header row no-gutters">
         <div class="col">
-          <h2>Basic Elements</h2>
+          <h5 class="mb-0">Basic Elements</h5>
         </div>
         <div class="col-12 col-md-6 d-flex">
-          <ol class="breadcrumb bg-transparent mb-0 pl-0 master-header-breadcrumb">
+          <ol class="breadcrumb mb-0 p-0 bg-transparent master-header-breadcrumb">
             <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
             <li class="breadcrumb-item"><a href="#">Forms</a></li>
             <li class="breadcrumb-item active">Advanced Forms</li>
@@ -215,71 +209,131 @@
       </div>
 
       <div class="master-body">
-        <p class="text-muted pl-4">Most common form control, text-based input fields. Includes support for all HTML5 types: text, password, datetime,
-          datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>
+        <p class="text-muted px-4 mt-3 secondary-font">Most common form control, text-based input fields. Includes support for all HTML5 types: text,
+          password,
+          datetime, datetime-local, date, month, time, week, number, email, url, search, tel, and color.</p>
         <div class="row mt-3">
           <div class="col-12 col-md-6">
             <div class="card">
               <div class="card-header">
-                <h5 class="mb-0">INPUT TYPES</h5>
+                <h6>Form Control</h6>
               </div>
               <div class="card-body">
                 <form action="">
                   <div class="form-group">
-                    <label for="">Default Input Text</label>
-                    <input type="text" class="form-control">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="name@example.com">
                   </div>
                   <div class="form-group">
-                    <label for="">Phone Number</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="bi-telephone"></i></div>
-                      </div>
-                      <input type="text" class="form-control" maxlength="11" minlength="11">
-                    </div>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" value="12345678">
                   </div>
                   <div class="form-group">
-                    <label for="">Purchase Code</label>
-                    <input type="text" class="form-control purchase-code" placeholder="ASDF-GHIJ-KLMN-OPQR">
+                    <label for="select">Input Select</label>
+                    <select name="" id="select" class="form-control">
+                      <option value="1">Item 1</option>
+                      <option value="2">Item 2</option>
+                      <option value="3">Item 3</option>
+                      <option value="4">Item 4</option>
+                      <option value="5">Item 5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="multiple">Multiple</label>
+                    <select name="" id="multiple" class="form-control" multiple>
+                      <option value="1">Item 1</option>
+                      <option value="2">Item 2</option>
+                      <option value="3">Item 3</option>
+                      <option value="4">Item 4</option>
+                      <option value="5">Item 5</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="desc">Description</label>
+                    <textarea name="" id="desc" cols="30" rows="5" class="form-control"></textarea>
+                  </div>
+                  <div class="form-group">
+                    <label for="file">Example File Input</label>
+                    <input type="file" class="form-control-file" id="file">
+                  </div>
+                  <div class="form-group">
+                    <label for="day">Day</label>
+                    <input type="date" class="form-control" id="day">
+                  </div>
+                  <div class="form-group">
+                    <label for="week">Week</label>
+                    <input type="week" class="form-control" id="week">
+                  </div>
+                  <div class="form-group">
+                    <label for="month">Month</label>
+                    <input type="month" class="form-control" id="month">
+                  </div>
+                  <div class="form-group">
+                    <label for="number">Number</label>
+                    <input type="number" class="form-control" id="number">
+                  </div>
+                  <div class="form-group">
+                    <label for="color">Color</label>
+                    <input type="color" id="color" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="range">Range</label>
+                    <input type="range" id="range" class="form-control">
                   </div>
                 </form>
               </div>
             </div>
-
           </div>
+
           <div class="col-12 col-md-6">
             <div class="card">
               <div class="card-header">
-                <h5 class="mb-0">Input Text</h5>
+                <h6>INPUT TYPES</h6>
               </div>
               <div class="card-body">
                 <form action="">
                   <div class="form-group">
-                    <label for="">Default Input Text</label>
-                    <input type="text" class="form-control">
+                    <label for="readonly">Readonly</label>
+                    <input type="text" readonly id="readonly" class="form-control" value="Readonly value">
                   </div>
                   <div class="form-group">
-                    <label for="">Phone Number</label>
-                    <div class="input-group">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text"><i class="bi-telephone"></i></div>
-                      </div>
-                      <input type="text" class="form-control" maxlength="11" minlength="11">
+                    <label for="disabled">Disabled</label>
+                    <input type="text" disabled id="disabled" class="form-control" value="Disabled value">
+                  </div>
+                  <div class="form-group">
+                    <label for="static">Readonly Plain Text</label>
+                    <input type="text" readonly id="static" class="form-control-plaintext" value="email@example.com">
+                  </div>
+                  <div class="form-group">
+                    <label for="help-text">Help Text</label>
+                    <input type="text" class="form-control" placeholder="Help text">
+                    <small class="form-text text-muted">A block of help text that breaks onto a new line and may extend beyond one line.</small>
+                  </div>
+
+
+                  <div class="form-group">
+                    <label for="customFileInput">File Input</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFileInput" aria-describedby="customFileInput">
+                      <label class="custom-file-label" for="customFileInput">Select file</label>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="">Purchase Code</label>
-                    <input type="text" class="form-control purchase-code" placeholder="ASDF-GHIJ-KLMN-OPQR">
                   </div>
                 </form>
               </div>
             </div>
-
           </div>
         </div>
       </div>
     </section>
   </div>
+
+  <script>
+    document.querySelector('.custom-file-input').addEventListener('change', function (e) {
+      var name = document.getElementById("customFileInput").files[0].name;
+      var nextSibling = e.target.nextElementSibling
+      nextSibling.innerText = name
+    })
+  </script>
 
   <!-- 通过ejs语法引入mdn资源，资源列表定义在 webpack.config.js  htmlWebpackPluginConfig 方法中-->
   <% htmlWebpackPlugin.options.mdnAssets.src.forEach(function(url){ %>

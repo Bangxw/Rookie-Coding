@@ -1,26 +1,73 @@
+// 00. 全局 Utilities
+// 01. 重置一些 Bootstrap v4 默认样式
+// 02. 页面整体布局相关
+
+/* ============================================================== */
+/* 00. 全局 Utilities */
+/* ============================================================== */
+
 @import '_common.scss';
 
 html {
-  font-size: 10px;
+  font-size: 16px;
 }
 
 body {
   background-color: $body_bgcolor;
-  font-family: $body_font;
-  font-size: 1.4rem;
+  font-family: $primary_font;
+  font-size: .9rem;
+  color: #000;
+}
+
+.line-height-1 {
+  line-height: 1;
+}
+
+.font-size-12 {
+  font-size: .75rem;
+}
+
+.font-size-13 {
+  font-size: .8125rem;
+}
+
+.font-size-14 {
+  font-size: .875rem;
+}
+
+.font-size-15 {
+  font-size: .9375rem;
+}
+
+.font-size-16 {
+  font-size: 1rem;
+}
+
+.font-size-18 {
+  font-size: 1.125rem;
+}
+
+.font-size-20 {
+  font-size: 1.25rem;
+}
+
+.font-size-24 {
+  font-size: 1.5rem;
+}
+
+.secondary-font {
+  font-family: $secondary_font;
 }
 
 .icon {
-  width: 2rem;
-  height: 2rem;
+  width: 1.125rem;
+  height: 1.125rem;
   // vertical-align: -0.15em;
   fill: currentColor;
   overflow: hidden;
 }
 
-// 01. 重置一些 Bootstrap v4 默认样式
-// 02. 页面整体布局相关
-// 10. 全局 Utilities
+
 /* ============================================================== */
 /* 01. 重置一些 Bootstrap v4 默认样式 */
 /* ============================================================== */
@@ -31,12 +78,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $headline_font;
-}
-
-.form-control {
-  font-size: 1.6rem;
-  font-family: $headline_font;
+  font-weight: 500;
 }
 
 .card {
@@ -46,13 +88,16 @@ h6 {
   .card-header {
     background-color: #fff;
     color: $primary_color;
+
+    h6 {
+      margin-bottom: 0;
+    }
   }
 }
 
-.media-body {
-  small {
-    font-family: $headline_font;
-  }
+.form-control {
+  font-family: $secondary_font;
+  font-weight: 400;
 }
 
 /* ============================================================== */
@@ -73,25 +118,20 @@ h6 {
     background-color: $primary_color;
 
     .master-navbar {
-      height: 85px;
+      height: 88px;
       padding: 0;
       background: transparent;
 
       #search-field {
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-        max-width: 250px;
-
         .form-control {
           border-color: #fff;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+          width: 18rem;
         }
 
         .form-control:focus {
           border-color: #fff;
           box-shadow: none;
-        }
-
-        button {
-          font-size: 1.6rem;
         }
       }
 
@@ -100,23 +140,35 @@ h6 {
           margin-top: 10px;
           right: 0;
           left: auto;
+          font-size: .9rem;
 
           a.dropdown-item span {
-            margin-left: 10px;
+            margin-left: .5rem;
           }
         }
 
         #notification-info {
+          .beep svg.icon {
+            width: 1.25rem;
+            height: 1.25rem;
+          }
+
           .dropdown-menu {
-            min-width: 30rem;
+            min-width: 22rem;
 
             .notify-avatar {
+              display: flex;
               width: 2rem;
               height: 2rem;
-              text-align: center;
               color: #fff;
+              align-items: center;
+              justify-content: center;
             }
           }
+        }
+
+        #user-account svg.icon {
+          color: #555;
         }
       }
     }
@@ -131,27 +183,32 @@ h6 {
     width: 250px;
     background-color: #fff;
     z-index: $basis_z_index + 1;
+    letter-spacing: .7px;
 
     .aside-menu-header {
       margin-top: 10px;
       padding: 3px 15px;
       color: #a1a8ae;
       text-transform: uppercase;
-      letter-spacing: 0.8px;
+      letter-spacing: 1px;
+
+      h6 {
+        font-size: .8125rem;
+        font-family: $secondary_font;
+      }
     }
 
     .aside-menu-item {
       position: relative;
-      font-family: $headline_font;
 
       a {
         display: block;
-        color: #78828a;
+        color: #000;
         text-decoration: none;
       }
 
       a.aside-link {
-        padding: .8rem 0 .8rem 6rem;
+        padding: .6rem 0 .6rem 4rem;
       }
 
       a.aside-link.actived,
@@ -161,21 +218,19 @@ h6 {
 
       a[aria-expanded="true"] {
         color: $primary_color;
-        font-weight: bold;
       }
     }
 
     .aside-menu-item>a {
       position: relative;
-      font-size: 15px;
-      padding: 1.8rem 0 1.8rem 2.5rem;
+      padding: 1rem 0 1rem 1.6rem;
     }
 
     .aside-menu-item>a.has-submenu:after {
       content: ">";
       position: absolute;
       font-weight: bold;
-      right: 2.5rem;
+      right: 1.6rem;
       font-family: monospace;
     }
 
@@ -195,7 +250,7 @@ h6 {
     width: 100%;
     padding-left: $sidebar_width + $sm_page_padding;
     padding-right: $sm_page_padding;
-    margin-top: -35px;
+    margin-top: -32px;
 
     .master-header {
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.03);
@@ -203,8 +258,7 @@ h6 {
       border-radius: 3px;
       border: none;
       position: relative;
-      margin-bottom: 30px;
-      padding: 20px;
+      padding: 1rem 1.25rem;
       display: flex;
       align-items: center;
 
@@ -245,41 +299,6 @@ h6 {
   }
 }
 
-/* ============================================================== */
-/* 10. 全局 Utilities */
-/* ============================================================== */
-
-.line-height-1 {
-  line-height: 1;
-}
-
-.font-size-12 {
-  font-size: 1.2rem;
-}
-
-.font-size-13 {
-  font-size: 1.3rem;
-}
-
-.font-size-14 {
-  font-size: 1.4rem;
-}
-
-.font-size-15 {
-  font-size: 1.5rem;
-}
-
-.font-size-16 {
-  font-size: 1.6rem;
-}
-
-.font-size-18 {
-  font-size: 1.8rem;
-}
-
-.font-size-24 {
-  font-size: 2.4rem;
-}
 
 .beep:after {
   content: "";
@@ -324,12 +343,8 @@ h6 {
       padding-right: $sm_page_padding;
     }
 
-    .master-navbar {
-      height: 70px;
-
-      #search-field {
-        width: 50%;
-      }
+    .navbar-bg .master-navbar {
+      height: 78px;
     }
 
     .master-sidebar {
@@ -345,7 +360,7 @@ h6 {
         position: absolute;
         left: 6.5rem;
         background: #fff;
-        margin-top: -53px;
+        margin-top: -5.5rem;
         border-top-right-radius: 5px;
         border-bottom-right-radius: 5px;
         box-shadow: $box_shadow;
@@ -363,7 +378,7 @@ h6 {
       }
 
       .aside-menu-item>a {
-        padding: 1rem 0 1.1rem 1.6rem;
+        padding: 1.2rem 0 1.25rem 1.4rem;
         margin-bottom: 1rem;
         margin-top: 1rem;
       }
@@ -371,6 +386,10 @@ h6 {
       a.aside-link {
         padding: 0.8rem 2rem !important;
       }
+    }
+
+    .master-content {
+      margin-top: -2.58rem;
     }
   }
 }
@@ -386,6 +405,10 @@ h6 {
 
     .navbar-bg .master-navbar {
       height: 70px;
+
+      #search-field .form-control {
+        width: 14rem;
+      }
     }
 
     .master-sidebar {
@@ -395,7 +418,7 @@ h6 {
 
     .master-content {
       .master-header {
-        margin-top: -4.7rem;
+        margin-top: -2.7rem;
       }
     }
   }
