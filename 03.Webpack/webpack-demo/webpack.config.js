@@ -1,54 +1,16 @@
 const path = require('path')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
+// 向外暴露一个打包的配置对象； node语法
 module.exports = {
+  // webpack4+版本必须有mode这个属性，否则编译的时候会发出警告
+  // 属性值包含：production | development | none
   mode: 'development',
+  // 入口，可以配置多个entry: ["./app/entry1", "./app/entry2"]
+  // webpack 4+版本，可以省略 entry, output（默认打包入口，src/index.js; 默认输出路径：dist/main.js）
   entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].bundle.js',
-    publicPath: '/'
-  },
-  module: {
-    rules: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader'
-    }, {
-      test: /\.css$/,
-      use: [{
-        loader: MiniCssExtractPlugin.loader,
-        options: {
-          publicPath: './',
-        }
-      }, {
-        loader: 'css-loader'
-      }]
-    }, {
-      test: /\.scss$/,
-      include: [path.resolve(__dirname, 'src')],   // 限制打包范围，提高打包速度
-      use: [{
-        loader: MiniCssExtractPlugin.loader,
-      }, {
-        loader: 'css-loader'
-      }, {
-        loader: 'sass-loader',
-      }]
-    }, {
-      test: /\.(png|gif|svg|jpg|jpeg)/,
-      use: [{
-        loader: 'url-loader',
-        options: {
-          outputPath: './assets/images/',
-          name: '[name].[ext]',
-          limit: '10240'
-        }
-      }]
-    }]
-  },
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].bundle.css'
-    })
-  ]
+    path: path.resolve(__dirname, 'dist'),  // 输出路径，__dirname是当前文件所在目录的绝对路径
+    filename: '[name].bundle.js',           // 输出文件名
+    publicPath:  '/',                       // 指定静态资源的位置
+  }
 }
