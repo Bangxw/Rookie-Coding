@@ -1,0 +1,10 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+}
+
+.comment {
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #aaa;
+}

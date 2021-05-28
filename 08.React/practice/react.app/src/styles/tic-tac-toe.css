@@ -1,0 +1,44 @@
+ol, ul {
+  padding-left: 0;
+  list-style-position: outside;
+  list-style: none;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+.board-row:after {
+  clear: both;
+  content: '';
+  display: table;
+}
+
+.square {
+  width: 34px;  
+  height: 34px;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  margin-right: -1px;
+  margin-top: -1px;
+  background: #fff;
+}
+
+.highlight {
+  background: yellow;
+}
+
+.active {
+  font-weight: bold;
+}
+
+.active button {
+  font-weight: bold;
+}

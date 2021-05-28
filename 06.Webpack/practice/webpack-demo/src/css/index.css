@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Monaco";
+  src: url('../fonts/Monaco.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+div#root {
+  font-family: 'Monaco';
+}
+
+span.hello {
+  padding: 10px;
+  background: #000;
+  color: #fbd106;
+  font-size: 20px;
+}
