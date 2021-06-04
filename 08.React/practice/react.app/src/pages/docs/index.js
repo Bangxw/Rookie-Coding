@@ -1,15 +1,20 @@
 import React from "react";
-// import FilterableProductTable from './thinkInReact'
-// import App from './context'
-import FormComponent from './form'
-import './index.css'
 
-export default function DocsComponent(){
-  return(
+import FilterableProductTable from './thinkInReact'
+import ContextComp from './context'
+import PropsComp from './props'
+import RenderPropsComp from './render-props'
+import HOC from './hoc'
+import State from './state'
+
+export default function DocsComponent() {
+  return (
     <>
-      {/* <FilterableProductTable /> */}
-      {/* <App /> */}
-      <FormComponent />
+      <FilterableProductTable /> <hr />
+      <ContextComp /> <hr />
+      <PropsComp /> <hr />
+      { true ? <HOC /> : <RenderPropsComp />}  <hr />
+      <State />
     </>
   )
 }

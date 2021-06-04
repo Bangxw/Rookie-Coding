@@ -1,28 +1,49 @@
 import React from 'react'
 
-const ThemeContext = React.createContext('light')
-export default class App extends React.Component {
-  render() {
-    return (
-      <ThemeContext.Provider value="dark">
-        <Toolbar />
-      </ThemeContext.Provider>
-    )
-  }
-}
+const { Provider, Consumer } = React.createContext()
 
-function Toolbar(props) {
+const Child = props => {
   return (
-    <div>
-      <ThemeButton />
+    <div className="child">
+      <Consumer>
+        {
+          data => (<span>我是子节点 {data}</span>)
+        }
+      </Consumer>
     </div>
   )
 }
 
-class ThemeButton extends React.Component {
-  static contextType = ThemeContext
+const SubNode = props => {
+  return (
+    <div className="subnode">
+      <Child />
+    </div>
+  )
+}
+
+const Node = props => {
+  return (
+    <div className="node">
+      <SubNode />
+    </div>
+  )
+}
+
+export default class ContextComp extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      msg: 'Hello, React'
+    }
+  }
   render() {
-    console.log(this.context)
-    return <button theme={this.context} />
+    return (
+      <Provider value={this.state.msg}>
+        <div className="top">
+          <Node />
+        </div>
+      </Provider>
+    )
   }
 }
