@@ -2,47 +2,36 @@ import React from 'react'
 
 const { Provider, Consumer } = React.createContext()
 
-const Child = props => {
+function Hello() {
   return (
-    <div className="child">
-      <Consumer>
-        {
-          data => (<span>我是子节点 {data}</span>)
-        }
-      </Consumer>
-    </div>
+    <Consumer>{ data => <span>{data}</span> }</Consumer>
   )
 }
 
-const SubNode = props => {
+function Subnode() {
   return (
-    <div className="subnode">
-      <Child />
-    </div>
+    <Hello></Hello>
   )
 }
 
-const Node = props => {
+function Node() {
   return (
-    <div className="node">
-      <SubNode />
-    </div>
+    <Subnode></Subnode>
   )
 }
 
-export default class ContextComp extends React.Component {
+export default class Greeting extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      msg: 'Hello, React'
+      
     }
   }
+
   render() {
     return (
-      <Provider value={this.state.msg}>
-        <div className="top">
-          <Node />
-        </div>
+      <Provider value="同志们辛苦啦">
+        <Node></Node>
       </Provider>
     )
   }

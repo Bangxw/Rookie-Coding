@@ -2,13 +2,10 @@ import React from 'react'
 
 import cat from '@images/cat.png'
 
-const withMouse = WrappedComp => {
+function withMouse(WrappedComponent, props) {
   class Mouse extends React.Component {
-    constructor(props) {
-      super(props)
-      this.state = {
-        xPos: 0, yPos: 0
-      }
+    state = {
+      xPos: 0, yPos: 0
     }
 
     componentDidMount() {
@@ -26,40 +23,31 @@ const withMouse = WrappedComp => {
     }
 
     render() {
-      return <WrappedComp {...this.state} />
+      return <WrappedComponent {...this.state} {...props} />
     }
   }
-
-  Mouse.displayName = `WithMouse${getDisplayName(WrappedComp)}`
 
   return Mouse
 }
 
-function getDisplayName(wrappedComponent) {
-  return wrappedComponent.displayName || wrappedComponent.name || 'Component'
-}
-
 const Cat = props => (
-  <img src={cat} alt='' style={{
-    position: 'absolute', top: props.yPos + 10, left: props.xPos + 10
+  <img src={cat} alt="" style={{
+    position: 'sticky',
+    top: props.yPos,
+    left: props.xPos
   }} />
 )
+const Mouse = props => <span>{props.xPos}, {props.yPos}</span>
 
-const Position = props => (
-  <span>{props.xPos}, {props.yPos}</span>
-)
+const EnhancedCat = withMouse(Cat)
+const EnhancedMouse = withMouse(Mouse)
 
-
-const MousePosition = withMouse(Position)
-const MouseCat = withMouse(Cat)
-
-export default class HOC extends React.Component {
+export default class Hoc extends React.Component {
   render() {
     return (
       <div>
-        <h4>高阶组件</h4>
-        <MousePosition />
-        <MouseCat />
+        <EnhancedCat />
+        <EnhancedMouse />
       </div>
     )
   }

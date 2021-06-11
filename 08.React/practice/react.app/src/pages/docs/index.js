@@ -6,6 +6,8 @@ import PropsComp from './props'
 import RenderPropsComp from './render-props'
 import HOC from './hoc'
 import State from './state'
+import Form from './form'
+import UncontrolledComp from './uncontrolled-comp'
 
 export default function DocsComponent() {
   return (
@@ -14,7 +16,9 @@ export default function DocsComponent() {
       <ContextComp /> <hr />
       <PropsComp /> <hr />
       { true ? <HOC /> : <RenderPropsComp />}  <hr />
-      <State />
+      <State /> <hr />
+      <Form /> <hr />
+      <UncontrolledComp />
     </>
   )
 }

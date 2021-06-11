@@ -1,13 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const Hello = props => {
-  return (
-    <div>组件的子节点 - {props.children}</div>
-  )
-}
+const Hello = props => (
+  <h1>{props.children}</h1>
+)
 
-export default class Props extends React.Component {
+export default class Greeting extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -17,17 +15,11 @@ export default class Props extends React.Component {
 
   render() {
     return (
-      <Hello fn={() => console.log('func.isRequired')}>来自父节点的内容</Hello>
+      <Hello>Hello, React~</Hello>
     )
   }
 }
 
 Hello.propTypes = {
-  a: PropTypes.number,
-  fn: PropTypes.func.isRequired,
-  tag: PropTypes.element,
-  filter: PropTypes.shape({
-    area: PropTypes.string,
-    price: PropTypes.number
-  })
+  name: PropTypes.string,
 }

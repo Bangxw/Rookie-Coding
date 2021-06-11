@@ -4,11 +4,13 @@ import Home from '@pages/hello'
 import Game from '@pages/tic-tac-toe'
 import DocsComponent from '@pages/docs'
 import Comment from '@pages/comment'
+import ReduxPage from '@pages/redux'
 
 const routes = [
   { path: '/game', component: Game },
   { path: '/docsComponent', component: DocsComponent },
-  { path: '/comment', component: Comment }
+  { path: '/comment', component: Comment },
+  { path: '/redux', component: ReduxPage }
 ]
 
 const BasicRoute = () => (
