@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+
+<body>
+
+  <form action="http://127.0.0.1:3288/api/login" method="POST">
+    <input type="email" name="email">
+    <input type="password" name="password">
+    <button type="submit">Login</button>
+  </form>
+
+  <form action="http://127.0.0.1:3288/api/file" method="POST" enctype="multipart/form-data">
+    <input type="hidden" name="id" value="1">
+    <input type="hidden" name="token" value="691734654b004f42ab61f73891a130b4">
+    <input type="file" name="file" id="file">
+    <button type="submit">Submit</button>
+  </form>
+
+  <button onclick="xhrFormData()">send</button>
+
+  <script>
+    // 执行 GET 请求
+    function getRequest() {
+      axios.get('http://127.0.0.1:3288/api/list')
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+
+    function postRequest() {
+      axios.post('http://127.0.0.1:3288/api/list', {
+        info: "关于HTTP报文结构和内容"
+      }).then(response => {
+        console.log(response)
+      })
+    }
+
+    function xhrJsonPost() {
+      const xhr = new XMLHttpRequest()
+      xhr.open('POST', 'http://127.0.0.1:3288/api/list')
+      xhr.setRequestHeader('Content-Type', 'application/json')
+
+      const data = { info: "学习XMLHttpRequest" }
+      xhr.send(JSON.stringify(data))
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+          console.log(xhr.responseText)
+        }
+      }
+    }
+
+    function xhrUrlencodedPost() {
+      const xhr = new XMLHttpRequest()
+      xhr.open('POST', 'http://127.0.0.1:3288/api/login')
+      xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded')
+      xhr.onload = function () {
+        console.log(xhr.responseText)
+      }
+
+      const postData = {
+        email: "bangxw.im@outlook.com",
+        password: "123456"
+      }
+
+      xhr.send(encodeFormData(postData))
+
+      function encodeFormData(data) {
+        if (!data) return '';
+        var pairs = []  // 保存键名、值对
+        for (var name in data) {
+          if (!data.hasOwnProperty(name)) continue; // 跳过继承属性，指示自身的属性是否具有该值
+          if (typeof data[name] === 'function') continue; // 跳过方法
+          var value = data[name].toString() // 将值转换为字符串
+          value = encodeURIComponent(value) // 对值进行URL编码，对中文、特殊符号(如@、&) 等 进行编码
+          name = encodeURIComponent(name)
+          pairs.push(name + '=' + value)
+        }
+        return pairs.join('&')
+      }
+    }
+
+    function xhrFormData() {
+      const xhr = new XMLHttpRequest()
+      xhr.open('POST', 'http://127.0.0.1:3288/api/file')
+      xhr.setRequestHeader('Content-Type', 'multipart/form-data')
+      xhr.onload = function () {
+        console.log(xhr.responseText)
+      }
+
+      const postData = new FormData()
+      postData.append('id', '1')
+      postData.append('token', '691734654b004f42ab61f73891a130b4')
+      postData.append('file', document.getElementById('file').files[0])
+      xhr.send(postData)
+    }
+
+    function xhrXML() {
+      const xhr = new XMLHttpRequest()
+      xhr.open('POST', 'http://127.0.0.1:3288/api/list')
+      xhr.setRequestHeader('Content-Type', 'text/xml')
+      xhr.onload = function () {
+        console.log(xhr.responseText)
+      }
+
+      // 下面开始使用XML
+      var doc = document.implementation.createDocument('', 'root', null);	
+      var root = doc.documentElement;	// 返回文档的根元素
+      var info = doc.createElement('info');
+      root.appendChild(info);
+      info.appendChild(doc.createTextNode('通过text/xml发送的数据'));
+
+      xhr.send(doc)
+    }
+
+    xhrXML()
+
+    // postQuery('http://127.0.0.1:3288/api/list', 'hello', 'world', 'world')
+
+    // 合并操作
+    // const get1 = () => axios.get('http://localhost:3000/posts/1')
+    // const get2 = () => axios.get('http://localhost:3000/posts/2')
+    // const get3 = () => axios.get('http://localhost:3000/comments/1')
+    // axios.all([get1(), get2(), get3()]).then(
+    //   axios.spread((res1, res2, res3) => { console.log(res1, res2, res3) })
+    // ).catch((error) => console.log(error))
+
+    // axios.post('http://localhost:3000/posts', {
+    //   "title": "面朝大海 春暖花开",
+    //   "author": "Haizi"
+    // }).then(response => { console.log(response) })
+
+    // axios.put('http://localhost:3000/posts/2', {
+    //   "author": "Basir",
+    //   "title": "我没有房子"
+    // }).then(response => { console.log(response) })
+
+    // axios.delete('http://localhost:3000/posts/3').then(response => { console.log(response) })
+
+    // axios.get('http://localhost:3000/posts').then(response => { console.log(response.data) })
+
+
+    // axios.defaults.params = { id: 100 }
+    // axios.defaults.timeout = 1000
+
+    // const instance = axios.create({
+    //   baseURL: 'http://localhost:3000',
+    //   timeout: 3000,
+    //   headers: {'X-Custom-Header': 'Hello'}
+    // })
+    // instance.get('/comments')
+    // instance.get('/comments/1')
+
+  </script>
+</body>
+
+</html>
