@@ -1,0 +1,16 @@
+<html>
+<head></head>
+<body>
+  <script type="text/javascript">
+    var ws = new WebSocket('ws://localhost:9527');
+    ws.onopen = function () {
+      console.log('ws onopen');
+      ws.send('from client: hello');
+    };
+    ws.onmessage = function (e) {
+      console.log('ws onmessage');
+      console.log('from server: ' + e.data);
+    };
+  </script>
+</body>
+</html>
