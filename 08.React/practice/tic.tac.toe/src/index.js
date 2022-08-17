@@ -17,8 +17,8 @@ function calculateWinner(squares) {
     const [a, b, c] = lines[i];
     if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
       return {
-        role: squares[a],
-        roleIndex: [a, b, c]
+        role: squares[a], // 获胜的玩家角色
+        roleLine: lines[i]  // 获胜玩家的连子位置
       };
     }
   }
@@ -36,14 +36,14 @@ function calculateAxis(index) {
 
   var colNumber = index % 3 + 1
   var rowNumber = Math.ceil((index + 1) / 3)
-  return `(${colNumber},${rowNumber})`
+  return [colNumber, rowNumber]
 }
 
 // 渲染单独的button
 function Square(props) {
   return (
     <button
-      className={ "square" }
+      className={'square' + (props.highLight ? ' highlight' : '')}
       onClick={props.onClick}
     >{props.value}</button>
   )
@@ -55,7 +55,7 @@ class Board extends React.Component {
     return (
       <Square
         key={i}
-        highLight={this.props.roleLine}
+        highLight={this.props.roleLine.includes(i)}
         value={this.props.squares[i]}
         onClick={() => this.props.onClick(i)}
       />
@@ -86,7 +86,7 @@ class Game extends React.Component {
     this.state = {
       history: [{
         squares: Array(9).fill(null),
-        axis: '(-1,-1)'
+        axis: [-1, -1]  // 列，行
       }],
       stepNumber: 0,
       xIsNext: true,
@@ -131,7 +131,7 @@ class Game extends React.Component {
     const winner = calculateWinner(current.squares)
 
     const moves = history.map((step, move) => {
-      const desc = move ? `Go to move #${move}, axis: ${step.axis}` : 'Go to game start'
+      const desc = move ? `Go to move #${move}, axis: (${step.axis.join(',')})` : 'Go to game start'
       return (
         <li key={move}>
           <button
@@ -143,17 +143,18 @@ class Game extends React.Component {
 
     let status = 'Next player: ' + (xIsNext ? 'X' : 'O');
     if (winner && winner.role) status = 'Winner: ' + winner.role;
+    else if (stepNumber === 9) status = 'level the score.' // 直到最后一步还不分胜负
 
     return (
       <div className="game">
         <div className="game-board">
           <Board
             squares={current.squares}
-            roleLine={winner && winner.roleLine}
+            roleLine={winner ? winner.roleLine : []}
             onClick={(i) => this.handleClick(i)} />
         </div>
         <div className="game-info">
-          <div>{status}</div>
+          <div>{status}</div> <br />
           <button onClick={() => this.setState({ historySort: historySort === 'DESC' ? 'ASC' : 'DESC' })}>Asc/Desc</button>
           <ol>{historySort === 'DESC' ? moves : moves.reverse()}</ol>
         </div>
@@ -174,5 +175,5 @@ root.render(<Game />)
 // 2. 在历史记录列表中加粗显示当前选择的项目。  ==> 渲染历史记录的时候，判断stepNumber和array index是不是相等
 // 3. 使用两个循环来渲染出棋盘的格子，而不是在代码里写死（hardcode）。 ==> 两个map嵌套，不能使用for
 // 4. 添加一个可以升序或降序显示历史记录的按钮。  ==> 利用 Array.reverse()
-// 5. 每当有人获胜时，高亮显示连成一线的 3 颗棋子。
-// 6. 当无人获胜时，显示一个平局的消息。
+// 5. 每当有人获胜时，高亮显示连成一线的 3 颗棋子。 ==> calculateWinner(), 拿到胜利方三连子所处位置
+// 6. 当无人获胜时，显示一个平局的消息。  ==> stepNumber===9时，判断是否有winner，没有就是平局

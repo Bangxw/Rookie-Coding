@@ -8,3 +8,4 @@ ol,ul { padding-left: 30px; }
 .game { display: flex; flex-direction: row; }
 .game-info { margin-left: 20px; }
 .font-bold { font-weight: bold; }
+.highlight { background: yellow; }
